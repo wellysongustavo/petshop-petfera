@@ -10,28 +10,28 @@ class Funcionario {
 		std::string m_nome;
 		std::string m_cpf;
 		int m_idade;
-		short m_tipo_sanguineo;
+		std::string m_tipo_sanguineo;
 		char m_fator_rh;
 		std::string m_especialidade;
 
 	public:
 		Funcionario(int id, std::string nome, std::string cpf,
-		int idade, short tipo_sanguineo, char fator_rh, std::string especialidade);
+		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade);
 		~Funcionario();
 
 		void setId(int id);
-		std::string setNome(std::string nome);
-		std::string stCpf(std::string cpf);
-		int setIdade(int idade);
-		short setTipoSanguineo(short tipo_sanguineo);
-		char setFatorRh(char fator_rh);
-		std::string setEspecialidade(std::string especialidade);
+		void setNome(std::string nome);
+		void stCpf(std::string cpf);
+		void setIdade(int idade);
+		void setTipoSanguineo(std::string tipo_sanguineo);
+		void setFatorRh(char fator_rh);
+		void setEspecialidade(std::string especialidade);
 
 		int getId();
 		std::string getNome();
 		std::string getCpf();
 		int getIdade();
-		short getTipoSanguineo();
+		std::string getTipoSanguineo();
 		char getFatorRh();
 		std::string getEspecialidade();
 	
@@ -48,7 +48,7 @@ class Veterinario : public Funcionario {
 
 	public:
 		Veterinario(int id, std::string nome, std::string cpf,
-		int idade, short tipo_sanguineo, char fator_rh, std::string especialidade,
+		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade,
 		std::string crmv);
 		~Veterinario();
 
@@ -69,7 +69,7 @@ class Tratador : public Funcionario {
 
 	public:
 		Tratador(int id, std::string nome, std::string cpf,
-		int idade, short tipo_sanguineo, char fator_rh, std::string especialidade, 
+		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade, 
 		int nivel_de_seguranca);
 		~Tratador();
 

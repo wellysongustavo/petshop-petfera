@@ -2,16 +2,16 @@
 #include <string>
 
 #include "funcionario.h"
+#include "animal.h"
 
 int main() {
 
-	Funcionario func1(29, "Wellyson", "173.451.249-16", 22, 2, 'M', "Dormir");
-	Veterinario vet1(29, "Veterano", "123.443.322-34", 29, 1, 'M', "Catioros", "Sei não o que é isso");
-	Tratador trat1(58, "Trator", "324.324.223-32", 43, 3, 'M', "Tratados", 4);
+	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+	std::cout << *vet1 << "\n" << *trat1 << std::endl;
 
-	std::cout << vet1;
-	std::cout << std::endl;
-	std::cout << trat1;
+	Animal* a1 = new Animal(1, "Mammalia", "Panthera leo", 'M', 2.05, "Carne", *vet1, *trat1, "Leão");
+	std::cout << a1->getClasse() << std::endl;
 
 	return 0;
 }

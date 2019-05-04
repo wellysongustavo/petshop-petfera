@@ -1,7 +1,7 @@
 #include "funcionario.h"
 
 Veterinario::Veterinario(int id, std::string nome, std::string cpf, 
-	int idade, short tipo_sanguineo, char fator_rh, std::string especialidade, 
+	int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade, 
 	std::string crmv) : Funcionario(id, nome, cpf, idade, tipo_sanguineo, fator_rh,
 	especialidade), m_crmv(crmv) { /* void */ }
 
