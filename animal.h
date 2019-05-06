@@ -61,7 +61,6 @@ class Anfibio : public Animal {
 		Anfibio(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo, int total_de_mudas); /* Falta date ultima_muda */ 
-		Anfibio(); 
 		~Anfibio();
 		
 		void setTotalMudas(int total_de_mudas);
@@ -85,7 +84,6 @@ class Mamifero : public Animal {
 		Mamifero(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo, std::string cor_pelo);
-		Mamifero(); 
 		~Mamifero();
 
 		void setCorPelo(std::string cor_pelo);
@@ -108,7 +106,6 @@ class Reptil : public Animal {
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo, bool venenoso, 
 			std::string tipo_venenoso);
-		Reptil();
 		~Reptil();
 
 		void setVenenoso(bool venenoso);
@@ -132,7 +129,6 @@ class Ave : public Animal {
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo, double tamanho_do_bico_cm,
 			double envergadura_das_asas);
-		Ave();
 		~Ave();
 
 		void setTamanhoBico(double tamanho_do_bico_cm);
