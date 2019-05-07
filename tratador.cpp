@@ -1,4 +1,5 @@
 #include "funcionario.h"
+#include "tratador.h"
 
 Tratador::Tratador(int id, std::string nome, std::string cpf, 
 	int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade, 
