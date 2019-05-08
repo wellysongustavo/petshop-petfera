@@ -1,5 +1,5 @@
-#include <string>
 #include "animal.h"
+#include "mamifero.h"
 
 Mamifero::Mamifero(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

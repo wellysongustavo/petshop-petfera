@@ -1,5 +1,5 @@
-#include <string>
 #include "animal.h"
+#include "ave.h"
 
 Ave::Ave(int id, std::string classe, std::string nome_cientifico,  
 		char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

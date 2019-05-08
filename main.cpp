@@ -2,7 +2,13 @@
 #include <string>
 
 #include "funcionario.h"
+#include "tratador.h"
+#include "veterinario.h"
 #include "animal.h"
+#include "anfibio.h"
+#include "mamifero.h"
+#include "reptil.h"
+#include "ave.h"
 
 int main() {
 
