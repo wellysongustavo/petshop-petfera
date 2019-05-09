@@ -9,6 +9,7 @@
 #include "mamifero.h"
 #include "reptil.h"
 #include "ave.h"
+#include "date.h"
 
 int main() {
 
