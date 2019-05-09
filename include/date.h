@@ -9,10 +9,10 @@ using namespace std;
 
 class date {
 protected:
-	int year_;
-	int month_;
 	int day_;
-
+	int month_;
+	int year_;
+	
 public:
 	date();
 	date(const int& d, const int& m, const int& y);
