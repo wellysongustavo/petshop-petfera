@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ave.h"
 #include "animal_exotico.h"
 
 #ifndef _AVE_EXOTICA_H_

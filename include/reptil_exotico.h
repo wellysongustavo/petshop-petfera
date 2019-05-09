@@ -1,4 +1,5 @@
 #include <iostream>
+#include "reptil.h"
 #include "animal_exotico.h"
 
 #ifndef _REPTIL_EXOTICO_H_
