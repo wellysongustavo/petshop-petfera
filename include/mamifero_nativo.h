@@ -1,4 +1,5 @@
 #include <iostream>
+#include "mamifero.h"
 #include "animal_nativo.h"
 
 #ifndef _MAMIFERO_NATIVO_H_

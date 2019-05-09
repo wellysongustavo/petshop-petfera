@@ -1,4 +1,5 @@
 #include <iostream>
+#include "anfibio.h"
 #include "animal_nativo.h"
 
 #ifndef _ANFIBIO_NATIVO_H_

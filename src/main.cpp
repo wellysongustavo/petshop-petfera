@@ -9,6 +9,7 @@
 #include "mamifero.h"
 #include "reptil.h"
 #include "ave.h"
+#include "date.h"
 
 int main() {
 
@@ -18,6 +19,13 @@ int main() {
 
 	Animal* a1 = new Animal(1, "Mammalia", "Panthera leo", 'M', 2.05, "Carne", *vet1, *trat1, "Leão");
 	std::cout << a1->getClasse() << std::endl;
+
+	//Testando implementação da classe date
+	date d(29,11,1998);
+	Anfibio* anf = new Anfibio(29, "Anfibio", "Anfibio Cientista", 'M', 3.23, "Só guaraná da amazonia", *vet1, *trat1, "Anfibiozin", 20, d);
+	std::cout << "\n" << anf->getUltimaMuda() << std::endl;
+
+
 
 	return 0;
 }
