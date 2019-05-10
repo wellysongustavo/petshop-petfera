@@ -5,7 +5,7 @@
 #ifndef _REPTIL_NATIVO_H_
 #define _REPTIL_NATIVO_H_
 
-class ReptilNativo: public AnimalNativo{
+class ReptilNativo : public Reptil, AnimalNativo {
 	public:
 		ReptilNativo();
 		~ReptilNativo();
