@@ -5,9 +5,15 @@
 #include "tratador.h"
 #include "veterinario.h"
 #include "animal.h"
+#include "animal_silvestre.h"
+#include "animal_nativo.h"
+#include "animal_exotico.h"
 #include "anfibio.h"
+#include "anfibio_nativo.h"
+#include "anfibio_exotico.h"
 #include "mamifero.h"
 #include "reptil.h"
+#include "reptil_nativo.h"
 #include "ave.h"
 #include "date.h"
 
@@ -22,8 +28,9 @@ int main() {
 
 	//Testando implementação da classe date
 	date d(29,11,1998);
-	Anfibio* anf = new Anfibio(29, "Anfibio", "Anfibio Cientista", 'M', 3.23, "Só guaraná da amazonia", *vet1, *trat1, "Anfibiozin", 20, d);
-	std::cout << "\n" << anf->getUltimaMuda() << std::endl;
+	AnfibioExotico* anfE = new AnfibioExotico(29, "Anfibio", "Anfibio Cientista", 'M', 3.23, "Só guaraná da amazonia", *vet1, *trat1, "Anfibiozin", 20, d, 
+		"Num tem", "China");
+	std::cout << "\n" << anfE->getUltimaMuda() << std::endl;
 
 
 

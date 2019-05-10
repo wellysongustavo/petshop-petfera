@@ -3,10 +3,11 @@
 #include "anfibio.h"
 #include "animal_nativo.h"
 #include "anfibio_nativo.h"
+#include "animal_silvestre.h"
 
 AnfibioNativo::AnfibioNativo(int id, std::string classe, std::string nome_cientifico, char sexo, 
 			  				 double tamanho, std::string dieta, Veterinario veterinario, 
-			  				 Tratador tratador, std::string nome_batismo, int total_de_mudas, date ultima_muda
+			  				 Tratador tratador, std::string nome_batismo, int total_de_mudas, date ultima_muda,
 			  				 std::string autorizacao, std::string uf_origem):
 								
 							 Anfibio(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario,
