@@ -10,7 +10,7 @@ class AnimalSilvestre {
 
 	public:
 		AnimalSilvestre(std::string m_autorizacao_ibama);
-		AnimalSilvestre();
+		~AnimalSilvestre();
 };
 
 #endif
