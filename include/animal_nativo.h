@@ -7,7 +7,6 @@
 class AnimalNativo : public AnimalSilvestre {
 
 	protected:
-		std::string m_autorizacao;
 		std::string m_uf_origem;
 
 	public:

@@ -5,7 +5,7 @@
 #ifndef _ANFIBIO_EXOTICO_H_
 #define _ANFIBIO_EXOTICO_H_
 
-class AnfibioExotico: public AnimalExotico{
+class AnfibioExotico: public Anfibio, AnimalExotico{
 	
 	public:
 		AnfibioExotico();
