@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "anfibio.h"
 #include "animal_exotico.h"
 
@@ -8,7 +9,10 @@
 class AnfibioExotico: public Anfibio, AnimalExotico{
 	
 	public:
-		AnfibioExotico();
+		AnfibioExotico(int id, std::string classe, std::string nome_cientifico, 
+					   char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
+					   Tratador tratador, std::string nome_batismo, int total_de_mudas, 
+					   date ultima_muda, std::string autorizacao, std::string pais_origem);
 		~AnfibioExotico();
 };
 
