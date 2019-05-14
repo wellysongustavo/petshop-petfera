@@ -54,7 +54,7 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 		std::cin >> aux;
 		if(aux == 1) {
 			std::string uf_origem_;
-			std::cout << "- Insira a origem do anfíbio nativo: ";
+			std::cout << "- Insira a região de origem do anfíbio nativo: ";
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
