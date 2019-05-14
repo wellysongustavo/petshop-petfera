@@ -1,8 +1,6 @@
 #include "animal.h"
 #include "funcionario.h"
 
-//Animal::Animal() { /* void */ }
-
 Animal::Animal(int id, std::string classe, std::string nome_cientifico, 
 	char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 	Tratador tratador, std::string nome_batismo) : m_id(id), m_classe(classe),
