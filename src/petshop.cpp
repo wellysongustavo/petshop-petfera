@@ -211,3 +211,77 @@ void Petshop::cadastrarAnimal() {
 
 	}
 }
+
+void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
+	std::string crmv_;
+	std::cout << "- CRMV: ";
+	std::cin.ignore();
+	std::getline( cin, crmv_);
+
+	Veterinario* vet = new Veterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
+	vector_veterinarios.push_back(*vet);
+
+	std::cout << "Veterinário cadastrado com sucesso.\n" << std::endl;
+	std::cout << vector_veterinarios[0];
+}
+
+void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
+	int nivel_de_seguranca_;
+	std::cout << "- Nível de segurança: ";
+	std::cin >> nivel_de_seguranca_;	
+
+	Tratador* trat = new Tratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
+	vector_tratadores.push_back(*trat);
+
+	std::cout << "Tratador cadastrado com sucesso." << std::endl;
+	std::cout << vector_tratadores[0];
+}
+
+void Petshop::cadastrarFuncionario(){
+	int tipo_funcionario;
+	std::cout << "\n****************************** CADASTRO DE FUNCIONÁRIOS ******************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
+	do{
+		std::cin >> tipo_funcionario;
+	}while(tipo_funcionario < 1 || tipo_funcionario > 2);
+
+	int id_;
+	std::cout << "- Id do funcionário: ";
+	std::cin >> id_;
+
+	std::string nome_;
+	std::cout << "- Nome: ";
+	std::cin.ignore();
+	std::getline( cin, nome_);
+
+	std::string cpf_;
+	std::cout << "- CPF: ";
+	std::cin.ignore();
+	std::getline( cin, cpf_);
+
+	int idade_;
+	std::cout << "- Idade: ";
+	std::cin >> idade_;		
+	
+	std::string tipo_sanguineo_;
+	std::cout << "- Tipo sanguíneo: ";
+	std::cin.ignore();
+	std::getline( cin, tipo_sanguineo_);
+
+	char fator_rh_;
+	std::cout << "- Fator RH: ";
+	std::cin >> fator_rh_;	
+
+	std::string especialidade_;
+	std::cout << "- Especialidade: ";
+	std::cin.ignore();
+	std::getline( cin, especialidade_);
+
+	switch(tipo_funcionario){
+		case 1:
+			cadastrarVeterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_);
+		break;
+		case 2:
+			cadastrarTratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_);
+		break;
+	}
+}

@@ -32,15 +32,17 @@ class Petshop{
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
 
-		void cadastrarVeterinario();
+		void cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_);
 		void removerVeterinario();
 		void editarVeterinario();
 		void consultarVeterinario();
 
-		void cadastrarTratador();
+		void cadastrarTratador(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_);
 		void removerTratador();
 		void editarTratador();
 		void consultarTratador();
+
+		void cadastrarFuncionario();
 };
 
 #endif
