@@ -15,14 +15,19 @@ class Petshop{
 		std::vector<Veterinario> vector_veterinarios;
 		std::vector<Tratador> vector_tratadores;
 	public:
-		Petshop(int nome);
-		~Petshop();
 		std::string m_nome;
 
+		Petshop(std::string nome);
+		~Petshop();
+		
 		void cadastrarAnimal();
 		void removerAnimal();
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
+
+		void cadastrarAnfibio(int id, std::string nome_cientifico, char sexo, 
+			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
+			std::string nome_batismo);
 
 		void cadastrarVeterinario();
 		void removerVeterinario();
