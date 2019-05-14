@@ -27,6 +27,10 @@ class Petshop{
 		void cadastrarAnfibio(int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
+		
+		void cadastrarReptil(int id, std::string nome_cientifico, char sexo, 
+			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
+			std::string nome_batismo);
 
 		void cadastrarVeterinario();
 		void removerVeterinario();

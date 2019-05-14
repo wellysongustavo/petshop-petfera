@@ -15,6 +15,7 @@
 #include "mamifero.h"
 #include "reptil.h"
 #include "reptil_nativo.h"
+#include "reptil_exotico.h"
 #include "ave.h"
 #include "date.h"
 #include "petshop.h"
@@ -88,6 +89,70 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 	}
 }
 
+void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_, 
+	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
+	std::string nome_batismo_) {
+
+	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
+	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+
+	bool venenoso_;
+	std::cout << "- O réptil é venenoso (1 para verdadeiro, 0 para falso)? ";
+	std::cin >> venenoso_;
+
+	std::string tipo_venenoso_;
+	std::cout << "- Insira o tipo de veneno: ";
+	std::cin.ignore();
+	std::getline( cin, tipo_venenoso_);
+
+	int especie;
+	std::cout << "- Espécie do réptil (1- Silvestre | 2- Doméstico): ";
+	std::cin >> especie;
+
+	if(especie == 1){
+		std::string autorizacao_;
+		std::cout << "- Autorização do réptil nativo: ";
+		std::cin.ignore();
+		std::getline( cin, autorizacao_);
+
+		int area;
+		std::cout << "- Área pertencente do réptil silvestre (1- Nativo | 2- Exótico): ";
+		std::cin >> area;
+		if(area == 1) {
+			std::string uf_origem_;
+			std::cout << "- Região de origem do réptil silvestre nativo: ";
+			std::cin.ignore();
+			std::getline( cin, uf_origem_);
+
+			ReptilNativo* nativo = new ReptilNativo(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_, 
+				autorizacao_, uf_origem_);
+
+			this->vector_animais.push_back(*nativo);
+			std::cout << "\nRéptil " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
+			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+		}
+		else if(area == 2) {
+			std::string pais_origem_;
+			std::cout << "- País de origem do réptil silvestre exótico: ";
+			std::cin.ignore();
+			std::getline( cin, pais_origem_);
+
+			ReptilExotico* exotico = new ReptilExotico(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_,
+				autorizacao_, pais_origem_);
+
+			this->vector_animais.push_back(*exotico);
+			std::cout << "\nRéptil " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
+		}
+	}else {
+		Reptil* reptil_domestico = new Reptil(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_);
+			this->vector_animais.push_back(*reptil_domestico);
+			std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+	}
+}
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
@@ -141,7 +206,7 @@ void Petshop::cadastrarAnimal() {
 			//cadastrarMamifero(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 4:
-			//cadastrarReptil(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarReptil(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 
 	}
