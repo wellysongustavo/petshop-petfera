@@ -15,9 +15,9 @@ class Petshop{
 		std::vector<Veterinario> vector_veterinarios;
 		std::vector<Tratador> vector_tratadores;
 	public:
+		std::string m_nome;
 		Petshop(int nome);
 		~Petshop();
-		std::string m_nome;
 
 		void cadastrarAnimal();
 		void removerAnimal();
