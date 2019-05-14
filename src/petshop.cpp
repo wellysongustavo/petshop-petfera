@@ -19,7 +19,7 @@
 #include "date.h"
 #include "petshop.h"
 
-Petshop::Petshop(string nome) : m_nome(nome) { /* void */ }
+Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
@@ -40,7 +40,7 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 	std::cin >> dia_; std::cin >> mes_; std::cin >> ano_;
 	date data_(dia_, mes_, ano_);
 
-	int aux;
+	int especie;
 	std::cout << "- Espécie do anfíbio (1- Silvestre | 2- Doméstico): ";
 	std::cin >> especie;
 
@@ -50,6 +50,7 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 		std::cin.ignore();
 		std::getline( cin, autorizacao_);
 
+		int area;
 		std::cout << "- Área pertencente do anfíbio silvestre (1- Nativo | 2- Exótico): ";
 		std::cin >> area;
 		if(area == 1) {
@@ -77,8 +78,7 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 				autorizacao_, pais_origem_);
 
 			this->vector_animais.push_back(*exotico);
-			std::cout << "\nAnfibio " << exotico->getNomeCientifico() << " adicionado com sucesso." << std::endl;
-			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;	
+			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
 		}
 	}else {
 		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
@@ -93,7 +93,7 @@ void Petshop::cadastrarAnimal() {
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
 		std::cin >> escolha_classe;
-	}while(escolha_classe < 1 || escolha_classe > 4)
+	}while(escolha_classe < 1 || escolha_classe > 4);
 
 	int id_;
 	std::cout << "- Id do animal: ";
@@ -135,13 +135,13 @@ void Petshop::cadastrarAnimal() {
 			cadastrarAnfibio(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 2:
-			cadastrarAve(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			//cadastrarAve(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 3:
-			cadastrarMamifero(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			//cadastrarMamifero(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 4:
-			cadastrarReptil(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			//cadastrarReptil(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 
 	}

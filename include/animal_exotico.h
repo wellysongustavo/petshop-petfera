@@ -10,7 +10,7 @@ class AnimalExotico : public AnimalSilvestre {
 		std::string m_pais_origem;
 
 	public:
-		AnimalExotico(std::string m_autorizacao, std::string m_pais_origem);
+		AnimalExotico(std::string autorizacao, std::string pais_origem);
 		~AnimalExotico();
 };
 
