@@ -16,6 +16,11 @@ class Petshop{
 		std::vector<Tratador> vector_tratadores;
 	public:
 		std::string m_nome;
+<<<<<<< HEAD
+		Petshop(int nome);
+		~Petshop();
+=======
+>>>>>>> d18804d7f892a23f23b2e82232c216c4d1b7939f
 
 		Petshop(std::string nome);
 		~Petshop();
