@@ -13,4 +13,3 @@ AveExotica::AveExotica(int id, std::string classe, std::string nome_cientifico,
             tratador, nome_batismo, tamanho_do_bico_cm, envergadura_das_asas),
             AnimalExotico(autorizacao, pais_origem) { }
 AveExotica::~AveExotica() { }
-};

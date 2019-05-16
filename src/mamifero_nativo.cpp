@@ -13,4 +13,3 @@ MamiferoNativo::MamiferoNativo(int id, std::string classe, std::string nome_cien
             tratador, nome_batismo, cor_pelo),
             AnimalNativo(autorizacao, uf_origem) { }
 MamiferoNativo::~MamiferoNativo(){ }
-};

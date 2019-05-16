@@ -35,10 +35,9 @@ int main() {
 
 	//Teste instancia petshop
 	Petshop* pet = new Petshop("PetGarrafa");
-	std::cout << std::endl << pet->m_nome << std::endl;
 
-	pet->cadastrarFuncionario();
-
+	//pet->cadastrarFuncionario();
+	pet->cadastrarAnimal();
 
 
 

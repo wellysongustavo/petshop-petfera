@@ -17,6 +17,8 @@
 #include "reptil_nativo.h"
 #include "reptil_exotico.h"
 #include "ave.h"
+#include "ave_exotica.h"
+#include "ave_nativa.h"
 #include "date.h"
 #include "petshop.h"
 
@@ -153,6 +155,71 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 			std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 	}
 }
+
+void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_, 
+	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
+	std::string nome_batismo_) {
+
+	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
+	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+
+	double tamanho_do_bico_cm_;
+	std::cout << "- Insira o tamanho do bico da ave (em cm): ";
+	std::cin >> tamanho_do_bico_cm_;
+
+	double envergadura_das_asas_;
+	std::cout << "- Insira a envergadura das asas: ";
+	std::cin >> envergadura_das_asas_;
+
+	int especie;
+	std::cout << "- Espécie do réptil (1- Silvestre | 2- Doméstico): ";
+	std::cin >> especie;
+
+	if(especie == 1){
+		std::string autorizacao_;
+		std::cout << "- Autorização da ave nativa: ";
+		std::cin.ignore();
+		std::getline( cin, autorizacao_);
+
+		int area;
+		std::cout << "- Área pertencente da ave silvestre (1- Nativa | 2- Exótica): ";
+		std::cin >> area;
+		if(area == 1) {
+			std::string uf_origem_;
+			std::cout << "- Região de origem do ave silvestre nativo: ";
+			std::cin.ignore();
+			std::getline( cin, uf_origem_);
+
+			AveNativa* nativa = new AveNativa(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
+				autorizacao_, uf_origem_);
+
+			this->vector_animais.push_back(*nativa);
+			std::cout << "\nAve " << nativa->getNomeCientifico() << " adicionada com sucesso." << std::endl;
+			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+		}
+		else if(area == 2) {
+			std::string pais_origem_;
+			std::cout << "- País de origem do ave silvestre exótico: ";
+			std::cin.ignore();
+			std::getline( cin, pais_origem_);
+
+			AveExotica* exotica = new AveExotica(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
+				autorizacao_, pais_origem_);
+
+			this->vector_animais.push_back(*exotica);
+			std::cout << "\nAve " << exotica->getNomeBatismo() << " adicionada com sucesso." << std::endl;	
+		}
+	}else {
+		Ave* ave_domestica = new Ave(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_);
+		this->vector_animais.push_back(*ave_domestica);
+			std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
+	}
+}
+
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
@@ -200,7 +267,7 @@ void Petshop::cadastrarAnimal() {
 			cadastrarAnfibio(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 2:
-			//cadastrarAve(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarAve(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 3:
 			//cadastrarMamifero(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
@@ -239,7 +306,7 @@ void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, in
 
 void Petshop::cadastrarFuncionario(){
 	int tipo_funcionario;
-	std::cout << "\n****************************** CADASTRO DE FUNCIONÁRIOS ******************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
+	std::cout << "\n**************************** CADASTRO DE FUNCIONÁRIOS ****************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
 	do{
 		std::cin >> tipo_funcionario;
 	}while(tipo_funcionario < 1 || tipo_funcionario > 2);

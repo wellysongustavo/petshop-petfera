@@ -13,4 +13,3 @@ AveNativa::AveNativa(int id, std::string classe, std::string nome_cientifico,
             tratador, nome_batismo, tamanho_do_bico_cm, envergadura_das_asas),
             AnimalNativo(autorizacao, uf_origem) { }
 AveNativa::~AveNativa() { }
-};

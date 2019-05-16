@@ -32,6 +32,10 @@ class Petshop{
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
 
+		void cadastrarAve(int id, std::string nome_cientifico, char sexo, 
+			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
+			std::string nome_batismo);
+
 		void cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_);
 		void removerVeterinario();
 		void editarVeterinario();

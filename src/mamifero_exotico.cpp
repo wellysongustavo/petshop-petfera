@@ -13,4 +13,3 @@ MamiferoExotico::MamiferoExotico(int id, std::string classe, std::string nome_ci
             tratador, nome_batismo, cor_pelo),
             AnimalExotico(autorizacao, pais_origem) { }
 MamiferoExotico::~MamiferoExotico(){ }
-};
