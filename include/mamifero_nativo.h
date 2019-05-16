@@ -1,13 +1,18 @@
 #include <iostream>
 #include "mamifero.h"
 #include "animal_nativo.h"
+#include "animal_silvestre.h"
 
-#ifndef _MAMIFERO_NATIVO_H_
-#define _MAMIFERO_NATIVO_H_
 
-class MamiferoNativo: public AnimalNativo{
+#ifndef MAMIFERO_NATIVO_H
+#define MAMIFERO_NATIVO_H
+
+class MamiferoNativo: public Mamifero, AnimalNativo{
 	public:
-		MamiferoNativo();
+		MamiferoNativo(int id, std::string classe, std::string nome_cientifico, 
+			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
+            Tratador tratador, std::string nome_batismo, std::string cor_pelo, 
+            std::string autorizacao, std::string uf_origem);
 		~MamiferoNativo();
 };
 
