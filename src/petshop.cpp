@@ -13,6 +13,8 @@
 #include "anfibio_nativo.h"
 #include "anfibio_exotico.h"
 #include "mamifero.h"
+#include "mamifero_nativo.h"
+#include "mamifero_exotico.h"
 #include "reptil.h"
 #include "reptil_nativo.h"
 #include "reptil_exotico.h"
@@ -219,6 +221,65 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 			std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
 	}
 }
+
+void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo_, 
+	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
+	std::string nome_batismo_) {
+	
+	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
+	Veterinario* vet1 = new Veterinario(2, "Pedro Burro", "011.257.789-30", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador(1, "Paulo Riscado", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+
+	int cor_pelo;
+	std::cout << "- Cor de Pelo: ";
+	std::cin >> cor_pelo;
+
+	int especie;
+	std::cout << "- Espécie do mamífero (1- Silvestre | 2- Doméstico): ";
+	std::cin >> especie;
+
+	if(especie == 1){
+		std::string autorizacao_;
+		std::cout << "- Autorização do mamífero nativo: ";
+		std::cin.ignore();
+		std::getline( cin, autorizacao_);
+
+		int area;
+		std::cout << "- Área pertencente do mamífero silvestre (1- Nativo | 2- Exótico): ";
+		std::cin >> area;
+		if(area == 1) {
+			std::string uf_origem_;
+			std::cout << "- Região de origem do mamífero silvestre nativo: ";
+			std::cin.ignore();
+			std::getline( cin, uf_origem_);
+
+			MamiferoNativo* nativo = new MamiferoNativo(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo, uf_origem_);
+
+			this->vector_animais.push_back(*nativo);
+			std::cout << "\nAnfibio " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
+			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+		}
+		else if(area == 2) {
+			std::string pais_origem_;
+			std::cout << "- País de origem do mamífero silvestre exótico: ";
+			std::cin.ignore();
+			std::getline( cin, pais_origem_);
+
+			MamiferoExotico* exotico = new MamiferoExotico(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo, pais_origem_);
+
+			this->vector_animais.push_back(*exotico);
+			std::cout << "\nMamífero " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
+		}
+	}else {
+		Mamifero* mamifero_domestico = new Mamifero(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo);
+		this->vector_animais.push_back(*mamifero_domestico);
+			std::cout << "\nMamífero " << mamifero_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+	}
+}
+
 
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
