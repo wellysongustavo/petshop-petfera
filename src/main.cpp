@@ -11,7 +11,7 @@ int main() {
 	//pet->removerFuncionario();
 	//pet->cadastrarFuncionario();
 	pet->cadastrarAnimal();
-
+	pet->listarAnimais();
 
 
 	return 0;

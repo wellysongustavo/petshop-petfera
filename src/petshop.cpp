@@ -351,6 +351,14 @@ void Petshop::cadastrarAnimal() {
 
 	}
 }
+//Listagem dos animais, porém, com sobrecarga de extração imcompleta para classes filhas
+void Petshop::listarAnimais() {
+	std::map<int, Animal>::iterator itr_t;
+	std::cout << "\nANIMAIS CADASTRADOS:\n" << std::endl;
+	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
+		std::cout << itr_t->second << std::endl;
+	}
+}
 
 void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
 	std::string crmv_;
@@ -433,6 +441,7 @@ void Petshop::listarVeterinarios(){
 		std::cout << itr_v->second << "\n" << std::endl;
 	}
 }
+
 void Petshop::listarTratadores(){
 	std::map<int, Tratador>::iterator itr_t;
 	std::cout << "Tratadores cadastrados:\n" << std::endl;

@@ -44,6 +44,8 @@ class Animal {
 		Veterinario getVeterinario();
 		Tratador getTratador();
 		std::string getNomeBatismo();
+
+		friend std::ostream& operator << (std::ostream& os, Animal& a);
 	
 };
 

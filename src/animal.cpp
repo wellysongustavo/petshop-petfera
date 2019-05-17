@@ -1,5 +1,7 @@
 #include "animal.h"
 #include "funcionario.h"
+#include "veterinario.h"
+#include "tratador.h"
 
 Animal::Animal(int id, std::string classe, std::string nome_cientifico, 
 	char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
@@ -30,3 +32,12 @@ std::string Animal::getDieta() { return m_dieta; }
 Veterinario Animal::getVeterinario() { return m_veterinario; }
 Tratador Animal::getTratador() { return m_tratador; }
 std::string Animal::getNomeBatismo() { return m_nome_batismo; }
+
+//Sobrecarga de operador de inserção
+std::ostream& operator << (std::ostream& os, Animal& a) {
+	os << "Id: " << a.m_id << "\nClasse: " << a.m_classe << "\nNome científico: " << a.m_nome_cientifico
+	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
+	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo << std::endl;
+	
+	return os;	
+}
