@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <map>
 
 #include "funcionario.h"
 #include "tratador.h"
@@ -27,7 +27,7 @@
 Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
-
+/*
 void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -68,9 +68,11 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, uf_origem_);
 
-			this->vector_animais.push_back(*nativo);
+			
+			this->map_animais.push_back(*nativo);
 			std::cout << "\nAnfibio " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
 			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -81,18 +83,22 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 			AnfibioExotico* exotico = new AnfibioExotico(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, pais_origem_);
-
+			
 			this->vector_animais.push_back(*exotico);
 			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
+			
 		}
 	}else {
 		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_);
+		
 		this->vector_animais.push_back(*anfibio_domestico);
-			std::cout << "\nAnfíbio " << anfibio_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+		std::cout << "\nAnfíbio " << anfibio_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+		
 	}
 }
-
+*/
+/*
 void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -132,10 +138,11 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 			ReptilNativo* nativo = new ReptilNativo(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_, 
 				autorizacao_, uf_origem_);
-
+			
 			this->vector_animais.push_back(*nativo);
 			std::cout << "\nRéptil " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
 			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -146,18 +153,22 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 			ReptilExotico* exotico = new ReptilExotico(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_,
 				autorizacao_, pais_origem_);
-
+			
 			this->vector_animais.push_back(*exotico);
 			std::cout << "\nRéptil " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
+			
 		}
 	}else {
 		Reptil* reptil_domestico = new Reptil(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_);
-			this->vector_animais.push_back(*reptil_domestico);
-			std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+			
+		this->vector_animais.push_back(*reptil_domestico);
+		std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+		
 	}
 }
-
+*/
+/*
 void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -196,10 +207,11 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 			AveNativa* nativa = new AveNativa(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
 				autorizacao_, uf_origem_);
-
+			
 			this->vector_animais.push_back(*nativa);
 			std::cout << "\nAve " << nativa->getNomeCientifico() << " adicionada com sucesso." << std::endl;
 			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -210,18 +222,22 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 			AveExotica* exotica = new AveExotica(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
 				autorizacao_, pais_origem_);
-
+			
 			this->vector_animais.push_back(*exotica);
 			std::cout << "\nAve " << exotica->getNomeBatismo() << " adicionada com sucesso." << std::endl;	
+			
 		}
 	}else {
 		Ave* ave_domestica = new Ave(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_);
+		
 		this->vector_animais.push_back(*ave_domestica);
-			std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
+		std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
+		
 	}
 }
-
+*/
+/*
 void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -255,10 +271,11 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 
 			MamiferoNativo* nativo = new MamiferoNativo(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo, autorizacao_, uf_origem_);
-
+			
 			this->vector_animais.push_back(*nativo);
 			std::cout << "\nAnfibio " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
 			std::cout << this->vector_animais[0].getNomeCientifico() << std::endl;
+			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -268,19 +285,22 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 
 			MamiferoExotico* exotico = new MamiferoExotico(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo, autorizacao_, pais_origem_);
-
+			
 			this->vector_animais.push_back(*exotico);
 			std::cout << "\nMamífero " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
+			
 		}
 	}else {
 		Mamifero* mamifero_domestico = new Mamifero(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo);
+		
 		this->vector_animais.push_back(*mamifero_domestico);
-			std::cout << "\nMamífero " << mamifero_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+		std::cout << "\nMamífero " << mamifero_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+		
 	}
 }
-
-
+*/
+/*
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
@@ -339,6 +359,7 @@ void Petshop::cadastrarAnimal() {
 
 	}
 }
+*/
 
 void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
 	std::string crmv_;
@@ -347,10 +368,10 @@ void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_,
 	std::getline( cin, crmv_);
 
 	Veterinario* vet = new Veterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
-	vector_veterinarios.push_back(*vet);
-
+	
+	map_veterinarios.insert({id_,*vet});
 	std::cout << "Veterinário cadastrado com sucesso.\n" << std::endl;
-	std::cout << vector_veterinarios[0];
+	std::cout << map_veterinarios.at(id_);
 }
 
 void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
@@ -359,10 +380,10 @@ void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, in
 	std::cin >> nivel_de_seguranca_;	
 
 	Tratador* trat = new Tratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
-	vector_tratadores.push_back(*trat);
-
-	std::cout << "Tratador cadastrado com sucesso." << std::endl;
-	std::cout << vector_tratadores[0];
+	
+	map_tratadores.insert({id_,*trat});
+	std::cout << "Tratador cadastrado com sucesso.\n" << std::endl;
+	std::cout << map_tratadores.at(id_);
 }
 
 void Petshop::cadastrarFuncionario(){

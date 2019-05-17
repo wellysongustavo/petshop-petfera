@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <map>
 
 #include "animal.h"
 #include "veterinario.h"
@@ -11,9 +11,9 @@
 
 class Petshop{
 	private:
-		std::vector<Animal> vector_animais;
-		std::vector<Veterinario> vector_veterinarios;
-		std::vector<Tratador> vector_tratadores;
+		std::map<int,Animal> map_animais;
+		std::map<int,Veterinario> map_veterinarios;
+		std::map<int,Tratador> map_tratadores;
 	public:
 		std::string m_nome;
 		Petshop(std::string nome);
@@ -51,6 +51,7 @@ class Petshop{
 		void consultarTratador();
 
 		void cadastrarFuncionario();
+		void listarFuncionarios();
 };
 
 #endif
