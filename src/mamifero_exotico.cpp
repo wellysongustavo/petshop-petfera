@@ -1,8 +1,4 @@
-#include <iostream>
-#include "mamifero.h"
-#include "animal_exotico.h"
 #include "mamifero_exotico.h"
-//#include "animal_silvestre.h"
 
 MamiferoExotico::MamiferoExotico(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

@@ -1,7 +1,6 @@
 #include <iostream>
 #include "animal.h"
 #include "anfibio.h"
-#include "date.h"
 
 Anfibio::Anfibio(int id, std::string classe, std::string nome_cientifico, 
 				char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

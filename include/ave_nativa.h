@@ -1,7 +1,5 @@
-#include <iostream>
 #include "ave.h"
 #include "animal_nativo.h"
-#include "animal_silvestre.h"
 
 
 #ifndef AVE_NATIVA_H

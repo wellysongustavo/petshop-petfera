@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "reptil.h"
 #include "animal_exotico.h"
 

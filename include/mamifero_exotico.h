@@ -1,4 +1,3 @@
-#include <iostream>
 #include "mamifero.h"
 #include "animal_exotico.h"
 
@@ -11,6 +10,7 @@ class MamiferoExotico: public Mamifero, AnimalExotico{
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
             Tratador tratador, std::string nome_batismo, std::string cor_pelo, 
             std::string autorizacao, std::string pais_origem);
+		
 		~MamiferoExotico();
 };
 

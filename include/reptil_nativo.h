@@ -1,6 +1,4 @@
-#include <iostream>
 #include "reptil.h"
-#include "animal_silvestre.h"
 #include "animal_nativo.h"
 
 #ifndef _REPTIL_NATIVO_H_

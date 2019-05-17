@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include "anfibio.h"
-#include "animal_nativo.h"
 #include "anfibio_nativo.h"
-#include "animal_silvestre.h"
 
 AnfibioNativo::AnfibioNativo(int id, std::string classe, std::string nome_cientifico, char sexo, 
 			  				 double tamanho, std::string dieta, Veterinario veterinario, 

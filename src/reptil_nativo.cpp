@@ -1,7 +1,4 @@
-#include "animal.h"
-#include "reptil.h"
 #include "reptil_nativo.h"
-#include "animal_nativo.h"
 
 ReptilNativo::ReptilNativo(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

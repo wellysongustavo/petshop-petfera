@@ -1,7 +1,4 @@
-#include "animal.h"
-#include "reptil.h"
 #include "reptil_exotico.h"
-#include "animal_exotico.h"
 
 ReptilExotico::ReptilExotico(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

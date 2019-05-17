@@ -1,8 +1,4 @@
-#include <iostream>
-#include "ave.h"
-#include "animal_nativo.h"
 #include "ave_nativa.h"
-//#include "animal_silvestre.h"
 
 AveNativa::AveNativa(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 

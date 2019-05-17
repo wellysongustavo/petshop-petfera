@@ -1,4 +1,3 @@
-#include <iostream>
 #include "ave.h"
 #include "animal_exotico.h"
 
