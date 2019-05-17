@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <iterator>
 
 #include "funcionario.h"
 #include "tratador.h"
@@ -432,5 +433,81 @@ void Petshop::cadastrarFuncionario(){
 		case 2:
 			cadastrarTratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_);
 		break;
+	}
+}
+
+void Petshop::listarVeterinarios(){
+	std::map<int, Veterinario>::iterator itr_v;
+	std::cout << "\nVeterinários cadastrados:\n" << std::endl;
+	for(itr_v = map_veterinarios.begin(); itr_v != map_veterinarios.end(); itr_v++){
+		std::cout << itr_v->second << "\n" << std::endl;
+	}
+}
+void Petshop::listarTratadores(){
+	std::map<int, Tratador>::iterator itr_t;
+	std::cout << "Tratadores cadastrados:\n" << std::endl;
+	for(itr_t = map_tratadores.begin(); itr_t != map_tratadores.end(); itr_t++){
+		std::cout << itr_t->second << "\n" << std::endl;
+	}
+}
+
+void Petshop::removerVeterinario(){
+	int id_vet;
+	bool match = false;
+	std::map<int,Veterinario>::iterator it;
+
+	do{
+		std::cout << "Id do veterinário: ";
+		std::cin >> id_vet;
+
+		it = map_veterinarios.find(id_vet);
+		if(it != map_veterinarios.end()){
+			map_veterinarios.erase(id_vet);
+			match = true;
+		}else{
+			std::cout << "Id inexistente. Tente novamente!" << std::endl;
+		}
+
+	}while(match == false);
+
+	std::cout << "Veterinário " << it->second.getNome() << " removido.\n" << std::endl;
+}
+
+void Petshop::removerTratador(){
+	int id_tra;
+	bool match = false;
+	std::map<int,Tratador>::iterator it;
+
+	do{
+		std::cout << "Id do tratador: ";
+		std::cin >> id_tra;
+
+		it = map_tratadores.find(id_tra);
+		if(it != map_tratadores.end()){
+			map_tratadores.erase(id_tra);
+			match = true;
+		}else{
+			std::cout << "Id inexistente. Tente novamente!" << std::endl;
+		}
+
+	}while(match == false);
+
+	std::cout << "Tratador " << it->second.getNome() << " removido.\n" << std::endl;
+}
+
+void Petshop::removerFuncionario(){
+	int remocao;
+	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
+	listarVeterinarios();
+	listarTratadores();
+	std::cout << "Para remover Veterinário - 1, para Tratador - 2" << std::endl;
+	do{
+		std::cin >> remocao;
+	}while(remocao < 1 || remocao > 2);
+
+	if(remocao == 1){
+		removerVeterinario();
+	}else{
+		removerTratador();
 	}
 }
