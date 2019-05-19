@@ -22,7 +22,8 @@ class Ave : public Animal {
 		void setEnvergaduraAsas(double envergadura_das_asas);
 		double getTamanhoBico();
 		double getEnvergaduraAsas();
-	
+		
+		friend std::ostream& operator << (std::ostream& os, Ave& a);
 };
 
 #endif

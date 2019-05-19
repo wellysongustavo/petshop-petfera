@@ -11,6 +11,9 @@ class ReptilNativo : public Reptil, AnimalNativo {
 			Tratador tratador, std::string nome_batismo, bool venenoso, 
 			std::string tipo_venenoso, std::string autorizacao, std::string uf_origem);
 		~ReptilNativo();
+
+		friend std::ostream& operator << (std::ostream& os, ReptilNativo& r);	
+
 };
 
 #endif

@@ -11,6 +11,8 @@ class AveExotica: public Ave, AnimalExotico{
 			Tratador tratador, std::string nome_batismo, double tamanho_do_bico_cm,
 			double envergadura_das_asas, std::string autorizacao, std::string pais_origem);
 		~AveExotica();
+
+		friend std::ostream& operator << (std::ostream& os, AveExotica& a);
 };
 
 #endif

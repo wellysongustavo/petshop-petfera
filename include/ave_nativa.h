@@ -12,6 +12,8 @@ class AveNativa: public Ave, AnimalNativo{
 			Tratador tratador, std::string nome_batismo, double tamanho_do_bico_cm,
 			double envergadura_das_asas, std::string autorizacao, std::string uf_origem);
 		~AveNativa();
+
+		friend std::ostream& operator << (std::ostream& os, AveNativa& a);
 };
 
 #endif

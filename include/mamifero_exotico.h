@@ -12,6 +12,8 @@ class MamiferoExotico: public Mamifero, AnimalExotico{
             std::string autorizacao, std::string pais_origem);
 		
 		~MamiferoExotico();
+
+		friend std::ostream& operator << (std::ostream& os, MamiferoExotico& m);
 };
 
 #endif

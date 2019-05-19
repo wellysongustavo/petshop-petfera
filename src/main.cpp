@@ -12,6 +12,7 @@ int main() {
 	//pet->cadastrarFuncionario();
 	pet->cadastrarAnimal();
 	pet->listarAnimais();
+	pet->removerAnimal();
 
 
 	return 0;

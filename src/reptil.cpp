@@ -14,3 +14,13 @@ void Reptil::setVenenoso(bool venenoso) { m_venenoso = venenoso; }
 void Reptil::setTipoVenenoso(std::string tipo_venenoso) { m_tipo_venenoso = tipo_venenoso; }
 bool Reptil::getVenenoso() { return m_venenoso; }
 std::string Reptil::getTipoVenenoso() { return m_tipo_venenoso; }
+
+std::ostream& operator << (std::ostream& os, Reptil& r) {
+	os << "Id: " << r.m_id << "\nClasse: " << r.m_classe << "\nNome científico: " << r.m_nome_cientifico
+	<< "\nSexo: " << r.m_sexo << "\nTamanho: " << r.m_tamanho << "\nDieta: " << r.m_dieta << "\nId do veterinario: " 
+	<< r.m_veterinario.getId() << "\nId do tratador: " << r.m_tratador.getId() << "\nNome de batismo: " << r.m_nome_batismo 
+	<< "\nVenenoso: " << r.m_venenoso << "\nTipo venenoso: " << r.m_tipo_venenoso << "\n_____________________________________"
+	<< std::endl;
+	
+	return os;	
+}

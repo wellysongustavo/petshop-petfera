@@ -11,6 +11,9 @@ class ReptilExotico: public Reptil, AnimalExotico {
 			Tratador tratador, std::string nome_batismo, bool venenoso, 
 			std::string tipo_venenoso, std::string autorizacao, std::string pais_origem);
 		~ReptilExotico();
+
+		friend std::ostream& operator << (std::ostream& os, ReptilExotico& r);	
+
 };
 
 #endif

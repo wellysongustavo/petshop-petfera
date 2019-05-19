@@ -18,6 +18,8 @@ class Mamifero : public Animal {
 
 		void setCorPelo(std::string cor_pelo);
 		std::string getCorPelo();
+
+		friend std::ostream& operator << (std::ostream& os, Mamifero& m);
 	
 };
 

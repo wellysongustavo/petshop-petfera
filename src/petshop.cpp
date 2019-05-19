@@ -52,12 +52,12 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 
 	if(especie == 1){
 		std::string autorizacao_;
-		std::cout << "- Autorização do anfíbio nativo: ";
+		std::cout << "- Autorização do anfíbio silvestre: ";
 		std::cin.ignore();
 		std::getline( cin, autorizacao_);
 
 		int area;
-		std::cout << "- Área pertencente do anfíbio silvestre (1- Nativo | 2- Exótico): ";
+		std::cout << "- Área pertencente do anfíbio silvestre (1- Nativa | 2- Exótica): ";
 		std::cin >> area;
 		if(area == 1) {
 			std::string uf_origem_;
@@ -65,12 +65,12 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
-			AnfibioNativo* nativo = new AnfibioNativo(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
+			AnfibioNativo* nativo = new AnfibioNativo(id_, "AnfibioNativo", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, uf_origem_);
 
 			
-			this->map_animais.insert({id_, *nativo});
+			this->map_animais.insert({id_, nativo});
 			std::cout << "\nAnfibio " << nativo->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 			
 		}
@@ -80,19 +80,19 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 			std::cin.ignore();
 			std::getline( cin, pais_origem_);
 
-			AnfibioExotico* exotico = new AnfibioExotico(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
+			AnfibioExotico* exotico = new AnfibioExotico(id_, "AnfibioExotico", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, pais_origem_);
 			
-			this->map_animais.insert({id_, *exotico});
+			this->map_animais.insert({id_, exotico});
 			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
 			
 		}
 	}else {
-		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfíbio", nome_cientifico_, sexo_, tamanho_,
+		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfibio", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_);
 		
-		this->map_animais.insert({id_, *anfibio_domestico});
+		this->map_animais.insert({id_, anfibio_domestico});
 		std::cout << "\nAnfíbio " << anfibio_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 		
 	}
@@ -121,12 +121,12 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 
 	if(especie == 1){
 		std::string autorizacao_;
-		std::cout << "- Autorização do réptil nativo: ";
+		std::cout << "- Autorização do réptil silvestre: ";
 		std::cin.ignore();
 		std::getline( cin, autorizacao_);
 
 		int area;
-		std::cout << "- Área pertencente do réptil silvestre (1- Nativo | 2- Exótico): ";
+		std::cout << "- Área pertencente do réptil silvestre (1- Nativa | 2- Exótica): ";
 		std::cin >> area;
 		if(area == 1) {
 			std::string uf_origem_;
@@ -134,12 +134,12 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
-			ReptilNativo* nativo = new ReptilNativo(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+			ReptilNativo* nativo = new ReptilNativo(id_, "ReptilNativo", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_, 
 				autorizacao_, uf_origem_);
 			
-			this->map_animais.insert({id_, *nativo});
-			std::cout << "\nRéptil " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
+			this->map_animais.insert({id_, nativo});
+			std::cout << "\nRéptil " << nativo->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 			
 		}
 		else if(area == 2) {
@@ -148,19 +148,19 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 			std::cin.ignore();
 			std::getline( cin, pais_origem_);
 
-			ReptilExotico* exotico = new ReptilExotico(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+			ReptilExotico* exotico = new ReptilExotico(id_, "ReptilExotico", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_,
 				autorizacao_, pais_origem_);
 			
-			this->map_animais.insert({id_, *exotico});
+			this->map_animais.insert({id_, exotico});
 			std::cout << "\nRéptil " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
 			
 		}
 	}else {
-		Reptil* reptil_domestico = new Reptil(id_, "Réptil", nome_cientifico_, sexo_, tamanho_,
+		Reptil* reptil_domestico = new Reptil(id_, "Reptil", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_);
 			
-		this->map_animais.insert({id_, *reptil_domestico});
+		this->map_animais.insert({id_, reptil_domestico});
 		std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 		
 	}
@@ -188,7 +188,7 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 
 	if(especie == 1){
 		std::string autorizacao_;
-		std::cout << "- Autorização da ave nativa: ";
+		std::cout << "- Autorização da ave silvestre: ";
 		std::cin.ignore();
 		std::getline( cin, autorizacao_);
 
@@ -197,29 +197,29 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 		std::cin >> area;
 		if(area == 1) {
 			std::string uf_origem_;
-			std::cout << "- Região de origem do ave silvestre nativo: ";
+			std::cout << "- Região de origem do ave silvestre nativa: ";
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
-			AveNativa* nativa = new AveNativa(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
+			AveNativa* nativa = new AveNativa(id_, "AveNativa", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
 				autorizacao_, uf_origem_);
 			
-			this->map_animais.insert({id_, *nativa});
-			std::cout << "\nAve " << nativa->getNomeCientifico() << " adicionada com sucesso." << std::endl;
+			this->map_animais.insert({id_, nativa});
+			std::cout << "\nAve " << nativa->getNomeBatismo() << " adicionada com sucesso." << std::endl;
 			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
-			std::cout << "- País de origem do ave silvestre exótico: ";
+			std::cout << "- País de origem do ave silvestre exótica: ";
 			std::cin.ignore();
 			std::getline( cin, pais_origem_);
 
-			AveExotica* exotica = new AveExotica(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
+			AveExotica* exotica = new AveExotica(id_, "AveExotica", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
 				autorizacao_, pais_origem_);
 			
-			this->map_animais.insert({id_, *exotica});
+			this->map_animais.insert({id_, exotica});
 			std::cout << "\nAve " << exotica->getNomeBatismo() << " adicionada com sucesso." << std::endl;	
 			
 		}
@@ -227,7 +227,7 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 		Ave* ave_domestica = new Ave(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_);
 		
-		this->map_animais.insert({id_, *ave_domestica});
+		this->map_animais.insert({id_, ave_domestica});
 		std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
 		
 	}
@@ -251,12 +251,12 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 
 	if(especie == 1){
 		std::string autorizacao_;
-		std::cout << "- Autorização do mamífero nativo: ";
+		std::cout << "- Autorização do mamífero silvestre: ";
 		std::cin.ignore();
 		std::getline( cin, autorizacao_);
 
 		int area;
-		std::cout << "- Área pertencente do mamífero silvestre (1- Nativo | 2- Exótico): ";
+		std::cout << "- Área pertencente do mamífero silvestre (1- Nativa | 2- Exótica): ";
 		std::cin >> area;
 		if(area == 1) {
 			std::string uf_origem_;
@@ -264,10 +264,10 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
-			MamiferoNativo* nativo = new MamiferoNativo(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+			MamiferoNativo* nativo = new MamiferoNativo(id_, "MamiferoNativo", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_, autorizacao_, uf_origem_);
 			
-			this->map_animais.insert({id_, *nativo});
+			this->map_animais.insert({id_, nativo});
 			std::cout << "\nAnfibio " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
 		}
 		else if(area == 2) {
@@ -276,18 +276,18 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 			std::cin.ignore();
 			std::getline( cin, pais_origem_);
 
-			MamiferoExotico* exotico = new MamiferoExotico(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+			MamiferoExotico* exotico = new MamiferoExotico(id_, "MamiferoExotico", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_, autorizacao_, pais_origem_);
 			
-			this->map_animais.insert({id_, *exotico});
+			this->map_animais.insert({id_, exotico});
 			std::cout << "\nMamífero " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
 			
 		}
 	}else {
-		Mamifero* mamifero_domestico = new Mamifero(id_, "Mamífero", nome_cientifico_, sexo_, tamanho_,
+		Mamifero* mamifero_domestico = new Mamifero(id_, "Mamifero", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_);
 		
-		this->map_animais.insert({id_, *mamifero_domestico});
+		this->map_animais.insert({id_, mamifero_domestico});
 		std::cout << "\nMamífero " << mamifero_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 		
 	}
@@ -351,13 +351,86 @@ void Petshop::cadastrarAnimal() {
 
 	}
 }
-//Listagem dos animais, porém, com sobrecarga de extração imcompleta para classes filhas
+
 void Petshop::listarAnimais() {
-	std::map<int, Animal>::iterator itr_t;
-	std::cout << "\nANIMAIS CADASTRADOS:\n" << std::endl;
+	std::map<int, Animal*>::iterator itr_t;
+	std::cout << "\n****************************** ANIMAIS CADASTRADOS ******************************\n" << std::endl;
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
-		std::cout << itr_t->second << std::endl;
+		//Verificação para anfibios
+		if(itr_t->second->getClasse() == "Anfibio"){
+			Anfibio* aux = (Anfibio*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "AnfibioNativo"){
+			AnfibioNativo* aux = (AnfibioNativo*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "AnfibioExotico"){
+			AnfibioExotico* aux = (AnfibioExotico*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		//Verificação para aves
+		if(itr_t->second->getClasse() == "Ave"){
+			Ave* aux = (Ave*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "AveNativa"){
+			AveNativa* aux = (AveNativa*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "AveExotica"){
+			AveExotica* aux = (AveExotica*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		//Verificação para mamíferos
+		if(itr_t->second->getClasse() == "Mamifero"){
+			Mamifero* aux = (Mamifero*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "MamiferoNativo"){
+			MamiferoNativo* aux = (MamiferoNativo*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "MamiferoExotico"){
+			MamiferoExotico* aux = (MamiferoExotico*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		//Verificação para répteis
+		if(itr_t->second->getClasse() == "Reptil"){
+			Reptil* aux = (Reptil*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "ReptilNativo"){
+			ReptilNativo* aux = (ReptilNativo*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
+		if(itr_t->second->getClasse() == "ReptilExotico"){
+			ReptilExotico* aux = (ReptilExotico*)(itr_t->second);
+			std::cout << *aux << std::endl;
+		}
 	}
+}
+
+void Petshop::removerAnimal(){
+	int id_animal;
+	bool match = false;
+	std::map<int, Animal*>::iterator it;
+
+	do{
+		std::cout << "Id do animal: ";
+		std::cin >> id_animal;
+
+		it = map_animais.find(id_animal);
+		if(it != map_animais.end()){
+			map_animais.erase(id_animal);
+			match = true;
+		}else{
+			std::cout << "Id inexistente. Tente novamente!" << std::endl;
+		}
+
+	}while(match == false);
+
+	std::cout << "Animal removido.\n" << std::endl; 
 }
 
 void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
@@ -448,28 +521,6 @@ void Petshop::listarTratadores(){
 	for(itr_t = map_tratadores.begin(); itr_t != map_tratadores.end(); itr_t++){
 		std::cout << itr_t->second << "\n" << std::endl;
 	}
-}
-
-void Petshop::removerAnimal(){
-	int id_animal;
-	bool match = false;
-	std::map<int, Animal>::iterator it;
-
-	do{
-		std::cout << "Id do animal: ";
-		std::cin >> id_animal;
-
-		it = map_animais.find(id_animal);
-		if(it != map_animais.end()){
-			map_animais.erase(id_animal);
-			match = true;
-		}else{
-			std::cout << "Id inexistente. Tente novamente!" << std::endl;
-		}
-
-	}while(match == false);
-
-	std::cout << "Animal removido.\n" << std::endl; 
 }
 
 void Petshop::removerVeterinario(){

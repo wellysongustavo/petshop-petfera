@@ -22,6 +22,8 @@ class Anfibio : public Animal {
 		int getTotalMudas();
 		void setUltimaMuda(date ultima_muda);
 		date getUltimaMuda();
+
+		friend std::ostream& operator << (std::ostream& os, Anfibio& a);
 };
 
 #endif

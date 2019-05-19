@@ -21,7 +21,9 @@ class Reptil : public Animal {
 		void setVenenoso(bool venenoso);
 		void setTipoVenenoso(std::string tipo_venenoso);
 		bool getVenenoso();
-		std::string getTipoVenenoso();	
+		std::string getTipoVenenoso();
+
+		friend std::ostream& operator << (std::ostream& os, Reptil& r);	
 };
 
 #endif

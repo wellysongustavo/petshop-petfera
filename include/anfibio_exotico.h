@@ -14,6 +14,8 @@ class AnfibioExotico: public Anfibio, AnimalExotico{
 					   Tratador tratador, std::string nome_batismo, int total_de_mudas, 
 					   date ultima_muda, std::string autorizacao, std::string pais_origem);
 		~AnfibioExotico();
+
+		friend std::ostream& operator << (std::ostream& os, AnfibioExotico& a);
 };
 
 #endif

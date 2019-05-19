@@ -11,6 +11,8 @@ class MamiferoNativo: public Mamifero, AnimalNativo{
             Tratador tratador, std::string nome_batismo, std::string cor_pelo, 
             std::string autorizacao, std::string uf_origem);
 		~MamiferoNativo();
+
+		friend std::ostream& operator << (std::ostream& os, MamiferoNativo& m);
 };
 
 #endif
