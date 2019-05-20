@@ -442,26 +442,29 @@ void Petshop::consultarAnimal(){
 	std::cout << "4 - Pesquisar por veterinário" << std::endl;
 	std::cin >> escolha_consulta;
 
-	if (escolha_classe == 1) {
-		int id_animal;
-		std::cout << "Id do animal: ";
-		std::cin >> id_animal;
-
+	 if (escolha_consulta == 1) {
 		std::map<int, Animal*>::iterator it;
-		it = map_animais.find(id_animal);
-		std::cout << "Nome: " it->second.getNomeBatismo() << std::endl; 
-		std::cout << "Classe: " it->second.getClasse() << std::endl;
-		std::cout << "Nome Científico: " it->second.getNomeCientifico() << std::endl; 
-		std::cout << "Sexo: " it->second.getSexo() << std::endl; 
-		std::cout << "Tamanho: " it->second.getTamanho() << std::endl; 
-		std::cout << "Dieta: " it->second.getDieta() << std::endl; 
-		std::cout << "Veterinário: " it->second.getVeterinario() << std::endl; 
-		std::cout << "Tratado: " it->second.getTratador() << std::endl; 
+		int id_animal;
+		bool match = false;
 
-		//aqui deve ter uma função que retorna para o menu
-	} else if (escolha_classe == 2) {
+		do {
+			std::cout << "Id do animal: ";
+			std::cin >> id_animal;
 
-	} else if (escolha_classe == 3) {
+			it = map_animais.find(id_animal);
+			if(it != map_animais.end()){
+				//std::cout << it; 
+				std::cout << "Animal Encontrado" << std::endl;
+			}else{
+				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+			}
+
+		}while(match == false);
+		
+		
+	} else if (escolha_consulta == 2) {
+
+	} else if (escolha_consulta == 3) {
 
 	} else {
 
@@ -493,7 +496,7 @@ void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, in
 	
 	map_tratadores.insert({id_,*trat});
 	std::cout << "Tratador cadastrado com sucesso.\n" << std::endl;
-	std::cout << map_tratadores.at(id_);
+	std::cout << map_tratadores.at(id_); // n imprime
 }
 
 void Petshop::cadastrarFuncionario(){
