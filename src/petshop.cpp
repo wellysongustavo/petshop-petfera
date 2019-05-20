@@ -433,6 +433,44 @@ void Petshop::removerAnimal(){
 	std::cout << "Animal removido.\n" << std::endl; 
 }
 
+void Petshop::consultarAnimal(){
+	int escolha_consulta;
+
+	std::cout << "1 - Pesquisar por id" << std::endl;
+	std::cout << "2 - Pesquisar por classe" << std::endl;
+	std::cout << "3 - Pesquisar por tratador" << std::endl;
+	std::cout << "4 - Pesquisar por veterinário" << std::endl;
+	std::cin >> escolha_consulta;
+
+	if (escolha_classe == 1) {
+		int id_animal;
+		std::cout << "Id do animal: ";
+		std::cin >> id_animal;
+
+		std::map<int, Animal*>::iterator it;
+		it = map_animais.find(id_animal);
+		std::cout << "Nome: " it->second.getNomeBatismo() << std::endl; 
+		std::cout << "Classe: " it->second.getClasse() << std::endl;
+		std::cout << "Nome Científico: " it->second.getNomeCientifico() << std::endl; 
+		std::cout << "Sexo: " it->second.getSexo() << std::endl; 
+		std::cout << "Tamanho: " it->second.getTamanho() << std::endl; 
+		std::cout << "Dieta: " it->second.getDieta() << std::endl; 
+		std::cout << "Veterinário: " it->second.getVeterinario() << std::endl; 
+		std::cout << "Tratado: " it->second.getTratador() << std::endl; 
+
+		//aqui deve ter uma função que retorna para o menu
+	} else if (escolha_classe == 2) {
+
+	} else if (escolha_classe == 3) {
+
+	} else {
+
+	}
+
+
+	
+}
+
 void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
 	std::string crmv_;
 	std::cout << "- CRMV: ";
