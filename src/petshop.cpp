@@ -474,31 +474,6 @@ void Petshop::consultarAnimal(){
 	
 }
 
-void Petshop::cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
-	std::string crmv_;
-	std::cout << "- CRMV: ";
-	std::cin.ignore();
-	std::getline( cin, crmv_);
-
-	Veterinario* vet = new Veterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
-	
-	map_veterinarios.insert({id_,*vet});
-	std::cout << "Veterinário cadastrado com sucesso.\n" << std::endl;
-	std::cout << map_veterinarios.at(id_);
-}
-
-void Petshop::cadastrarTratador(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, std::string especialidade_){
-	int nivel_de_seguranca_;
-	std::cout << "- Nível de segurança: ";
-	std::cin >> nivel_de_seguranca_;	
-
-	Tratador* trat = new Tratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
-	
-	map_tratadores.insert({id_,*trat});
-	std::cout << "Tratador cadastrado com sucesso.\n" << std::endl;
-	std::cout << map_tratadores.at(id_); // n imprime
-}
-
 void Petshop::cadastrarFuncionario(){
 	int tipo_funcionario;
 	std::cout << "\n**************************** CADASTRO DE FUNCIONÁRIOS ****************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
@@ -538,16 +513,37 @@ void Petshop::cadastrarFuncionario(){
 	std::cin.ignore();
 	std::getline( cin, especialidade_);
 
-	switch(tipo_funcionario){
-		case 1:
-			cadastrarVeterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_);
-		break;
-		case 2:
-			cadastrarTratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_);
-		break;
+	if(tipo_funcionario == 1){
+		std::string crmv_;
+		std::cout << "- CRMV: ";
+		std::cin.ignore();
+		std::getline( cin, crmv_);
+
+		Veterinario* vet = new Veterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
+		
+		map_funcionarios.insert({id_,vet});
+		std::cout << "Veterinário "<< vet->getNome() <<" cadastrado com sucesso.\n" << std::endl;
+		//std::cout << *(dynamic_cast<Veterinario*>(map_funcionarios.at(id_))); //FUNCIONANDO
+	}else{
+		int nivel_de_seguranca_;
+		std::cout << "- Nível de segurança: ";
+		std::cin >> nivel_de_seguranca_;	
+
+		Tratador* trat = new Tratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
+		
+		map_funcionarios.insert({id_,trat});
+		std::cout << "Tratador "<< trat->getNome() <<" cadastrado com sucesso.\n" << std::endl;
+		//std::cout << *(dynamic_cast<Tratador*>(map_funcionarios.at(id_)));  //FUNCIONANDO
 	}
 }
-
+void Petshop::listarFuncionarios(){ // FALTA IF PRA VET E TRAT
+	std::map<int, Funcionario*>::iterator it;
+	std::cout << "\n---------Funcionários cadastrados--------\n" << std::endl;
+	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
+		std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+	}
+}
+/*
 void Petshop::listarVeterinarios(){
 	std::map<int, Veterinario>::iterator itr_v;
 	std::cout << "\nVeterinários cadastrados:\n" << std::endl;
@@ -607,14 +603,15 @@ void Petshop::removerTratador(){
 
 	std::cout << "Tratador " << it->second.getNome() << " removido.\n" << std::endl;
 }
+*/
 
 void Petshop::removerFuncionario(){
-	int remocao;
+	//int remocao;
 	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
-	listarVeterinarios();
-	listarTratadores();
-	std::cout << "Para remover Veterinário - 1, para Tratador - 2" << std::endl;
+	listarFuncionarios();
+	/*
 	do{
+		std::cout << "Para remover Veterinário - 1, para Tratador - 2" << std::endl;
 		std::cin >> remocao;
 	}while(remocao < 1 || remocao > 2);
 
@@ -623,4 +620,5 @@ void Petshop::removerFuncionario(){
 	}else{
 		removerTratador();
 	}
+	*/
 }

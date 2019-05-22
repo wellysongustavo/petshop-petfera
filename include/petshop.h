@@ -12,8 +12,7 @@
 class Petshop{
 	private:
 		std::map<int, Animal*> map_animais;
-		std::map<int,Veterinario> map_veterinarios;
-		std::map<int,Tratador> map_tratadores;
+		std::map<int, Funcionario*> map_funcionarios;
 	public:
 		std::string m_nome;
 		Petshop(std::string nome);
@@ -37,19 +36,18 @@ class Petshop{
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
 
-		void cadastrarVeterinario(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, 			std::string especialidade_);
-		void listarVeterinarios();
-		void removerVeterinario();
+		//void listarVeterinarios();
+		//void removerVeterinario();
 		void editarVeterinario();
 		void consultarVeterinario();
 
-		void cadastrarTratador(int id_, std::string nome_, std::string cpf_, int idade_, std::string tipo_sanguineo_, char fator_rh_, 			std::string especialidade_);
-		void listarTratadores();
-		void removerTratador();
+		//void listarTratadores();
+		//void removerTratador();
 		void editarTratador();
 		void consultarTratador();
 
 		void cadastrarFuncionario();
+		void listarFuncionarios();
 		void removerFuncionario();
 };
 

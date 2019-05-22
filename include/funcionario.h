@@ -17,7 +17,7 @@ class Funcionario {
 	public:
 		Funcionario(int id, std::string nome, std::string cpf,
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade);
-		~Funcionario();
+		virtual ~Funcionario() = 0;
 
 		void setId(int id);
 		void setNome(std::string nome);
@@ -34,6 +34,7 @@ class Funcionario {
 		std::string getTipoSanguineo();
 		char getFatorRh();
 		std::string getEspecialidade();
-	
+		
+		//adc método virtual
 };
 #endif
