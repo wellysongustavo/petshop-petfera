@@ -23,7 +23,7 @@ class Animal {
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo);
 		Animal();
-		~Animal();
+		virtual ~Animal() = 0;
 
 		void setId(int id);
 		void setClasse(std::string classe);

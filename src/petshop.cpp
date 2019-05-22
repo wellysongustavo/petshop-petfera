@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <iterator>
+#include <typeinfo>
 
 #include "funcionario.h"
 #include "tratador.h"
@@ -358,59 +359,64 @@ void Petshop::listarAnimais() {
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 		//Verificação para anfibios
 		if(itr_t->second->getClasse() == "Anfibio"){
-			Anfibio* aux = (Anfibio*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<Anfibio*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "AnfibioNativo"){
-			AnfibioNativo* aux = (AnfibioNativo*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<AnfibioNativo*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "AnfibioExotico"){
-			AnfibioExotico* aux = (AnfibioExotico*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<AnfibioExotico*>(itr_t->second)) << std::endl;
 		}
 		//Verificação para aves
 		if(itr_t->second->getClasse() == "Ave"){
-			Ave* aux = (Ave*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<Ave*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "AveNativa"){
-			AveNativa* aux = (AveNativa*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<AveNativa*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "AveExotica"){
-			AveExotica* aux = (AveExotica*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<AveExotica*>(itr_t->second)) << std::endl;
 		}
 		//Verificação para mamíferos
 		if(itr_t->second->getClasse() == "Mamifero"){
-			Mamifero* aux = (Mamifero*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<Mamifero*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "MamiferoNativo"){
-			MamiferoNativo* aux = (MamiferoNativo*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<MamiferoNativo*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "MamiferoExotico"){
-			MamiferoExotico* aux = (MamiferoExotico*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<MamiferoExotico*>(itr_t->second)) << std::endl;
 		}
 		//Verificação para répteis
 		if(itr_t->second->getClasse() == "Reptil"){
-			Reptil* aux = (Reptil*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<Reptil*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "ReptilNativo"){
-			ReptilNativo* aux = (ReptilNativo*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<ReptilNativo*>(itr_t->second)) << std::endl;
 		}
 		if(itr_t->second->getClasse() == "ReptilExotico"){
-			ReptilExotico* aux = (ReptilExotico*)(itr_t->second);
-			std::cout << *aux << std::endl;
+			std::cout << *(dynamic_cast<ReptilExotico*>(itr_t->second)) << std::endl;
 		}
 	}
 }
+/*
+//Buscar solução para escolher qual atributo será editado para cada classe
+void Petshop::editarAnimal() {
+	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
+	listarAnimais();
 
+	int id_escolha;
+	std::cout << "\n- Insira o ID do animal que deseja editar: ";
+	std::cin >> id_escolha;
+
+	std::map<int, Animal*>::iterator itr_t;
+	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){	
+		if(itr_t->first == id_escolha) {
+			std::cout << typeid(itr_t->second).name() << std::endl;
+		}
+	}
+}	
+*/
 void Petshop::removerAnimal(){
 	int id_animal;
 	bool match = false;
@@ -470,8 +476,6 @@ void Petshop::consultarAnimal(){
 
 	}
 
-
-	
 }
 
 void Petshop::cadastrarFuncionario(){
