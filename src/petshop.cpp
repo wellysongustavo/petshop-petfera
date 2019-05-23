@@ -399,8 +399,9 @@ void Petshop::listarAnimais() {
 		}
 	}
 }
+
 /*
-//Buscar solução para escolher qual atributo será editado para cada classe
+Buscar solução para escolher qual atributo será editado para cada classe
 void Petshop::editarAnimal() {
 	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
 	listarAnimais();
@@ -417,6 +418,7 @@ void Petshop::editarAnimal() {
 	}
 }	
 */
+
 void Petshop::removerAnimal(){
 	int id_animal;
 	bool match = false;
@@ -425,7 +427,6 @@ void Petshop::removerAnimal(){
 	do{
 		std::cout << "Id do animal: ";
 		std::cin >> id_animal;
-
 		it = map_animais.find(id_animal);
 		if(it != map_animais.end()){
 			map_animais.erase(id_animal);
@@ -448,8 +449,9 @@ void Petshop::consultarAnimal(){
 	std::cout << "4 - Pesquisar por veterinário" << std::endl;
 	std::cin >> escolha_consulta;
 
+	std::map<int, Animal*>::iterator itr_t;
+
 	 if (escolha_consulta == 1) {
-		std::map<int, Animal*>::iterator it;
 		int id_animal;
 		bool match = false;
 
@@ -457,10 +459,50 @@ void Petshop::consultarAnimal(){
 			std::cout << "Id do animal: ";
 			std::cin >> id_animal;
 
-			it = map_animais.find(id_animal);
-			if(it != map_animais.end()){
-				//std::cout << it; 
-				std::cout << "Animal Encontrado" << std::endl;
+			itr_t = map_animais.find(id_animal);
+			if(itr_t != map_animais.end()){ 
+				std::cout << "Animal Encontrado" << std::endl;	
+				if(itr_t->second->getClasse() == "Anfibio"){
+					std::cout << *(dynamic_cast<Anfibio*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AnfibioNativo"){
+					std::cout << *(dynamic_cast<AnfibioNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AnfibioExotico"){
+					std::cout << *(dynamic_cast<AnfibioExotico*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para aves
+				else if(itr_t->second->getClasse() == "Ave"){
+					std::cout << *(dynamic_cast<Ave*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AveNativa"){
+					std::cout << *(dynamic_cast<AveNativa*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AveExotica"){
+					std::cout << *(dynamic_cast<AveExotica*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para mamíferos
+				else if(itr_t->second->getClasse() == "Mamifero"){
+					std::cout << *(dynamic_cast<Mamifero*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "MamiferoNativo"){
+					std::cout << *(dynamic_cast<MamiferoNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "MamiferoExotico"){
+					std::cout << *(dynamic_cast<MamiferoExotico*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para répteis
+				else if(itr_t->second->getClasse() == "Reptil"){
+					std::cout << *(dynamic_cast<Reptil*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "ReptilNativo"){
+					std::cout << *(dynamic_cast<ReptilNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "ReptilExotico"){
+					std::cout << *(dynamic_cast<ReptilExotico*>(itr_t->second)) << std::endl;
+				}
+					
+				match = true;
 			}else{
 				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
@@ -468,7 +510,73 @@ void Petshop::consultarAnimal(){
 		}while(match == false);
 		
 		
-	} else if (escolha_consulta == 2) {
+	 } else if (escolha_consulta == 2) {
+		
+		/* bool match = false;
+		int classe_animal;
+		int nativo_ou_exotico;
+		std::cout << "Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
+		do {
+			std::cin >> classe_animal;
+		} while (classe_animal < 1 || classe_animal > 4);
+		std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
+		do {
+			std::cin >> nativo_ou_exotico;
+		} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
+
+		do {
+			std::cout << "Id do animal: ";
+			std::cin >> id_animal;
+
+			itr_t = map_animais.find(id_animal);
+			if(itr_t != map_animais.end()){ 
+				std::cout << "Animal Encontrado" << std::endl;	
+				if(itr_t->second->getClasse() == "Anfibio"){
+					std::cout << *(dynamic_cast<Anfibio*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AnfibioNativo"){
+					std::cout << *(dynamic_cast<AnfibioNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AnfibioExotico"){
+					std::cout << *(dynamic_cast<AnfibioExotico*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para aves
+				else if(itr_t->second->getClasse() == "Ave"){
+					std::cout << *(dynamic_cast<Ave*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AveNativa"){
+					std::cout << *(dynamic_cast<AveNativa*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "AveExotica"){
+					std::cout << *(dynamic_cast<AveExotica*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para mamíferos
+				else if(itr_t->second->getClasse() == "Mamifero"){
+					std::cout << *(dynamic_cast<Mamifero*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "MamiferoNativo"){
+					std::cout << *(dynamic_cast<MamiferoNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "MamiferoExotico"){
+					std::cout << *(dynamic_cast<MamiferoExotico*>(itr_t->second)) << std::endl;
+				}
+				//Verificação para répteis
+				else if(itr_t->second->getClasse() == "Reptil"){
+					std::cout << *(dynamic_cast<Reptil*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "ReptilNativo"){
+					std::cout << *(dynamic_cast<ReptilNativo*>(itr_t->second)) << std::endl;
+				}
+				else if(itr_t->second->getClasse() == "ReptilExotico"){
+					std::cout << *(dynamic_cast<ReptilExotico*>(itr_t->second)) << std::endl;
+				}
+					
+				match = true;
+			}else{
+				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+			}
+
+		}while(match == false); */
 
 	} else if (escolha_consulta == 3) {
 
