@@ -13,6 +13,11 @@ class AveNativa: public Ave, AnimalNativo{
 			double envergadura_das_asas, std::string autorizacao, std::string uf_origem);
 		~AveNativa();
 
+		void setUfOrigem(std::string uf_origem);
+		std::string getUfOrigem();
+		void setAutorizacao(std::string autorizacao);
+		std::string getAutorizacao();
+		
 		friend std::ostream& operator << (std::ostream& os, AveNativa& a);
 };
 

@@ -7,7 +7,7 @@
 #ifndef _ANFIBIO_NATIVO_H_
 #define _ANFIBIO_NATIVO_H_
 
-class AnfibioNativo: public Anfibio, AnimalNativo{
+class AnfibioNativo: public Anfibio, AnimalNativo {
 	public:
 		AnfibioNativo(int id, std::string classe, std::string nome_cientifico, char sexo, 
 					  double tamanho, std::string dieta, Veterinario veterinario, 
@@ -16,6 +16,11 @@ class AnfibioNativo: public Anfibio, AnimalNativo{
 		~AnfibioNativo();
 
 		friend std::ostream& operator << (std::ostream& os, AnfibioNativo& a);
+
+		void setUfOrigem(std::string uf_origem);
+		std::string getUfOrigem();
+		void setAutorizacao(std::string autorizacao);
+		std::string getAutorizacao();
 };
 
 #endif

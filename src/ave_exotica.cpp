@@ -10,13 +10,18 @@ AveExotica::AveExotica(int id, std::string classe, std::string nome_cientifico,
             AnimalExotico(autorizacao, pais_origem) { }
 AveExotica::~AveExotica() { }
 
+void AveExotica::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
+void AveExotica::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }
+std::string AveExotica::getPaisOrigem() { return m_pais_origem; }
+std::string AveExotica::getAutorizacao() { return m_autorizacao_ibama; }
+
 std::ostream& operator << (std::ostream& os, AveExotica& a) {
 	os << "Id: " << a.m_id << "\nClasse: " << a.m_classe << "\nNome científico: " << a.m_nome_cientifico
 	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
 	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
 	<< "\nTamanho do bico (em cm): " << a.m_tamanho_do_bico_cm  << "\nEnvergadura das asas (em cm): " << a.m_envergadura_das_asas
 	<< "\nAutorização do IBAMA: " << a.m_autorizacao_ibama << "\nRegião de origem: " << a.m_pais_origem << 
-	"\n_____________________________________" << std::endl;
+	"\n________________________________________________________________________________" << std::endl;
 	
 	return os;	
 }

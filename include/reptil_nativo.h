@@ -12,6 +12,11 @@ class ReptilNativo : public Reptil, AnimalNativo {
 			std::string tipo_venenoso, std::string autorizacao, std::string uf_origem);
 		~ReptilNativo();
 
+		std::string getAutorizacao();
+		std::string getUfOrigem();
+		void setAutorizacao(std::string autorizacao);
+		void setUfOrigem(std::string uf_origem);
+		
 		friend std::ostream& operator << (std::ostream& os, ReptilNativo& r);	
 
 };

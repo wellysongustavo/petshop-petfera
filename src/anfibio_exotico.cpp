@@ -11,13 +11,18 @@ AnfibioExotico::AnfibioExotico(int id, std::string classe, std::string nome_cien
 
 AnfibioExotico::~AnfibioExotico(){ }
 
+void AnfibioExotico::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
+void AnfibioExotico::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }
+std::string AnfibioExotico::getPaisOrigem() { return m_pais_origem; }
+std::string AnfibioExotico::getAutorizacao() { return m_autorizacao_ibama; }
+
 std::ostream& operator << (std::ostream& os, AnfibioExotico& a) {
 	os << "Id: " << a.m_id << "\nClasse: " << a.m_classe << "\nNome científico: " << a.m_nome_cientifico
 	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
 	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
 	<< "\nTotal de mudas: " << a.m_total_de_mudas  << "\nData da ultima muda: " << a.m_ultima_muda << "\nAutorização do IBAMA: " 
-	<< a.m_autorizacao_ibama << "\nRegião de origem: " << a.m_pais_origem << "\n_____________________________________"
-	<< std::endl;
+	<< a.m_autorizacao_ibama << "\nRegião de origem: " << a.m_pais_origem 
+	<< "\n________________________________________________________________________________" << std::endl;
 	
 	return os;	
 }

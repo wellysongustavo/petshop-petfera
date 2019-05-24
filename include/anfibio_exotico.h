@@ -15,6 +15,11 @@ class AnfibioExotico: public Anfibio, AnimalExotico{
 					   date ultima_muda, std::string autorizacao, std::string pais_origem);
 		~AnfibioExotico();
 
+		void setPaisOrigem(std::string pais_origem);
+		std::string getPaisOrigem();
+		void setAutorizacao(std::string autorizacao);
+		std::string getAutorizacao();
+
 		friend std::ostream& operator << (std::ostream& os, AnfibioExotico& a);
 };
 

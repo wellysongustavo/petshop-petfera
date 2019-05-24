@@ -12,6 +12,11 @@ class ReptilExotico: public Reptil, AnimalExotico {
 			std::string tipo_venenoso, std::string autorizacao, std::string pais_origem);
 		~ReptilExotico();
 
+		std::string getAutorizacao();
+		std::string getPaisOrigem();
+		void setAutorizacao(std::string autorizacao);
+		void setPaisOrigem(std::string pais_origem);
+
 		friend std::ostream& operator << (std::ostream& os, ReptilExotico& r);	
 
 };

@@ -16,7 +16,7 @@ std::ostream& operator << (std::ostream& os, Mamifero& m) {
 	os << "Id: " << m.m_id << "\nClasse: " << m.m_classe << "\nNome científico: " << m.m_nome_cientifico
 	<< "\nSexo: " << m.m_sexo << "\nTamanho: " << m.m_tamanho << "\nDieta: " << m.m_dieta << "\nId do veterinario: " 
 	<< m.m_veterinario.getId() << "\nId do tratador: " << m.m_tratador.getId() << "\nNome de batismo: " << m.m_nome_batismo 
-	<< "\nCor do pelo: " << m.m_cor_pelo << "\n_____________________________________"
+	<< "\nCor do pelo: " << m.m_cor_pelo << "\n________________________________________________________________________________"
 	<< std::endl;
 	
 	return os;	

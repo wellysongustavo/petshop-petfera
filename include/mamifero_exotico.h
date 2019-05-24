@@ -9,9 +9,13 @@ class MamiferoExotico: public Mamifero, AnimalExotico{
 		MamiferoExotico(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
             Tratador tratador, std::string nome_batismo, std::string cor_pelo, 
-            std::string autorizacao, std::string pais_origem);
-		
+            std::string autorizacao, std::string pais_origem);		
 		~MamiferoExotico();
+
+		std::string getAutorizacao();
+		std::string getPaisOrigem();
+		void setAutorizacao(std::string autorizacao);
+		void setPaisOrigem(std::string pais_origem);
 
 		friend std::ostream& operator << (std::ostream& os, MamiferoExotico& m);
 };

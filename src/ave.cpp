@@ -20,7 +20,7 @@ std::ostream& operator << (std::ostream& os, Ave& a) {
 	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
 	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
 	<< "\nTamanho do bico (em cm): " << a.m_tamanho_do_bico_cm  << "\nEnvergadura das asas (em cm): " << a.m_envergadura_das_asas
-	<< "\n_____________________________________" << std::endl;
+	<< "\n________________________________________________________________________________" << std::endl;
 	
 	return os;	
 }

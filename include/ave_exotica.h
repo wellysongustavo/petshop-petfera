@@ -12,6 +12,11 @@ class AveExotica: public Ave, AnimalExotico{
 			double envergadura_das_asas, std::string autorizacao, std::string pais_origem);
 		~AveExotica();
 
+		void setPaisOrigem(std::string pais_origem);
+		std::string getPaisOrigem();
+		void setAutorizacao(std::string autorizacao);
+		std::string getAutorizacao();
+
 		friend std::ostream& operator << (std::ostream& os, AveExotica& a);
 };
 

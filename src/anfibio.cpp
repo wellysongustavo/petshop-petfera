@@ -22,7 +22,7 @@ std::ostream& operator << (std::ostream& os, Anfibio& a) {
 	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
 	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
 	<< "\nTotal de mudas: " << a.m_total_de_mudas  << "\nData da ultima muda: " << a.m_ultima_muda 
-	<< "\n_____________________________________" << std::endl;
+	<< "\n________________________________________________________________________________" << std::endl;
 	
 	return os;	
 }

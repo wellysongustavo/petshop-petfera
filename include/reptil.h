@@ -15,7 +15,7 @@ class Reptil : public Animal {
 		Reptil(int id, std::string classe, std::string nome_cientifico, 
 			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 			Tratador tratador, std::string nome_batismo, bool venenoso, 
-			std::string tipo_venenoso);
+			std::string tipo_venenoso = "Não venenoso");
 		~Reptil();
 
 		void setVenenoso(bool venenoso);

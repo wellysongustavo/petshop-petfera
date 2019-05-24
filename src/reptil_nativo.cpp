@@ -9,14 +9,19 @@ ReptilNativo::ReptilNativo(int id, std::string classe, std::string nome_cientifi
 
 ReptilNativo::~ReptilNativo() { /* void */ }
 
+//Getters e setters
+void ReptilNativo::setUfOrigem(std::string uf_origem) { m_uf_origem = uf_origem; }
+void ReptilNativo::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }
+std::string ReptilNativo::getUfOrigem() { return m_uf_origem; }
+std::string ReptilNativo::getAutorizacao() { return m_autorizacao_ibama; }
 
 std::ostream& operator << (std::ostream& os, ReptilNativo& r) {
 	os << "Id: " << r.m_id << "\nClasse: " << r.m_classe << "\nNome científico: " << r.m_nome_cientifico
 	<< "\nSexo: " << r.m_sexo << "\nTamanho: " << r.m_tamanho << "\nDieta: " << r.m_dieta << "\nId do veterinario: " 
 	<< r.m_veterinario.getId() << "\nId do tratador: " << r.m_tratador.getId() << "\nNome de batismo: " << r.m_nome_batismo 
-	<< "\nVenenoso: " << r.m_venenoso << "\nTipo venenoso: " << r.m_tipo_venenoso << "\nAutorização do IBAMA: " 
-	<< r.m_autorizacao_ibama << "\nRegião de origem: " << r.m_uf_origem << "\n_____________________________________"
-	<< std::endl;
+	<< "\nVenenoso: " << std::boolalpha << r.m_venenoso << "\nTipo venenoso: " << r.m_tipo_venenoso << "\nAutorização do IBAMA: " 
+	<< r.m_autorizacao_ibama << "\nRegião de origem: " << r.m_uf_origem 
+	<< "\n________________________________________________________________________________" << std::endl;
 	
 	return os;	
 }

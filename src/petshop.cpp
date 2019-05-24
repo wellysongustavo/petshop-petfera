@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <map>
 #include <iterator>
 #include <typeinfo>
@@ -112,10 +113,11 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 	std::cin >> venenoso_;
 
 	std::string tipo_venenoso_;
-	std::cout << "- Insira o tipo de veneno: ";
-	std::cin.ignore();
-	std::getline( cin, tipo_venenoso_);
-
+	if(venenoso_ == 1){
+		std::cout << "- Insira o tipo de veneno: ";
+		std::cin.ignore();
+		std::getline( cin, tipo_venenoso_);
+	}
 	int especie;
 	std::cout << "- Espécie do réptil (1- Silvestre | 2- Doméstico): ";
 	std::cin >> especie;
@@ -400,24 +402,260 @@ void Petshop::listarAnimais() {
 	}
 }
 
-/*
-Buscar solução para escolher qual atributo será editado para cada classe
 void Petshop::editarAnimal() {
 	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
 	listarAnimais();
+	int id_animal;
+	bool match = false;
+	std::map<int, Animal*>::iterator it;
 
-	int id_escolha;
-	std::cout << "\n- Insira o ID do animal que deseja editar: ";
-	std::cin >> id_escolha;
+	std::string novo_id, novo_nome_cientifico, novo_sexo, novo_tamanho, nova_dieta, novo_nome_batismo;
 
-	std::map<int, Animal*>::iterator itr_t;
-	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){	
-		if(itr_t->first == id_escolha) {
-			std::cout << typeid(itr_t->second).name() << std::endl;
+	do{
+		std::cout << "\n- Insira o ID do animal que deseja editar: ";
+		std::cin >> id_animal;
+		it = map_animais.find(id_animal);
+		if(it != map_animais.end()){
+			match = true;
+			
+			std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Id [" << it->second->getId() << "]: ";
+			std::cin >> novo_id;
+			if(novo_id != "*") { it->second->setId(std::stoi(novo_id)); }
+
+			std::cout << "- Nome científico [" << it->second->getNomeCientifico() << "]: ";
+			std::cin >> novo_nome_cientifico;
+			if(novo_nome_cientifico != "*") { it->second->setNomeCientifico(novo_nome_cientifico); }
+
+			std::cout << "- Sexo [" << it->second->getSexo() << "]: ";
+			std::cin >> novo_sexo;
+			char * aux = new char [novo_sexo.length()+1];
+			std::strcpy (aux, novo_sexo.c_str());
+			if(novo_sexo != "*") { it->second->setSexo(*aux); }
+
+			std::cout << "- Tamanho [" << it->second->getTamanho() << "]: ";
+			std::cin >> novo_tamanho;
+			if(novo_tamanho != "*") { it->second->setTamanho(std::stod(novo_tamanho)); }
+
+			std::cout << "- Dieta [" << it->second->getDieta() << "]: ";
+			std::cin >> nova_dieta;
+			if(nova_dieta != "*") { it->second->setDieta(nova_dieta); }
+
+			std::cout << "- Nome de batismo [" << it->second->getNomeBatismo() << "]: ";
+			std::cin >> novo_nome_batismo;
+			if(novo_nome_batismo != "*") { it->second->setNomeBatismo(novo_nome_batismo); }
+
+			//FALTA VER COMO PEGAR APENAS ID VETERINARIO E ID TRATADOR
+			
+			if(it->second->getClasse() == "Anfibio"){
+				std::string total_de_mudas, dia, mes, ano;
+
+				std::cout << "- Total de mudas [" << dynamic_cast<Anfibio*>(it->second)->getTotalMudas() << "]: ";
+				std::cin >> total_de_mudas;
+				if(total_de_mudas != "*") { dynamic_cast<Anfibio*>(it->second)->setTotalMudas(std::stoi(total_de_mudas)); }
+
+				std::cout << "- Data da última muda [" << dynamic_cast<Anfibio*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
+				std::cin >> dia; std::cin >> mes; std::cin >> ano;
+				if(dia != "*" && mes != "*" && ano != "*") { 
+					date ultima_muda(std::stoi(dia), std::stoi(mes), std::stoi(ano));
+					dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda); }
+			}
+			if(it->second->getClasse() == "AnfibioNativo"){
+				std::string total_de_mudas_nativo, dia_nativo, mes_nativo, ano_nativo, autorizacao_nativo, uf_origem_nativo;
+
+				std::cout << "- Total de mudas [" << dynamic_cast<AnfibioNativo*>(it->second)->getTotalMudas() << "]: ";
+				std::cin >> total_de_mudas_nativo;
+				if(total_de_mudas_nativo != "*") { dynamic_cast<AnfibioNativo*>(it->second)->setTotalMudas(std::stoi(total_de_mudas_nativo)); }
+
+				std::cout << "- Data da última muda [" << dynamic_cast<AnfibioNativo*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
+				std::cin >> dia_nativo; std::cin >> mes_nativo; std::cin >> ano_nativo;
+				if(dia_nativo != "*" && mes_nativo != "*" && ano_nativo != "*") { 
+					date ultima_muda_nativo(std::stoi(dia_nativo), std::stoi(mes_nativo), std::stoi(ano_nativo));
+					dynamic_cast<AnfibioNativo*>(it->second)->setUltimaMuda(ultima_muda_nativo); }
+
+				std::cout << "- Autorização [" << dynamic_cast<AnfibioNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_nativo;
+				if(autorizacao_nativo != "*") { dynamic_cast<AnfibioNativo*>(it->second)->setAutorizacao(autorizacao_nativo); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<AnfibioNativo*>(it->second)->getUfOrigem() << "]: ";
+				std::cin >> uf_origem_nativo;
+				if(uf_origem_nativo != "*") { dynamic_cast<AnfibioNativo*>(it->second)->setUfOrigem(uf_origem_nativo); }
+			}
+			if(it->second->getClasse() == "AnfibioExotico"){
+				std::string total_de_mudas_exotico, dia_exotico, mes_exotico, ano_exotico, autorizacao_exotico, pais_origem_exotico;
+
+				std::cout << "- Total de mudas [" << dynamic_cast<AnfibioExotico*>(it->second)->getTotalMudas() << "]: ";
+				std::cin >> total_de_mudas_exotico;
+				if(total_de_mudas_exotico != "*") { dynamic_cast<AnfibioExotico*>(it->second)->setTotalMudas(std::stoi(total_de_mudas_exotico)); }
+
+				std::cout << "- Data da última muda [" << dynamic_cast<AnfibioExotico*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
+				std::cin >> dia_exotico; std::cin >> mes_exotico; std::cin >> ano_exotico;
+				if(dia_exotico != "*" && mes_exotico != "*" && ano_exotico != "*") { 
+					date ultima_muda_exotico(std::stoi(dia_exotico), std::stoi(mes_exotico), std::stoi(ano_exotico));
+					dynamic_cast<AnfibioNativo*>(it->second)->setUltimaMuda(ultima_muda_exotico); }
+
+				std::cout << "- Autorização [" << dynamic_cast<AnfibioExotico*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_exotico;
+				if(autorizacao_exotico != "*") { dynamic_cast<AnfibioExotico*>(it->second)->setAutorizacao(autorizacao_exotico); }
+
+				std::cout << "- País de origem [" << dynamic_cast<AnfibioExotico*>(it->second)->getPaisOrigem() << "]: ";
+				std::cin >> pais_origem_exotico;
+				if(pais_origem_exotico != "*") { dynamic_cast<AnfibioExotico*>(it->second)->setPaisOrigem(pais_origem_exotico); }
+			}
+			//Verificação para aves
+			if(it->second->getClasse() == "Ave"){
+				std::string tamanho_do_bico_cm, envergadura_das_asas;
+
+				std::cout << "- Tamanho do bico em cm [" << dynamic_cast<Ave*>(it->second)->getTamanhoBico() << "]: ";
+				std::cin >> tamanho_do_bico_cm;
+				if(tamanho_do_bico_cm != "*") { dynamic_cast<Ave*>(it->second)->setTamanhoBico(std::stod(tamanho_do_bico_cm)); }
+
+				std::cout << "- Envergadura das asas em cm [" << dynamic_cast<Ave*>(it->second)->getEnvergaduraAsas() << "]: ";
+				std::cin >> envergadura_das_asas;
+				if(envergadura_das_asas != "*") { dynamic_cast<Ave*>(it->second)->setEnvergaduraAsas(std::stod(envergadura_das_asas)); }
+			}
+			if(it->second->getClasse() == "AveNativa"){
+				std::string tamanho_do_bico_cm_nativa, envergadura_das_asas_nativa, autorizacao_nativa, uf_origem_nativa;
+
+				std::cout << "- Tamanho do bico em cm [" << dynamic_cast<AveNativa*>(it->second)->getTamanhoBico() << "]: ";
+				std::cin >> tamanho_do_bico_cm_nativa;
+				if(tamanho_do_bico_cm_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setTamanhoBico(std::stod(tamanho_do_bico_cm_nativa)); }
+
+				std::cout << "- Envergadura das asas em cm [" << dynamic_cast<AveNativa*>(it->second)->getEnvergaduraAsas() << "]: ";
+				std::cin >> envergadura_das_asas_nativa;
+				if(envergadura_das_asas_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setEnvergaduraAsas(std::stod(envergadura_das_asas_nativa)); }
+					
+				std::cout << "- Autorização [" << dynamic_cast<AveNativa*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_nativa;
+				if(autorizacao_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setAutorizacao(autorizacao_nativa); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<AveNativa*>(it->second)->getUfOrigem() << "]: ";
+				std::cin >> uf_origem_nativa;
+				if(uf_origem_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setUfOrigem(uf_origem_nativa); }			
+			}
+			if(it->second->getClasse() == "AveExotica"){
+				std::string tamanho_do_bico_cm_exotica, envergadura_das_asas_exotica, autorizacao_exotica, pais_origem_exotica;
+
+				std::cout << "- Tamanho do bico em cm [" << dynamic_cast<AveExotica*>(it->second)->getTamanhoBico() << "]: ";
+				std::cin >> tamanho_do_bico_cm_exotica;
+				if(tamanho_do_bico_cm_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setTamanhoBico(std::stod(tamanho_do_bico_cm_exotica)); }
+
+				std::cout << "- Envergadura das asas em cm [" << dynamic_cast<AveExotica*>(it->second)->getEnvergaduraAsas() << "]: ";
+				std::cin >> envergadura_das_asas_exotica;
+				if(envergadura_das_asas_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setEnvergaduraAsas(std::stod(envergadura_das_asas_exotica)); }
+					
+				std::cout << "- Autorização [" << dynamic_cast<AveExotica*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_exotica;
+				if(autorizacao_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setAutorizacao(autorizacao_exotica); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<AveExotica*>(it->second)->getPaisOrigem() << "]: ";
+				std::cin >> pais_origem_exotica;
+				if(pais_origem_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setPaisOrigem(pais_origem_exotica); }				
+			}
+			//Verificação para mamíferos
+			if(it->second->getClasse() == "Mamifero"){
+				std::string cor_pelo;
+
+				std::cout << "- Cor do pelo [" << dynamic_cast<Mamifero*>(it->second)->getCorPelo() << "]: ";
+				std::cin >> cor_pelo;
+				if(cor_pelo != "*") { dynamic_cast<Mamifero*>(it->second)->setCorPelo(cor_pelo); }	
+			}
+			if(it->second->getClasse() == "MamiferoNativo"){				
+				std::string cor_pelo_nativo, autorizacao_mamifero_nativo, uf_origem_mamifero_nativo;
+
+				std::cout << "- Cor do pelo [" << dynamic_cast<MamiferoNativo*>(it->second)->getCorPelo() << "]: ";
+				std::cin >> cor_pelo_nativo;
+				if(cor_pelo_nativo != "*") { dynamic_cast<MamiferoNativo*>(it->second)->setCorPelo(cor_pelo_nativo); }
+				
+				std::cout << "- Autorização [" << dynamic_cast<MamiferoNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_mamifero_nativo;
+				if(autorizacao_mamifero_nativo != "*") { dynamic_cast<MamiferoNativo*>(it->second)->setAutorizacao(autorizacao_mamifero_nativo); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<MamiferoNativo*>(it->second)->getUfOrigem() << "]: ";
+				std::cin >> uf_origem_mamifero_nativo;
+				if(uf_origem_mamifero_nativo != "*") { dynamic_cast<MamiferoNativo*>(it->second)->setUfOrigem(uf_origem_mamifero_nativo); }			
+			}
+			if(it->second->getClasse() == "MamiferoExotico"){				
+				std::string cor_pelo_exotico, autorizacao_mamifero_exotico, pais_origem_mamifero_exotico;
+
+				std::cout << "- Cor do pelo [" << dynamic_cast<MamiferoExotico*>(it->second)->getCorPelo() << "]: ";
+				std::cin >> cor_pelo_exotico;
+				if(cor_pelo_exotico != "*") { dynamic_cast<MamiferoExotico*>(it->second)->setCorPelo(cor_pelo_exotico); }
+				
+				std::cout << "- Autorização [" << dynamic_cast<MamiferoExotico*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_mamifero_exotico;
+				if(autorizacao_mamifero_exotico != "*") { dynamic_cast<MamiferoExotico*>(it->second)->setAutorizacao(autorizacao_mamifero_exotico); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<MamiferoExotico*>(it->second)->getPaisOrigem() << "]: ";
+				std::cin >> pais_origem_mamifero_exotico;
+				if(pais_origem_mamifero_exotico != "*") { dynamic_cast<MamiferoExotico*>(it->second)->setPaisOrigem(pais_origem_mamifero_exotico); }			
+			}
+			//Verificação para répteis
+			if(it->second->getClasse() == "Reptil"){
+				std::string venenoso, tipo_venenoso;
+				
+				std::cout << "- Venenoso [" << dynamic_cast<Reptil*>(it->second)->getVenenoso() << "] (1 para verdadeiro, 0 para falso): ";
+				std::cin >> venenoso;
+				bool bool_venenoso = (venenoso == "1");
+				if(venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setVenenoso(bool_venenoso); }	
+
+				if(dynamic_cast<Reptil*>(it->second)->getVenenoso() == 1) {
+					std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: ";
+					std::cin >> tipo_venenoso; 
+					if(tipo_venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setTipoVenenoso(tipo_venenoso); }
+					else {
+						dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("Não informado");
+					}
+				}else {
+					dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("");
+					std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: " << std::endl;
+				}			
+			}
+			if(it->second->getClasse() == "ReptilNativo"){
+				std::string venenoso_nativo, tipo_venenoso_nativo, autorizacao_reptil_nativo, uf_origem_reptil_nativo;
+				
+				std::cout << "- Venenoso [" << dynamic_cast<ReptilNativo*>(it->second)->getVenenoso() << "] (1 para verdadeiro, 0 para falso): ";
+				std::cin >> venenoso_nativo;
+				bool bool_venenoso_nativo = (venenoso_nativo == "1");
+				if(venenoso_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setVenenoso(bool_venenoso_nativo); }	
+
+				std::cout << "- Tipo venenoso [" << dynamic_cast<ReptilNativo*>(it->second)->getTipoVenenoso() << "]: ";
+				std::cin >> tipo_venenoso_nativo; 
+				if(tipo_venenoso_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setTipoVenenoso(tipo_venenoso_nativo); }	
+
+				std::cout << "- Autorização [" << dynamic_cast<ReptilNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_reptil_nativo;
+				if(autorizacao_reptil_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setAutorizacao(autorizacao_reptil_nativo); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<ReptilNativo*>(it->second)->getUfOrigem() << "]: ";
+				std::cin >> uf_origem_reptil_nativo;
+				if(uf_origem_reptil_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setUfOrigem(uf_origem_reptil_nativo); }						
+			}
+			if(it->second->getClasse() == "ReptilExotico"){
+				std::string venenoso_exotico, tipo_venenoso_exotico, autorizacao_reptil_exotico, pais_origem_reptil_exotico;
+				
+				std::cout << "- Venenoso [" << dynamic_cast<ReptilExotico*>(it->second)->getVenenoso() << "] (1 para verdadeiro, 0 para falso): ";
+				std::cin >> venenoso_exotico;
+				bool bool_venenoso_exotico = (venenoso_exotico == "1");
+				if(venenoso_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setVenenoso(bool_venenoso_exotico); }	
+
+				std::cout << "- Tipo venenoso [" << dynamic_cast<ReptilExotico*>(it->second)->getTipoVenenoso() << "]: ";
+				std::cin >> tipo_venenoso_exotico; 
+				if(tipo_venenoso_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setTipoVenenoso(tipo_venenoso_exotico); }	
+
+				std::cout << "- Autorização [" << dynamic_cast<ReptilExotico*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_reptil_exotico;
+				if(autorizacao_reptil_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setAutorizacao(autorizacao_reptil_exotico); }
+
+				std::cout << "- UF de origem [" << dynamic_cast<ReptilExotico*>(it->second)->getPaisOrigem() << "]: ";
+				std::cin >> pais_origem_reptil_exotico;
+				if(pais_origem_reptil_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setPaisOrigem(pais_origem_reptil_exotico); }				
+			}
+			std::cout << "\nAnimal atualizado com sucesso!" << std::endl;
+		}else{
+			std::cout << "Id inexistente. Tente novamente!" << std::endl;
 		}
-	}
+	}while(match == false);
 }	
-*/
 
 void Petshop::removerAnimal(){
 	int id_animal;
