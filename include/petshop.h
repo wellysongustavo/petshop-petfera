@@ -52,14 +52,3 @@ class Petshop{
 };
 
 #endif
-/*
-std::ostream& operator << (std::ostream& os, AnfibioNativo& a) {
-	os << "Id: " << a.m_id << "\nClasse: " << a.m_classe << "\nNome científico: " << a.m_nome_cientifico
-	<< "\nSexo: " << a.m_sexo << "\nTamanho: " << a.m_tamanho << "\nDieta: " << a.m_dieta << "\nId do veterinario: " 
-	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
-	<< "\nTotal de mudas: " << a.m_total_de_mudas  << "\nData da ultima muda: " << a.m_ultima_muda << "\nAutorização do IBAMA: " 
-	<< a.m_autorizacao_ibama << "\nRegião de origem: " << a.m_uf_origem << "\n_____________________________________"
-	<< std::endl;
-	
-	return os;	
-}*/

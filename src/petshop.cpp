@@ -36,8 +36,8 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 	std::string nome_batismo_) {
 	
 	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
-	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
-	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+	Veterinario* vet1 = new Veterinario("Veterinario", 2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador("Tratador", 1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
 
 	int total_de_mudas_;
 	std::cout << "- Total de mudas do anfíbio: ";
@@ -105,8 +105,8 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 	std::string nome_batismo_) {
 
 	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
-	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
-	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+	Veterinario* vet1 = new Veterinario("Veterinario", 2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador("Tratador", 1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
 
 	bool venenoso_;
 	std::cout << "- O réptil é venenoso (1 para verdadeiro, 0 para falso)? ";
@@ -174,8 +174,8 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 	std::string nome_batismo_) {
 
 	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
-	Veterinario* vet1 = new Veterinario(2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
-	Tratador* trat1 = new Tratador(1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+	Veterinario* vet1 = new Veterinario("Veterinario", 2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador("Tratador", 1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
 
 	double tamanho_do_bico_cm_;
 	std::cout << "- Insira o tamanho do bico da ave (em cm): ";
@@ -241,8 +241,8 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 	std::string nome_batismo_) {
 	
 	//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
-	Veterinario* vet1 = new Veterinario(2, "Pedro Burro", "011.257.789-30", 30, "O", '+', "Felinos", "CRMV-GO 0406");
-	Tratador* trat1 = new Tratador(1, "Paulo Riscado", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
+	Veterinario* vet1 = new Veterinario("Veterinario", 2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
+	Tratador* trat1 = new Tratador("Tratador", 1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
 
 	std::string cor_pelo_;
 	std::cout << "- Cor de Pelo: ";
@@ -869,7 +869,7 @@ void Petshop::cadastrarFuncionario(){
 		std::cin.ignore();
 		std::getline( cin, crmv_);
 
-		Veterinario* vet = new Veterinario("Veterinário", id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
+		Veterinario* vet = new Veterinario("Veterinario", id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
 		
 		map_funcionarios.insert({id_,vet});
 		std::cout << "Veterinário "<< vet->getNome() <<" cadastrado com sucesso.\n" << std::endl;
@@ -886,13 +886,14 @@ void Petshop::cadastrarFuncionario(){
 		//std::cout << *(dynamic_cast<Tratador*>(map_funcionarios.at(id_)));  //FUNCIONANDO
 	}
 }
+
 void Petshop::listarFuncionarios(){
 	std::cout << "\n---------Funcionários cadastrados--------\n" << std::endl;
 	std::map<int, Funcionario*>::iterator it;
 
 	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
 
-		if(it->second->getClasse() == "Veterinário"){
+		if(it->second->getClasse() == "Veterinario"){
 			std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
 
 		}else if(it->second->getClasse() == "Tratador"){
@@ -965,7 +966,7 @@ void Petshop::removerTratador(){
 */
 
 void Petshop::removerFuncionario(){
-	int remocao;
+	//int remocao;
 	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
 	listarFuncionarios();
 	
