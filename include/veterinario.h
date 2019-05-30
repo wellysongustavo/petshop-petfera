@@ -9,7 +9,7 @@ class Veterinario : public Funcionario {
 		std::string m_crmv;
 
 	public:
-		Veterinario(int id, std::string nome, std::string cpf,
+		Veterinario(std::string classe, int id, std::string nome, std::string cpf,
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade,
 		std::string crmv);
 		~Veterinario();

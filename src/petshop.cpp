@@ -869,7 +869,7 @@ void Petshop::cadastrarFuncionario(){
 		std::cin.ignore();
 		std::getline( cin, crmv_);
 
-		Veterinario* vet = new Veterinario(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
+		Veterinario* vet = new Veterinario("Veterinário", id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, crmv_);
 		
 		map_funcionarios.insert({id_,vet});
 		std::cout << "Veterinário "<< vet->getNome() <<" cadastrado com sucesso.\n" << std::endl;
@@ -879,18 +879,25 @@ void Petshop::cadastrarFuncionario(){
 		std::cout << "- Nível de segurança: ";
 		std::cin >> nivel_de_seguranca_;	
 
-		Tratador* trat = new Tratador(id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
+		Tratador* trat = new Tratador("Tratador", id_, nome_, cpf_, idade_, tipo_sanguineo_, fator_rh_, especialidade_, nivel_de_seguranca_);
 		
 		map_funcionarios.insert({id_,trat});
 		std::cout << "Tratador "<< trat->getNome() <<" cadastrado com sucesso.\n" << std::endl;
 		//std::cout << *(dynamic_cast<Tratador*>(map_funcionarios.at(id_)));  //FUNCIONANDO
 	}
 }
-void Petshop::listarFuncionarios(){ // FALTA IF PRA VET E TRAT
-	std::map<int, Funcionario*>::iterator it;
+void Petshop::listarFuncionarios(){
 	std::cout << "\n---------Funcionários cadastrados--------\n" << std::endl;
+	std::map<int, Funcionario*>::iterator it;
+
 	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
-		std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+
+		if(it->second->getClasse() == "Veterinário"){
+			std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+
+		}else if(it->second->getClasse() == "Tratador"){
+			std::cout << *(dynamic_cast<Tratador*>(it->second)) << "\n" << std::endl;	
+		}
 	}
 }
 /*
@@ -909,7 +916,9 @@ void Petshop::listarTratadores(){
 		std::cout << itr_t->second << "\n" << std::endl;
 	}
 }
+*/
 
+/*
 void Petshop::removerVeterinario(){
 	int id_vet;
 	bool match = false;
@@ -956,19 +965,10 @@ void Petshop::removerTratador(){
 */
 
 void Petshop::removerFuncionario(){
-	//int remocao;
+	int remocao;
 	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
 	listarFuncionarios();
-	/*
-	do{
-		std::cout << "Para remover Veterinário - 1, para Tratador - 2" << std::endl;
-		std::cin >> remocao;
-	}while(remocao < 1 || remocao > 2);
-
-	if(remocao == 1){
-		removerVeterinario();
-	}else{
-		removerTratador();
-	}
-	*/
+	
+	//find por id e depois erase
+	
 }

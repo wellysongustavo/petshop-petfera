@@ -9,7 +9,7 @@ class Tratador : public Funcionario {
 		int m_nivel_de_seguranca;
 
 	public:
-		Tratador(int id, std::string nome, std::string cpf,
+		Tratador(std::string classe, int id, std::string nome, std::string cpf,
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade, 
 		int nivel_de_seguranca);
 		~Tratador();
