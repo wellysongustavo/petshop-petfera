@@ -6,6 +6,7 @@
 
 class Funcionario {
 	protected:
+		std::string m_classe;
 		int m_id;
 		std::string m_nome;
 		std::string m_cpf;
@@ -15,10 +16,11 @@ class Funcionario {
 		std::string m_especialidade;
 
 	public:
-		Funcionario(int id, std::string nome, std::string cpf,
+		Funcionario(std::string classe, int id, std::string nome, std::string cpf,
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade);
 		virtual ~Funcionario() = 0;
 
+		void setClasse(std::string classe);
 		void setId(int id);
 		void setNome(std::string nome);
 		void stCpf(std::string cpf);
@@ -27,6 +29,7 @@ class Funcionario {
 		void setFatorRh(char fator_rh);
 		void setEspecialidade(std::string especialidade);
 
+		std::string getClasse();
 		int getId();
 		std::string getNome();
 		std::string getCpf();
