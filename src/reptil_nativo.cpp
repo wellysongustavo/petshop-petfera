@@ -9,6 +9,8 @@ ReptilNativo::ReptilNativo(int id, std::string classe, std::string nome_cientifi
 
 ReptilNativo::~ReptilNativo() { /* void */ }
 
+void ReptilNativo::dummy() { /* void */ }
+
 //Getters e setters
 void ReptilNativo::setUfOrigem(std::string uf_origem) { m_uf_origem = uf_origem; }
 void ReptilNativo::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

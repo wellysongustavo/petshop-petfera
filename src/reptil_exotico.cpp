@@ -9,6 +9,8 @@ ReptilExotico::ReptilExotico(int id, std::string classe, std::string nome_cienti
 
 ReptilExotico::~ReptilExotico() { /* void */ }
 
+void ReptilExotico::dummy() { /* void */ }
+
 //Getters e setters
 void ReptilExotico::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
 void ReptilExotico::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

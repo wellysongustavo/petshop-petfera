@@ -10,6 +10,8 @@ MamiferoExotico::MamiferoExotico(int id, std::string classe, std::string nome_ci
             AnimalExotico(autorizacao, pais_origem) { }
 MamiferoExotico::~MamiferoExotico(){ }
 
+void MamiferoExotico::dummy() { /* void */ }
+
 //Getters e setters
 void MamiferoExotico::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
 void MamiferoExotico::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

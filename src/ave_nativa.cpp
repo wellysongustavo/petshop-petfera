@@ -10,6 +10,8 @@ AveNativa::AveNativa(int id, std::string classe, std::string nome_cientifico,
             AnimalNativo(autorizacao, uf_origem) { }
 AveNativa::~AveNativa() { }
 
+void AveNativa::dummy() { /* void */ }
+
 //Getters e setters
 void AveNativa::setUfOrigem(std::string uf_origem) { m_uf_origem = uf_origem; }
 void AveNativa::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

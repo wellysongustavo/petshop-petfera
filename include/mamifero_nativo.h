@@ -12,6 +12,8 @@ class MamiferoNativo: public Mamifero, AnimalNativo{
             std::string autorizacao, std::string uf_origem);
 		~MamiferoNativo();
 
+		void dummy();
+
 		std::string getAutorizacao();
 		std::string getUfOrigem();
 		void setAutorizacao(std::string autorizacao);

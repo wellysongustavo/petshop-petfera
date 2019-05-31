@@ -12,6 +12,8 @@ class AveExotica: public Ave, AnimalExotico{
 			double envergadura_das_asas, std::string autorizacao, std::string pais_origem);
 		~AveExotica();
 
+		void dummy();
+		
 		void setPaisOrigem(std::string pais_origem);
 		std::string getPaisOrigem();
 		void setAutorizacao(std::string autorizacao);

@@ -10,6 +10,8 @@ AveExotica::AveExotica(int id, std::string classe, std::string nome_cientifico,
             AnimalExotico(autorizacao, pais_origem) { }
 AveExotica::~AveExotica() { }
 
+void AveExotica::dummy() { /* void */ }
+
 void AveExotica::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
 void AveExotica::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }
 std::string AveExotica::getPaisOrigem() { return m_pais_origem; }

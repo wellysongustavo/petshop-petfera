@@ -12,6 +12,8 @@ class MamiferoExotico: public Mamifero, AnimalExotico{
             std::string autorizacao, std::string pais_origem);		
 		~MamiferoExotico();
 
+		void dummy();
+		
 		std::string getAutorizacao();
 		std::string getPaisOrigem();
 		void setAutorizacao(std::string autorizacao);

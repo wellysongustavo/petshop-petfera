@@ -12,6 +12,8 @@ class ReptilExotico: public Reptil, AnimalExotico {
 			std::string tipo_venenoso, std::string autorizacao, std::string pais_origem);
 		~ReptilExotico();
 
+		void dummy();
+
 		std::string getAutorizacao();
 		std::string getPaisOrigem();
 		void setAutorizacao(std::string autorizacao);

@@ -17,6 +17,8 @@ class Anfibio : public Animal {
 				char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
 				Tratador tratador, std::string nome_batismo, int total_de_mudas, date ultima_muda); 
 		~Anfibio();
+
+		void dummy();
 		
 		void setTotalMudas(int total_de_mudas);
 		int getTotalMudas();

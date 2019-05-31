@@ -12,6 +12,8 @@ class ReptilNativo : public Reptil, AnimalNativo {
 			std::string tipo_venenoso, std::string autorizacao, std::string uf_origem);
 		~ReptilNativo();
 
+		void dummy();
+
 		std::string getAutorizacao();
 		std::string getUfOrigem();
 		void setAutorizacao(std::string autorizacao);

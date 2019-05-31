@@ -11,6 +11,8 @@ AnfibioNativo::AnfibioNativo(int id, std::string classe, std::string nome_cienti
 {}
 AnfibioNativo::~AnfibioNativo(){}
 
+void AnfibioNativo::dummy() { /* void */ }
+
 //Getters e setters
 void AnfibioNativo::setUfOrigem(std::string uf_origem) { m_uf_origem = uf_origem; }
 void AnfibioNativo::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

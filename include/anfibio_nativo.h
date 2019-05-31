@@ -15,6 +15,8 @@ class AnfibioNativo: public Anfibio, AnimalNativo {
 					  std::string autorizacao, std::string uf_origem);
 		~AnfibioNativo();
 
+		void dummy();
+		
 		friend std::ostream& operator << (std::ostream& os, AnfibioNativo& a);
 
 		void setUfOrigem(std::string uf_origem);

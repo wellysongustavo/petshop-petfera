@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <sstream>
+#include <fstream>
 
 #include "animal.h"
 #include "veterinario.h"
@@ -19,16 +21,16 @@ class Petshop{
 		~Petshop();
 
 		void cadastrarAnimal();
-		void cadastrarAnfibio(int id, std::string nome_cientifico, char sexo, 
+		void cadastrarAnfibio(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarReptil(int id, std::string nome_cientifico, char sexo, 
+		void cadastrarReptil(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarAve(int id, std::string nome_cientifico, char sexo, 
+		void cadastrarAve(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarMamifero(int id, std::string nome_cientifico, char sexo, 
+		void cadastrarMamifero(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
 		void listarAnimais();	

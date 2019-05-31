@@ -9,6 +9,8 @@ Mamifero::Mamifero(int id, std::string classe, std::string nome_cientifico,
 
 Mamifero::~Mamifero() { /* void */ }
 
+void Mamifero::dummy() { /* void */ }
+
 void Mamifero::setCorPelo(std::string cor_pelo) { m_cor_pelo = cor_pelo; }
 std::string Mamifero::getCorPelo() { return m_cor_pelo; }
 

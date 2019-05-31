@@ -11,6 +11,8 @@ MamiferoNativo::MamiferoNativo(int id, std::string classe, std::string nome_cien
 
 MamiferoNativo::~MamiferoNativo(){ }
 
+void MamiferoNativo::dummy() { /* void */ }
+
 //Getters e setters
 void MamiferoNativo::setUfOrigem(std::string uf_origem) { m_uf_origem = uf_origem; }
 void MamiferoNativo::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }

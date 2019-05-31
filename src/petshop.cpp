@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <sstream>
 #include <map>
 #include <iterator>
 #include <typeinfo>
+#include <fstream>
 
 #include "funcionario.h"
 #include "tratador.h"
@@ -31,7 +33,7 @@ Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
-void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_, 
+void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
 	
@@ -71,10 +73,9 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, uf_origem_);
 
-			
 			this->map_animais.insert({id_, nativo});
+			arquivo_ << *nativo << std::endl;
 			std::cout << "\nAnfibio " << nativo->getNomeBatismo() << " adicionado com sucesso." << std::endl;
-			
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -87,20 +88,20 @@ void Petshop::cadastrarAnfibio(int id_, std::string nome_cientifico_, char sexo_
 				autorizacao_, pais_origem_);
 			
 			this->map_animais.insert({id_, exotico});
-			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
-			
+			arquivo_ << *exotico << std::endl;
+			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 		}
 	}else {
 		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfibio", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_);
 		
 		this->map_animais.insert({id_, anfibio_domestico});
+		arquivo_ << *anfibio_domestico << std::endl;
 		std::cout << "\nAnfíbio " << anfibio_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
-		
 	}
 }
 
-void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_, 
+void Petshop::cadastrarReptil(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
 
@@ -169,7 +170,7 @@ void Petshop::cadastrarReptil(int id_, std::string nome_cientifico_, char sexo_,
 	}
 }
 
-void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_, 
+void Petshop::cadastrarAve(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
 
@@ -236,7 +237,7 @@ void Petshop::cadastrarAve(int id_, std::string nome_cientifico_, char sexo_,
 	}
 }
 
-void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo_, 
+void Petshop::cadastrarMamifero(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
 	
@@ -298,6 +299,20 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
+	std::fstream arquivo ("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
+
+	if(!(arquivo.is_open())) { 
+		std::cerr << "ERRO! Abertura de arquivo inválida." << std:: endl; 
+		exit(1);
+	}
+	arquivo.seekg (0, arquivo.end);
+    int length = arquivo.tellg();
+    arquivo.seekg (0, arquivo.beg);
+
+	if(length == 0) {
+		arquivo << "****************************** CATÁLOGO DOS ANIMAIS ******************************\n\n";
+	}
+
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
 		std::cin >> escolha_classe;
@@ -340,19 +355,20 @@ void Petshop::cadastrarAnimal() {
 
 	switch(escolha_classe) {
 		case 1:
-			cadastrarAnfibio(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarAnfibio(arquivo, id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 2:
-			cadastrarAve(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarAve(arquivo, id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 3:
-			cadastrarMamifero(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarMamifero(arquivo, id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 		case 4:
-			cadastrarReptil(id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
+			cadastrarReptil(arquivo, id_, nome_cientifico_, sexo_, tamanho_, dieta_, id_veterinario_, id_tratador_, nome_batismo_);
 			break;
 
 	}
+	arquivo.close();
 }
 
 void Petshop::listarAnimais() {

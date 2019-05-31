@@ -10,6 +10,8 @@ Reptil::Reptil(int id, std::string classe, std::string nome_cientifico,
 
 Reptil::~Reptil() { /* void */ }
 
+void Reptil::dummy() { /* void */ }			
+
 void Reptil::setVenenoso(bool venenoso) { m_venenoso = venenoso; }
 void Reptil::setTipoVenenoso(std::string tipo_venenoso) { m_tipo_venenoso = tipo_venenoso; }
 bool Reptil::getVenenoso() { return m_venenoso; }

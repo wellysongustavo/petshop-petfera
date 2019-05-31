@@ -11,6 +11,8 @@ AnfibioExotico::AnfibioExotico(int id, std::string classe, std::string nome_cien
 
 AnfibioExotico::~AnfibioExotico(){ }
 
+void AnfibioExotico::dummy() { /* void */ }
+
 void AnfibioExotico::setPaisOrigem(std::string pais_origem) { m_pais_origem = pais_origem; }
 void AnfibioExotico::setAutorizacao(std::string autorizacao) { m_autorizacao_ibama = autorizacao; }
 std::string AnfibioExotico::getPaisOrigem() { return m_pais_origem; }

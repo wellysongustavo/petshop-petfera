@@ -10,6 +10,8 @@ Ave::Ave(int id, std::string classe, std::string nome_cientifico,
 
 Ave::~Ave() { /* void */ }
 
+void Ave::dummy() { /* void */ }		
+
 void Ave::setTamanhoBico(double tamanho_do_bico_cm) { m_tamanho_do_bico_cm = tamanho_do_bico_cm; }
 void Ave::setEnvergaduraAsas(double envergadura_das_asas) { m_envergadura_das_asas = envergadura_das_asas; }
 double Ave::getTamanhoBico() { return m_tamanho_do_bico_cm; }

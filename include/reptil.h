@@ -18,6 +18,8 @@ class Reptil : public Animal {
 			std::string tipo_venenoso = "Não venenoso");
 		~Reptil();
 
+		void dummy();
+
 		void setVenenoso(bool venenoso);
 		void setTipoVenenoso(std::string tipo_venenoso);
 		bool getVenenoso();

@@ -18,6 +18,8 @@ class Ave : public Animal {
 			double envergadura_das_asas);
 		~Ave();
 
+		void dummy();
+
 		void setTamanhoBico(double tamanho_do_bico_cm);
 		void setEnvergaduraAsas(double envergadura_das_asas);
 		double getTamanhoBico();

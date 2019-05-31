@@ -16,6 +16,8 @@ class Mamifero : public Animal {
 			Tratador tratador, std::string nome_batismo, std::string cor_pelo);
 		~Mamifero();
 
+		void dummy();
+
 		void setCorPelo(std::string cor_pelo);
 		std::string getCorPelo();
 
