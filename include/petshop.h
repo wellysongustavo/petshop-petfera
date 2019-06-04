@@ -20,6 +20,8 @@ class Petshop{
 		Petshop(std::string nome);
 		~Petshop();
 
+		std::fstream abrirArquivo();
+
 		void cadastrarAnimal();
 		void cadastrarAnfibio(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 

@@ -33,6 +33,23 @@ Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
+std::fstream Petshop::abrirArquivo() {
+	std::fstream arquivo_("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
+
+	if(!(arquivo_.is_open())) { 
+		std::cerr << "ERRO! Abertura de arquivo inválida." << std:: endl; 
+		exit(1);
+	}
+	arquivo_.seekg (0, arquivo_.end);
+    int length = arquivo_.tellg();
+    arquivo_.seekg (0, arquivo_.beg);
+
+	if(length == 0) {
+		arquivo_ << "****************************** CATÁLOGO DOS ANIMAIS ******************************\n\n";
+	}
+	return arquivo_;
+}
+
 void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -69,13 +86,19 @@ void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome
 			std::cin.ignore();
 			std::getline( cin, uf_origem_);
 
+			//SE CONSEGUIR LER DO CSV E SALVAR O QUE TEM NO CSV EM UM MAP, PARTES IGUAL ESSAS SÃO DESNECESSÁRIAS
 			AnfibioNativo* nativo = new AnfibioNativo(id_, "AnfibioNativo", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_, 
 				autorizacao_, uf_origem_);
 
 			this->map_animais.insert({id_, nativo});
-			arquivo_ << *nativo << std::endl;
-			std::cout << "\nAnfibio " << nativo->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+
+			//escrevendo no csv
+			arquivo_ <<  id_ << ";" << "AnfibioNativo" << ";" << nome_cientifico_ << ";" << sexo_ << ";" 
+			<< tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" << trat1->getId() << ";" << nome_batismo_ 
+			<< ";" << total_de_mudas_  << ";" << data_ << ";" << autorizacao_ << ";" << uf_origem_ << std::endl;
+			
+			std::cout << "\nAnfibio " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -88,16 +111,26 @@ void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome
 				autorizacao_, pais_origem_);
 			
 			this->map_animais.insert({id_, exotico});
-			arquivo_ << *exotico << std::endl;
-			std::cout << "\nAnfibio " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+
+			//escrevendo no csv
+			arquivo_ <<  id_ << ";" << "AnfibioExotico" << ";" << nome_cientifico_ << ";" << sexo_ << ";" 
+			<< tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" << trat1->getId() << ";" << nome_batismo_ 
+			<< ";" << total_de_mudas_  << ";" << data_ << ";" << autorizacao_ << ";" << pais_origem_ << std::endl;
+			
+			std::cout << "\nAnfibio " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 		}
 	}else {
 		Anfibio* anfibio_domestico = new Anfibio(id_, "Anfibio", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, total_de_mudas_, data_);
 		
 		this->map_animais.insert({id_, anfibio_domestico});
-		arquivo_ << *anfibio_domestico << std::endl;
-		std::cout << "\nAnfíbio " << anfibio_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+
+		//escrevendo no csv
+		arquivo_ << id_ << ";" << "Anfibio" << ";" << nome_cientifico_ << ";" << sexo_ << ";" 
+		<< tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" << trat1->getId() << ";" << nome_batismo_ 
+		<< ";" << total_de_mudas_  << ";" << data_ << std::endl;
+		
+		std::cout << "\nAnfibio " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 	}
 }
 
@@ -143,7 +176,14 @@ void Petshop::cadastrarReptil(std::fstream& arquivo_, int id_, std::string nome_
 				autorizacao_, uf_origem_);
 			
 			this->map_animais.insert({id_, nativo});
-			std::cout << "\nRéptil " << nativo->getNomeBatismo() << " adicionado com sucesso." << std::endl;
+
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "ReptilNativo" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << venenoso_ << ";"
+			<< tipo_venenoso_ << ";" << autorizacao_ << ";" << uf_origem_ << std::endl;
+
+			std::cout << "\nRéptil " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 			
 		}
 		else if(area == 2) {
@@ -157,16 +197,28 @@ void Petshop::cadastrarReptil(std::fstream& arquivo_, int id_, std::string nome_
 				autorizacao_, pais_origem_);
 			
 			this->map_animais.insert({id_, exotico});
-			std::cout << "\nRéptil " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
-			
+
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "ReptilExotico" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << venenoso_ << ";"
+			<< tipo_venenoso_ << ";" << autorizacao_ << ";" << pais_origem_ << std::endl;
+
+			std::cout << "\nRéptil " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 		}
 	}else {
 		Reptil* reptil_domestico = new Reptil(id_, "Reptil", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, venenoso_, tipo_venenoso_);
 			
 		this->map_animais.insert({id_, reptil_domestico});
-		std::cout << "\nRéptil " << reptil_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
 		
+		//escrevendo no csv
+		arquivo_ << id_ << ";" << "Reptil" << ";" << nome_cientifico_ << ";"
+		<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+		<< trat1->getId() << ";" << nome_batismo_ << ";" << venenoso_ << ";"
+		<< tipo_venenoso_ << std::endl;
+
+		std::cout << "\nRéptil " << nome_batismo_ << " adicionado com sucesso." << std::endl;
 	}
 }
 
@@ -210,29 +262,48 @@ void Petshop::cadastrarAve(std::fstream& arquivo_, int id_, std::string nome_cie
 				autorizacao_, uf_origem_);
 			
 			this->map_animais.insert({id_, nativa});
-			std::cout << "\nAve " << nativa->getNomeBatismo() << " adicionada com sucesso." << std::endl;
-			
+
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "AveNativa" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << tamanho_do_bico_cm_ << ";" 
+			<< envergadura_das_asas_ << ";" << autorizacao_ << ";" << uf_origem_ << std::endl;
+
+			std::cout << "\nAve " << nome_batismo_ << " adicionada com sucesso." << std::endl;
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
 			std::cout << "- País de origem do ave silvestre exótica: ";
 			std::cin.ignore();
 			std::getline( cin, pais_origem_);
-
+			
 			AveExotica* exotica = new AveExotica(id_, "AveExotica", nome_cientifico_, sexo_, tamanho_,
-				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
-				autorizacao_, pais_origem_);
-			
+							dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_, 
+							autorizacao_, pais_origem_);
+						
 			this->map_animais.insert({id_, exotica});
-			std::cout << "\nAve " << exotica->getNomeBatismo() << " adicionada com sucesso." << std::endl;	
 			
+			//escrevendo no csv		
+			arquivo_ << id_ << ";" << "AveExotica" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << tamanho_do_bico_cm_ << ";" 
+			<< envergadura_das_asas_ << ";" << autorizacao_ << ";" << pais_origem_ << std::endl;
+
+			std::cout << "\nAve " << nome_batismo_ << " adicionada com sucesso." << std::endl;	
 		}
 	}else {
 		Ave* ave_domestica = new Ave(id_, "Ave", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, tamanho_do_bico_cm_, envergadura_das_asas_);
 		
 		this->map_animais.insert({id_, ave_domestica});
-		std::cout << "\nAve " << ave_domestica->getNomeBatismo() << " adicionada com sucesso." << std::endl;
+		
+		//escrevendo no csv		
+		arquivo_ << id_ << ";" << "Ave" << ";" << nome_cientifico_ << ";"
+		<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+		<< trat1->getId() << ";" << nome_batismo_ << ";" << tamanho_do_bico_cm_ << ";" 
+		<< envergadura_das_asas_ << std::endl;
+
+		std::cout << "\nAve " << nome_batismo_ << " adicionada com sucesso." << std::endl;
 		
 	}
 }
@@ -272,7 +343,14 @@ void Petshop::cadastrarMamifero(std::fstream& arquivo_, int id_, std::string nom
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_, autorizacao_, uf_origem_);
 			
 			this->map_animais.insert({id_, nativo});
-			std::cout << "\nAnfibio " << nativo->getNomeCientifico() << " adicionado com sucesso." << std::endl;
+
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "MamiferoNativo" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << cor_pelo_ << ";" 
+			<< autorizacao_ << ";" << uf_origem_ << std::endl;
+
+			std::cout << "\nMamífero " << nome_batismo_ << " adicionada com sucesso." << std::endl;
 		}
 		else if(area == 2) {
 			std::string pais_origem_;
@@ -284,34 +362,34 @@ void Petshop::cadastrarMamifero(std::fstream& arquivo_, int id_, std::string nom
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_, autorizacao_, pais_origem_);
 			
 			this->map_animais.insert({id_, exotico});
-			std::cout << "\nMamífero " << exotico->getNomeBatismo() << " adicionado com sucesso." << std::endl;	
-			
+
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "MamiferoExotico" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << cor_pelo_ << ";" 
+			<< autorizacao_ << ";" << pais_origem_ << std::endl;
+
+			std::cout << "\nMamífero " << nome_batismo_ << " adicionada com sucesso." << std::endl;
 		}
 	}else {
-		Mamifero* mamifero_domestico = new Mamifero(id_, "Mamifero", nome_cientifico_, sexo_, tamanho_,
+
+			Mamifero* mamifero_domestico = new Mamifero(id_, "Mamifero", nome_cientifico_, sexo_, tamanho_,
 				dieta_, *vet1, *trat1, nome_batismo_, cor_pelo_);
 		
-		this->map_animais.insert({id_, mamifero_domestico});
-		std::cout << "\nMamífero " << mamifero_domestico->getNomeBatismo() << " adicionado com sucesso." << std::endl;
-		
+			this->map_animais.insert({id_, mamifero_domestico});
+			
+			//escrevendo no csv
+			arquivo_ << id_ << ";" << "MamiferoNativo" << ";" << nome_cientifico_ << ";"
+			<< sexo_ << ";" << tamanho_ << ";" << dieta_ << ";" << vet1->getId() << ";" 
+			<< trat1->getId() << ";" << nome_batismo_ << ";" << cor_pelo_ << std::endl;
+
+			std::cout << "\nMamífero " << nome_batismo_ << " adicionada com sucesso." << std::endl;
 	}
 }
 
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
-	std::fstream arquivo ("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
-
-	if(!(arquivo.is_open())) { 
-		std::cerr << "ERRO! Abertura de arquivo inválida." << std:: endl; 
-		exit(1);
-	}
-	arquivo.seekg (0, arquivo.end);
-    int length = arquivo.tellg();
-    arquivo.seekg (0, arquivo.beg);
-
-	if(length == 0) {
-		arquivo << "****************************** CATÁLOGO DOS ANIMAIS ******************************\n\n";
-	}
+	std::fstream arquivo = abrirArquivo();
 
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
@@ -372,6 +450,14 @@ void Petshop::cadastrarAnimal() {
 }
 
 void Petshop::listarAnimais() {
+	std::fstream arquivo = abrirArquivo();
+
+	while(arquivo.good()) {
+		std::string linha;
+		std::getline(arquivo, linha, ';');
+		//std::cout << linha << std::endl;
+	}
+	/*
 	std::map<int, Animal*>::iterator itr_t;
 	std::cout << "\n****************************** ANIMAIS CADASTRADOS ******************************\n" << std::endl;
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
@@ -415,7 +501,7 @@ void Petshop::listarAnimais() {
 		if(itr_t->second->getClasse() == "ReptilExotico"){
 			std::cout << *(dynamic_cast<ReptilExotico*>(itr_t->second)) << std::endl;
 		}
-	}
+	}*/
 }
 
 void Petshop::editarAnimal() {

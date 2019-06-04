@@ -23,6 +23,6 @@ std::ostream& operator << (std::ostream& os, Ave& a) {
 	<< a.m_veterinario.getId() << "\nId do tratador: " << a.m_tratador.getId() << "\nNome de batismo: " << a.m_nome_batismo 
 	<< "\nTamanho do bico (em cm): " << a.m_tamanho_do_bico_cm  << "\nEnvergadura das asas (em cm): " << a.m_envergadura_das_asas
 	<< "\n________________________________________________________________________________" << std::endl;
-	
+
 	return os;	
 }

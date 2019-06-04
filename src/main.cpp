@@ -10,9 +10,9 @@ int main() {
 
 	//pet->removerFuncionario();
 	//pet->cadastrarFuncionario();
-	pet->cadastrarAnimal();
-	pet->editarAnimal();
-	//pet->listarAnimais();
+	//pet->cadastrarAnimal();
+	//pet->editarAnimal();
+	pet->listarAnimais();
 	//pet->removerAnimal();
 
 
