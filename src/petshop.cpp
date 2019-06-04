@@ -33,6 +33,38 @@ Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
+int Petshop::buscarPorId(std::string tipo_map){
+	bool match = false;
+	int id;
+	do{
+		std::cout << "Id: ";
+		std::cin >> id;
+
+		if(tipo_map == "Animal"){
+
+			std::map<int,Animal*>::iterator it;
+			it = map_animais.find(id);
+			if(it != map_animais.end()){
+				match = true;
+			}else{
+				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+			}
+
+		}else if(tipo_map == "Funcionario"){
+
+			std::map<int,Funcionario*>::iterator it;
+			it = map_funcionarios.find(id);
+			if(it != map_funcionarios.end()){
+				match = true;
+			}else{
+				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+			}
+
+		}
+	}while(match == false);
+	return id;
+}
+
 void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome_cientifico_, char sexo_, 
 	double tamanho_, std::string dieta_, int id_veterinario_, int id_tratador_, 
 	std::string nome_batismo_) {
@@ -917,75 +949,19 @@ void Petshop::listarFuncionarios(){
 		}
 	}
 }
-/*
-void Petshop::listarVeterinarios(){
-	std::map<int, Veterinario>::iterator itr_v;
-	std::cout << "\nVeterinários cadastrados:\n" << std::endl;
-	for(itr_v = map_veterinarios.begin(); itr_v != map_veterinarios.end(); itr_v++){
-		std::cout << itr_v->second << "\n" << std::endl;
-	}
-}
-
-void Petshop::listarTratadores(){
-	std::map<int, Tratador>::iterator itr_t;
-	std::cout << "Tratadores cadastrados:\n" << std::endl;
-	for(itr_t = map_tratadores.begin(); itr_t != map_tratadores.end(); itr_t++){
-		std::cout << itr_t->second << "\n" << std::endl;
-	}
-}
-*/
-
-/*
-void Petshop::removerVeterinario(){
-	int id_vet;
-	bool match = false;
-	std::map<int,Veterinario>::iterator it;
-
-	do{
-		std::cout << "Id do veterinário: ";
-		std::cin >> id_vet;
-
-		it = map_veterinarios.find(id_vet);
-		if(it != map_veterinarios.end()){
-			map_veterinarios.erase(id_vet);
-			match = true;
-		}else{
-			std::cout << "Id inexistente. Tente novamente!" << std::endl;
-		}
-
-	}while(match == false);
-
-	std::cout << "Veterinário " << it->second.getNome() << " removido.\n" << std::endl;
-}
-
-void Petshop::removerTratador(){
-	int id_tra;
-	bool match = false;
-	std::map<int,Tratador>::iterator it;
-
-	do{
-		std::cout << "Id do tratador: ";
-		std::cin >> id_tra;
-
-		it = map_tratadores.find(id_tra);
-		if(it != map_tratadores.end()){
-			map_tratadores.erase(id_tra);
-			match = true;
-		}else{
-			std::cout << "Id inexistente. Tente novamente!" << std::endl;
-		}
-
-	}while(match == false);
-
-	std::cout << "Tratador " << it->second.getNome() << " removido.\n" << std::endl;
-}
-*/
 
 void Petshop::removerFuncionario(){
-	//int remocao;
 	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
+	bool remocao_opcao = false;
+	int x;
 	listarFuncionarios();
-	
-	//find por id e depois erase
-	
+
+	do{
+		int id_remocao = buscarPorId("Funcionario");
+		map_funcionarios.erase(id_remocao);
+
+		std::cout << "Para remover outro funcionário: (1-Sim | 2-Não)\n";
+		std::cin >> x;
+		remocao_opcao = (x == 1) ? true : false;
+	}while(remocao_opcao == true);
 }

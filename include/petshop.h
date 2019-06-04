@@ -20,6 +20,8 @@ class Petshop{
 		Petshop(std::string nome);
 		~Petshop();
 
+		int buscarPorId(std::string tipo_map);
+
 		void cadastrarAnimal();
 		void cadastrarAnfibio(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
@@ -38,19 +40,16 @@ class Petshop{
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
 
-		//void listarVeterinarios();
-		//void removerVeterinario();
 		void editarVeterinario();
 		void consultarVeterinario();
 
-		//void listarTratadores();
-		//void removerTratador();
 		void editarTratador();
 		void consultarTratador();
 
 		void cadastrarFuncionario();
 		void listarFuncionarios();
 		void removerFuncionario();
+		void editarFuncionario();
 };
 
 #endif
