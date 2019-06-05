@@ -1052,5 +1052,65 @@ void Petshop::removerFuncionario(){
 }
 
 void Petshop::editarFuncionario(){
-	
+	std::cout << "\n**************************** EDIÇÃO DE FUNCIONÁRIOS ****************************\n\n";
+	bool edicao_opcao = false;
+	int opcao;
+	int id_edicao;
+	std::map<int,Funcionario*>::iterator it;
+	listarFuncionarios();
+
+	do{
+		id_edicao = buscarPorId("Funcionario");
+		it = map_funcionarios.find(id_edicao);
+
+		std::string novo_id, novo_nome, novo_cpf, nova_idade, novo_tipo_sanguineo, novo_fator_rh, nova_especialidade, novo_crmv, novo_nivel_de_seguranca;
+
+		std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Id [" << it->second->getId() << "]: ";
+		std::cin >> novo_id;
+		if(novo_id != "*"){ it->second->setId(stoi(novo_id)); }
+
+		std::cout << "- Nome [" << it->second->getNome() << "]: ";
+		std::cin >> novo_nome;
+		if(novo_nome != "*"){ it->second->setNome(novo_nome); }
+
+		std::cout << "- CPF [" << it->second->getCpf() << "]: ";
+		std::cin >> novo_cpf;
+		if(novo_cpf != "*"){ it->second->setCpf(novo_cpf); }
+
+		std::cout << "- Idade [" << it->second->getIdade() << "]: ";
+		std::cin >> nova_idade;
+		if(nova_idade != "*"){ it->second->setIdade(stoi(nova_idade)); }
+
+		std::cout << "- Tipo sanguíneo [" << it->second->getTipoSanguineo() << "]: ";
+		std::cin >> novo_tipo_sanguineo;
+		if(novo_tipo_sanguineo != "*"){ it->second->setTipoSanguineo(novo_tipo_sanguineo); }
+
+		std::cout << "- Fator RH [" << it->second->getFatorRh() << "]: ";
+		std::cin >> novo_fator_rh;
+		char * aux = new char [novo_fator_rh.length()+1];
+		std::strcpy (aux, novo_fator_rh.c_str());
+		if(novo_fator_rh != "*"){ it->second->setFatorRh(*aux); }
+
+		std::cout << "- Especialidade [" << it->second->getEspecialidade() << "]: ";
+		std::cin >> nova_especialidade;
+		if(nova_especialidade != "*"){ it->second->setEspecialidade(nova_especialidade); }
+
+		if(it->second->getClasse() == "Veterinario"){
+
+			std::cout << "- CRMV [" << dynamic_cast<Veterinario*>(it->second)->getCrmv() << "]: ";
+			std::cin >> novo_crmv;
+			if(novo_crmv != "*"){ dynamic_cast<Veterinario*>(it->second)->setCrmv(novo_crmv); }
+
+		}else if(it->second->getClasse() == "Tratador"){
+
+			std::cout << "- Nível de segurança [" << dynamic_cast<Tratador*>(it->second)->getNivelSeguranca() << "]: ";
+			std::cin >> novo_nivel_de_seguranca;
+			if(novo_nivel_de_seguranca != "*"){ dynamic_cast<Tratador*>(it->second)->setNivelSeguranca(stoi(novo_nivel_de_seguranca)); }
+
+		}
+
+		std::cout << "Funcionário " << it->second->getNome() << "atualizado com sucesso!\nPara editar outro funcionário: (1-Sim | 2-Não)\n";
+		std::cin >> opcao;
+		edicao_opcao = (opcao == 1) ? true : false;
+	}while(edicao_opcao == true);
 }

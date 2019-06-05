@@ -23,7 +23,7 @@ class Funcionario {
 		void setClasse(std::string classe);
 		void setId(int id);
 		void setNome(std::string nome);
-		void stCpf(std::string cpf);
+		void setCpf(std::string cpf);
 		void setIdade(int idade);
 		void setTipoSanguineo(std::string tipo_sanguineo);
 		void setFatorRh(char fator_rh);

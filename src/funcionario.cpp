@@ -13,7 +13,7 @@ Funcionario::~Funcionario() { /* void */ }
 void Funcionario::setClasse(std::string classe){ m_classe = classe; }
 void Funcionario::setId(int id) { m_id = id; }
 void Funcionario::setNome(std::string nome) { m_nome = nome; }
-void Funcionario::stCpf(std::string cpf) { m_cpf = cpf; }
+void Funcionario::setCpf(std::string cpf) { m_cpf = cpf; }
 void Funcionario::setIdade(int idade) { m_idade = idade; }
 void Funcionario::setTipoSanguineo(std::string tipo_sanguineo) { m_tipo_sanguineo = tipo_sanguineo; }
 void Funcionario::setFatorRh(char fator_rh) { m_fator_rh = fator_rh; }
