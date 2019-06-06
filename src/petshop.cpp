@@ -884,23 +884,44 @@ void Petshop::consultarAnimal(){
 		
 	 } else if (escolha_consulta == 2) {
 		
-		/* bool match = false;
+		bool match = false;
 		int classe_animal;
-		int nativo_ou_exotico;
+		std::string classe_animal_;
+		int nativo_ou_exotico_;
+		std::string nativo_ou_exotico_;
+		std::string pesquisa;
+
 		std::cout << "Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 		do {
 			std::cin >> classe_animal;
+
+			if(classe_animal == 1) {
+				classe_animal_ = "Anfibio";
+			} else if (classe_animal == 2) {
+				classe_animal_ = "Ave";
+			} else if (classe_animal == 3) {
+				classe_animal_ = "Mamifero";
+			else {
+				classe_animal_ = "Reptil";
+			}
 		} while (classe_animal < 1 || classe_animal > 4);
 		std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
 		do {
 			std::cin >> nativo_ou_exotico;
+
+			if(nativo_ou_exotico == 1) {
+				nativo_ou_exotico_ = "Nativo";
+			} else if (nativo_ou_exotico == 2) {
+				nativo_ou_exotico_ = "Exotico";
+			} else {
+				nativo_ou_exotico_ = "";
+			}
 		} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
 
-		do {
-			std::cout << "Id do animal: ";
-			std::cin >> id_animal;
+		pesquisa = classe_animal_ +nativo_ou_exotico_;
 
-			itr_t = map_animais.find(id_animal);
+		do {
+			itr_t = map_animais.find(pesquisa);
 			if(itr_t != map_animais.end()){ 
 				std::cout << "Animal Encontrado" << std::endl;	
 				if(itr_t->second->getClasse() == "Anfibio"){
@@ -948,9 +969,27 @@ void Petshop::consultarAnimal(){
 				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
 
-		}while(match == false); */
+		}while(match == false);
 
 	} else if (escolha_consulta == 3) {
+
+		int id_veterinario;
+		bool match = false;
+
+		do {
+			std::cout << "Id do veterinário: ";
+			std::cin >> id_veterinario;
+
+			itr_t = map_fucionarios.find(id_veterinario);
+			if(itr_t != map_fucionarios.end()){ 
+				std::cout << "Veterinário Encontrado" << std::endl;	
+				//falta a implementação total		
+				match = true;
+			}else{
+				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+			}
+
+		}while(match == false);
 
 	} else {
 
