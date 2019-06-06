@@ -957,7 +957,7 @@ void Petshop::consultarAnimal(){
 		id_tratador = buscarPorId("Funcionario");
 		func = map_funcionarios.find(id_tratador);
 		std::cout << "\n";
-
+		// sobrecarregar objetos
 		for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 			if((itr_t->second->getVeterinario()) == *(dynamic_cast<Veterinario*>(func->second))){
 				//std::string classe = itr_t->second->getClasse();
