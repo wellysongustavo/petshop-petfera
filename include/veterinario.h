@@ -13,6 +13,7 @@ class Veterinario : public Funcionario {
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade,
 		std::string crmv);
 		~Veterinario();
+		void dummy();
 
 		void setCrmv(std::string crmv);
 		std::string getCrmv();

@@ -18,8 +18,9 @@ class Funcionario {
 	public:
 		Funcionario(std::string classe, int id, std::string nome, std::string cpf,
 		int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade);
-		virtual ~Funcionario() = 0;
-
+		~Funcionario();
+		virtual void dummy() = 0;
+		
 		void setClasse(std::string classe);
 		void setId(int id);
 		void setNome(std::string nome);
