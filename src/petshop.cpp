@@ -811,7 +811,7 @@ void Petshop::removerAnimal(){
 
 	std::cout << "Animal removido.\n" << std::endl; 
 }
-
+/*
 void Petshop::consultarAnimal(){
 	int escolha_consulta;
 
@@ -995,7 +995,7 @@ void Petshop::consultarAnimal(){
 
 	}
 }
-
+*/
 void Petshop::cadastrarFuncionario(){
 	int tipo_funcionario;
 	std::cout << "\n**************************** CADASTRO DE FUNCIONÁRIOS ****************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
@@ -1150,6 +1150,70 @@ void Petshop::editarFuncionario(){
 
 		std::cout << "Funcionário " << it->second->getNome() << "atualizado com sucesso!\nPara editar outro funcionário: (1-Sim | 2-Não)\n";
 		std::cin >> opcao;
-		edicao_opcao = (opcao == 1) ? true : false;
+		edicao_opcao = (opcao == 1)?true:false;
 	}while(edicao_opcao == true);
+}
+
+void Petshop::consultarFuncionario(){
+	int escolha_consulta, nova_consulta_int;
+	bool nova_consulta_bool = false;
+	//Variáveis necessárias aos cases
+	int id_pesquisa;
+	std::map<int,Funcionario*>::iterator it;
+	int contador_de_funcionarios;
+
+	std::cout << "\n**************************** CONSULTA DE FUNCIONÁRIOS ****************************\n\n";
+	do{
+		std::cout << "1 - Pesquisar por id" << std::endl;
+		std::cout << "2 - Pesquisar Veterinários" << std::endl;
+		std::cout << "3 - Pesquisar Tratadores" << std::endl;
+		std::cout << "Escolha: ";
+		std::cin >> escolha_consulta;
+
+		contador_de_funcionarios = 0;
+		switch(escolha_consulta){
+			case 1:
+					id_pesquisa = buscarPorId("Funcionario");
+					it = map_funcionarios.find(id_pesquisa);
+					std::cout << "\n";
+
+					if(it->second->getClasse() == "Veterinario"){
+						std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+
+					}else if(it->second->getClasse() == "Tratador"){
+						std::cout << *(dynamic_cast<Tratador*>(it->second)) << "\n" << std::endl;	
+					}
+				break;
+			case 2:
+					std::cout << "\n";
+					for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
+
+						if(it->second->getClasse() == "Veterinario"){
+							std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+							contador_de_funcionarios++;
+						}
+					}
+					if(contador_de_funcionarios == 0){ 
+						std::cout << "Não há veterinários cadastrados.\n"; 
+					}
+				break;
+			case 3:
+					std::cout << "\n";
+					for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
+							
+						if(it->second->getClasse() == "Tratador"){
+							std::cout << *(dynamic_cast<Tratador*>(it->second)) << "\n" << std::endl;
+							contador_de_funcionarios++;
+						}
+					}
+					if(contador_de_funcionarios == 0){ 
+						std::cout << "Não há tratadores cadastrados.\n"; 
+					}
+				break;
+		}
+
+		std::cout << "Para consultar outro funcionário: (1-Sim | 2-Não)\n";
+		std::cin >> nova_consulta_int;
+		nova_consulta_bool = (nova_consulta_int == 1)?true:false;
+	}while(nova_consulta_bool == true);
 }

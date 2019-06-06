@@ -41,16 +41,11 @@ class Petshop{
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
 
-		void editarVeterinario();
-		void consultarVeterinario();
-
-		void editarTratador();
-		void consultarTratador();
-
 		void cadastrarFuncionario();
 		void listarFuncionarios();
 		void removerFuncionario();
 		void editarFuncionario();
+		void consultarFuncionario();
 };
 
 #endif

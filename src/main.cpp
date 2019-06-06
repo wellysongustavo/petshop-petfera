@@ -10,15 +10,12 @@ int main() {
 
 	pet->cadastrarFuncionario();
 	pet->cadastrarFuncionario();
-	pet->removerFuncionario();
+	//pet->editarFuncionario();
+	pet->consultarFuncionario();
+	//pet->removerFuncionario();
 	//pet->cadastrarAnimal();
 	//pet->editarAnimal();
 	//pet->listarAnimais();
-	//pet->removerFuncionario();
-	//pet->cadastrarFuncionario();
-	//pet->cadastrarAnimal();
-	//pet->editarAnimal();
-	pet->listarAnimais();
 	//pet->removerAnimal();
 
 	return 0;
