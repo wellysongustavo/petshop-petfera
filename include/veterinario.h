@@ -19,5 +19,6 @@ class Veterinario : public Funcionario {
 		std::string getCrmv();
 
 		friend std::ostream& operator << (std::ostream& os, const Veterinario& v);
+		//friend bool operator == (const Veterinario& v);
 };
 #endif

@@ -11,6 +11,8 @@ Tratador::~Tratador() { /* void */ }
 void Tratador::setNivelSeguranca(int nivel_de_seguranca) { m_nivel_de_seguranca = nivel_de_seguranca; }
 int Tratador::getNivelSeguranca() { return m_nivel_de_seguranca; }
 
+void Tratador::dummy() { /* void */ }
+
 std::ostream& operator << (std::ostream& os, const Tratador& t) {
 	os << t.m_classe << "\nID: " << t.m_id << "\nNome: " << t.m_nome << "\nCPF: " << t.m_cpf 
 	<< "\nIdade: " << t.m_idade << "\nTipo sanguíneo: " << t.m_tipo_sanguineo 
@@ -18,4 +20,12 @@ std::ostream& operator << (std::ostream& os, const Tratador& t) {
 	<< "\nNível de Segurança: " << t.m_nivel_de_seguranca << std::endl;	
 
 	return os;
+}
+
+bool operator == (const Tratador& t1, const Tratador& t2){
+	if(t1.m_id == t2.m_id){
+		return true;
+	}else{
+		return false;
+	}
 }

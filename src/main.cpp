@@ -8,15 +8,17 @@ int main() {
 	//Teste instancia petshop
 	Petshop* pet = new Petshop("PetGarrafa");
 
-	pet->cadastrarFuncionario();
-	pet->cadastrarFuncionario();
+	//pet->lerArquivo();
+	//pet->cadastrarFuncionario();
+	//pet->cadastrarFuncionario();
 	//pet->editarFuncionario();
-	pet->consultarFuncionario();
+	//pet->consultarFuncionario();
 	//pet->removerFuncionario();
-	//pet->cadastrarAnimal();
+	pet->cadastrarAnimal();
+	pet->cadastrarAnimal();
 	//pet->editarAnimal();
-	//pet->listarAnimais();
-	//pet->removerAnimal();
-
+	pet->removerAnimal();
+	pet->listarAnimais();
+	//pet->consultarAnimal();
 	return 0;
 }

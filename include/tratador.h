@@ -19,6 +19,6 @@ class Tratador : public Funcionario {
 		int getNivelSeguranca();
 
 		friend std::ostream& operator << (std::ostream& os, const Tratador& t);
-
+		friend bool operator == (const Tratador& t1, const Tratador& t2);
 };
 #endif

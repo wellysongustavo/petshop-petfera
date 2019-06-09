@@ -11,6 +11,8 @@ Veterinario::~Veterinario() { /* void */ }
 void Veterinario::setCrmv(std::string crmv) { m_crmv = crmv; }
 std::string Veterinario::getCrmv() { return m_crmv; }
 
+void Veterinario::dummy() { /* void */ }
+
 std::ostream& operator << (std::ostream& os, const Veterinario& v) {
 	os << v.m_classe << "\nID: " << v.m_id << "\nNome: " << v.m_nome << "\nCPF: " << v.m_cpf 
 	<< "\nIdade: " << v.m_idade << "\nTipo sanguíneo: " << v.m_tipo_sanguineo 
@@ -19,3 +21,12 @@ std::ostream& operator << (std::ostream& os, const Veterinario& v) {
 
 	return os;
 }
+/*
+bool Veterinario::operator == (const Veterinario& v) const{
+	if(this.m_id == v.m_id){
+		return true;
+	}else{
+		return false;
+	}
+}
+*/
