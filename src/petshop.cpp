@@ -113,7 +113,7 @@ void Petshop::imprimeAnimalEspecifico(Animal* animal){
 	}
 }
 
-std::fstream Petshop::abrirArquivo() {
+std::fstream Petshop::abrirArquivoAnimal() {
 	std::fstream arquivo_("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
 
 	if(!(arquivo_.is_open())) { 
@@ -125,33 +125,33 @@ std::fstream Petshop::abrirArquivo() {
 	return arquivo_;
 }
 
-void Petshop::lerArquivo() {
-	std::fstream arquivo = abrirArquivo();
+void Petshop::lerArquivoAnimal() {
+	std::fstream arquivo = abrirArquivoAnimal();
 	//criando as variáveis
-	std::string aux, linha;
-	string classe, cientifico, sexo, dieta, batismo, autorizacao, uf, pais, tipo_venenoso;
+	std::string aux, linha, classe, cientifico, sexo, dieta, batismo, autorizacao, uf, pais, tipo_venenoso, cor_do_pelo;
 	bool venenoso; 
 	double tam, tam_bico_cm, envergadura;
 	int id;
-	int i = 0;
+	int total_de_mudas;
+	date data_ultima_muda;
 
 	while(!arquivo.eof()) {
 		std::vector<std::string> v;
-		std::fstream arquivo_auxiliar("auxiliar.csv");
+		std::fstream arquivo_auxiliar("auxiliar.csv", std::ios::in | std::ios::out);
+		arquivo_auxiliar.seekg(0);
+
 		std::getline(arquivo, linha);
 		arquivo_auxiliar << linha;
 		arquivo_auxiliar.seekg(0);
-		
-		while(arquivo_auxiliar.good()) {
+
+		while(!arquivo_auxiliar.eof()) {
 			std::getline(arquivo_auxiliar, aux, ';');
 			v.push_back(aux);
-			i++;
 		}
-		arquivo_auxiliar.clear();
 		arquivo_auxiliar.close();
 		
 		//Salvando os valores lidos do csv
-		id = std::stoi(v[0]); 
+		id = std::stoi(v[0]);
 		classe = v[1];
 		cientifico = v[2];
 		sexo = v[3];
@@ -164,8 +164,46 @@ void Petshop::lerArquivo() {
 		char* s = new char[sexo.length()+1];
 		std::strcpy(s, sexo.c_str());
 
-		std::size_t found = classe.find("Ave");
+		std::size_t found = classe.find("Anfibio");
 		if(found!=std::string::npos) {
+			total_de_mudas = std::stoi(v[9]);
+
+			if(v[10] != " invalid date ") {
+			data_ultima_muda = data_ultima_muda.converte_string(v[10]);
+			}else {
+				data_ultima_muda.set_day(00); data_ultima_muda.set_month(00); data_ultima_muda.set_year(0000);
+			}
+
+			if(classe.compare("Anfibio") > 0) {
+				autorizacao = v[11];
+
+				if(classe == "AnfibioNativo") {
+					uf = v[12];
+
+					AnfibioNativo* anfibio_nativo = new AnfibioNativo(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+						total_de_mudas, data_ultima_muda, autorizacao, uf);
+
+					this->map_animais.insert({id, anfibio_nativo});
+				}
+				if(classe == "AnfibioExotico") {
+					pais = v[12];
+
+					AnfibioExotico* anfibio_exotico = new AnfibioExotico(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+						total_de_mudas, data_ultima_muda, autorizacao, pais);
+
+					this->map_animais.insert({id, anfibio_exotico});
+				}
+			}else{
+				Anfibio* anfibio_domestico = new Anfibio(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+					total_de_mudas, data_ultima_muda);
+	
+				this->map_animais.insert({id, anfibio_domestico});
+			}
+			v.clear();
+		}
+
+		std::size_t found2= classe.find("Ave");
+		if(found2!=std::string::npos) {
 			tam_bico_cm = std::stod(v[9]);
 			envergadura = std::stod(v[10]);
 
@@ -194,11 +232,11 @@ void Petshop::lerArquivo() {
 	
 				this->map_animais.insert({id, ave_domestica});
 			}
-		v.clear();
+			v.clear();
 		}
 
-		std::size_t found2 = classe.find("Reptil");
-		if(found2!=std::string::npos) {
+		std::size_t found3 = classe.find("Reptil");
+		if(found3!=std::string::npos) {
 			venenoso = (v[9] == "1") ? true : false;
 			tipo_venenoso = (v[10]);
 
@@ -227,8 +265,102 @@ void Petshop::lerArquivo() {
 	
 				this->map_animais.insert({id, reptil_domestico});
 			}
-		v.clear();
+			v.clear();
 		}
+
+		std::size_t found4 = classe.find("Mamifero");
+		if(found4!=std::string::npos) {
+			cor_do_pelo = v[9];
+
+			if(classe.compare("Mamifero") > 0) {
+				autorizacao = v[10];
+
+				if(classe == "MamiferoNativo") {
+					uf = v[11];
+
+					MamiferoNativo* mamifero_nativo = new MamiferoNativo(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+						cor_do_pelo, autorizacao, uf);
+
+					this->map_animais.insert({id, mamifero_nativo});
+				}
+				if(classe == "MamiferoExotico") {
+					pais = v[11];
+
+					MamiferoExotico* mamifero_exotico = new MamiferoExotico(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+						cor_do_pelo, autorizacao, pais);
+
+					this->map_animais.insert({id, mamifero_exotico});
+				}
+			}else{
+				Mamifero* mamifero_domestico = new Mamifero(id, classe, cientifico, *s, tam, dieta, *vet1, *trat1, batismo, 
+						cor_do_pelo);
+
+				this->map_animais.insert({id, mamifero_domestico});
+			}
+			v.clear();
+		}
+	}
+	arquivo.close();		
+}
+
+void Petshop::atualizaArquivoAnimal() {
+	remove("controle_animais.csv");
+	std::fstream arquivo = abrirArquivoAnimal();
+
+	std::map<int, Animal*>::iterator itr_t;
+	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
+		
+		arquivo << itr_t->second->getId() << ";" << itr_t->second->getClasse() << ";" << itr_t->second->getNomeCientifico()
+		<< ";" << itr_t->second->getSexo() << ";" << itr_t->second->getTamanho() << ";" << itr_t->second->getDieta()
+		<< ";" << (itr_t->second->getVeterinario()).getId() << ";" << (itr_t->second->getTratador()).getId() << ";"
+		<< itr_t->second->getNomeBatismo();
+
+		std::string classe = (itr_t->second)->getClasse();
+		
+		std::size_t found = classe.find("Anfibio");
+		if(found!=std::string::npos) {
+			arquivo << ";" << dynamic_cast<Anfibio*>(itr_t->second)->getTotalMudas() << ";" << dynamic_cast<Anfibio*>(itr_t->second)->getUltimaMuda();
+
+			if(classe.compare("Anfibio") > 0) { arquivo << ";" << reinterpret_cast<AnfibioNativo*>(itr_t->second)->getAutorizacao() << ";"; }
+
+			if(classe == "AnfibioNativo") { arquivo << dynamic_cast<AnfibioNativo*>(itr_t->second)->getUfOrigem(); }
+
+			if(classe == "AnfibioExotico") { arquivo << dynamic_cast<AnfibioExotico*>(itr_t->second)->getPaisOrigem(); }
+		}
+
+		std::size_t found2 = classe.find("Ave");
+		if(found2!=std::string::npos) {
+			arquivo << ";" << dynamic_cast<Ave*>(itr_t->second)->getTamanhoBico() << ";" << dynamic_cast<Ave*>(itr_t->second)->getEnvergaduraAsas();
+
+			if(classe.compare("Ave") > 0) { arquivo << ";" << reinterpret_cast<AveNativa*>(itr_t->second)->getAutorizacao() << ";"; }
+
+			if(classe == "AveNativa") { arquivo << dynamic_cast<AveNativa*>(itr_t->second)->getUfOrigem(); }
+
+			if(classe == "AveExotica") { arquivo << dynamic_cast<AveExotica*>(itr_t->second)->getPaisOrigem(); }
+		}
+
+		std::size_t found3 = classe.find("Mamifero");
+		if(found3!=std::string::npos) {
+			arquivo << ";" << dynamic_cast<Mamifero*>(itr_t->second)->getCorPelo();
+
+			if(classe.compare("Mamifero") > 0) { arquivo << ";" << reinterpret_cast<MamiferoNativo*>(itr_t->second)->getAutorizacao() << ";"; }
+
+			if(classe == "MamiferoNativo") { arquivo << dynamic_cast<MamiferoNativo*>(itr_t->second)->getUfOrigem() ; }
+
+			if(classe == "MamiferoExotico") { arquivo << dynamic_cast<MamiferoExotico*>(itr_t->second)->getPaisOrigem() ; }
+		}
+
+		std::size_t found4 = classe.find("Reptil");
+		if(found4!=std::string::npos) {
+			arquivo << ";" << dynamic_cast<Reptil*>(itr_t->second)->getVenenoso() << ";" << dynamic_cast<Reptil*>(itr_t->second)->getTipoVenenoso();
+
+			if(classe.compare("Reptil") > 0) { arquivo << ";" << reinterpret_cast<ReptilNativo*>(itr_t->second)->getAutorizacao() << ";"; }
+
+			if(classe == "ReptilNativo") { arquivo << dynamic_cast<ReptilNativo*>(itr_t->second)->getUfOrigem(); }
+
+			if(classe == "ReptilExotico") { arquivo << dynamic_cast<ReptilExotico*>(itr_t->second)->getPaisOrigem(); }	
+		}
+		arquivo << std::endl;
 	}
 	arquivo.close();
 }
@@ -488,7 +620,7 @@ void Petshop::cadastrarMamifero(std::fstream& arquivo_, int id_, std::string nom
 
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
-	std::fstream arquivo = abrirArquivo();
+	std::fstream arquivo = abrirArquivoAnimal();
 
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
@@ -557,7 +689,7 @@ void Petshop::listarAnimais() {
 }
 
 void Petshop::editarAnimal() {
-	lerArquivo(); //atualizar o map
+	lerArquivoAnimal(); //atualizar o map
 
 	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
 	listarAnimais();

@@ -4,6 +4,7 @@
 #define _DATE_H_
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -31,8 +32,10 @@ public:
 	date operator ++(int); //postfix
 	date operator --(); //prefix
 	date operator --(int); //postfix
-	
+	date converte_string(std::string string_data);
 };
+
+
 
 bool operator == (const date&, const date&); //comparison operators
 bool operator != (const date&, const date&);

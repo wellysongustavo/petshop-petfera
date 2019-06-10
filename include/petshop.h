@@ -20,8 +20,9 @@ class Petshop{
 		Petshop(std::string nome);
 		~Petshop();
 
-		std::fstream abrirArquivo();
-		void lerArquivo();
+		std::fstream abrirArquivoAnimal();
+		void lerArquivoAnimal();
+		void atualizaArquivoAnimal();
 
 		int buscarPorId(std::string tipo_map);
 		void imprimeAnimalEspecifico(Animal* animal);

@@ -1,5 +1,7 @@
 #include "date.h"
-
+#include <string>
+#include <vector>
+#include <sstream>
 ////////////// construction ////////////
 
 date::date(const int& d, const int& m, const int& y) : day_(d), month_(m), year_(y) {
@@ -92,6 +94,19 @@ inline date previous_date(const date& d) {
 	ndat = date(28, (d.month()- 1), d.year()); if(ndat.valid()) return ndat;
 	ndat = date(31, 12, (d.year()-1)); if(ndat.valid()) return ndat;
 	return ndat; 
+}
+
+date date::converte_string(std::string string_data) {
+	std::string token;
+	std::istringstream aux_str(string_data);
+	std::vector<int> tokens;
+	tokens.clear();
+   	while (std::getline(aux_str, token, '/')){
+   	     tokens.push_back(std::stoi(token));
+   	}
+	date d(tokens[0], tokens[1], tokens[2]);
+
+	return d;
 }
 
 date date::operator ++(int) { //postfix operator
