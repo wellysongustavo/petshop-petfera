@@ -781,8 +781,8 @@ void Petshop::consultarAnimal(){
 		std::cin >> escolha_consulta;
 	}
 
-	std::map<int, Animal*>::iterator itr_t;
-	std::map<int, Funcionario*>::iterator func;
+	std::map<int, Animal*>::iterator itr_animal;
+	std::map<int, Funcionario*>::iterator itr_func;
 
 /////Variáveis usadas no switch////////////////
 	int id_animal, id_tratador, id_veterinario;
@@ -797,10 +797,10 @@ void Petshop::consultarAnimal(){
 		case 1:
 			
 			id_animal = buscarPorId("Animal");
-			itr_t = map_animais.find(id_animal);
+			itr_animal = map_animais.find(id_animal);
 			std::cout << "\n";
 
-			imprimeAnimalEspecifico(itr_t->second);
+			imprimeAnimalEspecifico(itr_animal->second);
 			break;
 		case 2:
 			
@@ -824,7 +824,11 @@ void Petshop::consultarAnimal(){
 				std::cin >> nativo_ou_exotico;
 
 				if(nativo_ou_exotico == 1) {
-					nativo_ou_exotico_ = "Nativa";
+					if(classe_animal == 2) {
+						nativo_ou_exotico_ = "Nativa";
+					} else {
+						nativo_ou_exotico_ = "Nativo";
+					}	
 				} else if (nativo_ou_exotico == 2) {
 					nativo_ou_exotico_ = "Exotico";
 				} else {
@@ -836,29 +840,39 @@ void Petshop::consultarAnimal(){
 			
 			pesquisa = classe_animal_ +nativo_ou_exotico_;
 
-			for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
+			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
 
-				if(pesquisa == itr_t->second->getClasse()){
-					imprimeAnimalEspecifico(itr_t->second);
+				if(pesquisa == itr_animal->second->getClasse()){
+					imprimeAnimalEspecifico(itr_animal->second);
 				}
 			}
 			break;
 		case 3:
 			
 			id_tratador = buscarPorId("Funcionario");
-			func = map_funcionarios.find(id_tratador);
+			itr_func = map_funcionarios.find(id_tratador);
 			std::cout << "\n";
 
 			// sobrecarregar objetos
-			for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
+			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
 
-				if(itr_t->second->getTratador() == *(dynamic_cast<Tratador*>(func->second))){
-					imprimeAnimalEspecifico(itr_t->second);
+				if(itr_animal->second->getTratador() == *(dynamic_cast<Tratador*>(itr_func->second))){
+					imprimeAnimalEspecifico(itr_animal->second);
 				}
 			}	
 			break;
 		case 4:
-			std::cout << "nada ainda" << std::endl;
+			id_veterinario = buscarPorId("Funcionario");
+			itr_func = map_funcionarios.find(id_veterinario);
+			std::cout << "\n";
+
+			// sobrecarregar objetos
+			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
+
+				if(itr_animal->second->getVeterinario() == *(dynamic_cast<Veterinario*>(itr_func->second))){
+					imprimeAnimalEspecifico(itr_animal->second);
+				}
+			}	
 			break;
 	}
 }
