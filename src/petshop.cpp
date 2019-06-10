@@ -774,117 +774,92 @@ void Petshop::consultarAnimal(){
 	std::cout << "2 - Pesquisar por classe" << std::endl;
 	std::cout << "3 - Pesquisar por tratador" << std::endl;
 	std::cout << "4 - Pesquisar por veterinário" << std::endl;
+	std::cout << "Opção: ";
 	std::cin >> escolha_consulta;
+	while(escolha_consulta < 1 || escolha_consulta > 4){
+		std::cout << "A opção digitada não existe. Digite a opção desejada: ";
+		std::cin >> escolha_consulta;
+	}
 
 	std::map<int, Animal*>::iterator itr_t;
 	std::map<int, Funcionario*>::iterator func;
 
-	 if (escolha_consulta == 1) {
+/////Variáveis usadas no switch////////////////
+	int id_animal, id_tratador, id_veterinario;
+	int classe_animal;
+	std::string classe_animal_;
+	int nativo_ou_exotico;
+	std::string nativo_ou_exotico_;
+	std::string pesquisa;
+//////////////////////////////////////////////
 
-		int id_animal;
-		id_animal = buscarPorId("Animal");
-		itr_t = map_animais.find(id_animal);
-		std::cout << "\n";
+	switch(escolha_consulta){
+		case 1:
+			
+			id_animal = buscarPorId("Animal");
+			itr_t = map_animais.find(id_animal);
+			std::cout << "\n";
 
-		imprimeAnimalEspecifico(itr_t->second);
-		
-	 } else if (escolha_consulta == 2) {
+			imprimeAnimalEspecifico(itr_t->second);
+			break;
+		case 2:
+			
+			std::cout << "Insira a classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
+			do {
+				std::cin >> classe_animal;
 
-		int classe_animal;
-		std::string classe_animal_;
-		int nativo_ou_exotico;
-		std::string nativo_ou_exotico_;
-		std::string pesquisa;
+				if(classe_animal == 1) {
+					classe_animal_ = "Anfibio";
+				} else if (classe_animal == 2) {
+					classe_animal_ = "Ave";
+				} else if (classe_animal == 3) {
+					classe_animal_ = "Mamifero";
+				} else {
+					classe_animal_ = "Reptil";
+				}
+			} while (classe_animal < 1 || classe_animal > 4);
 
-		std::cout << "Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
-		do {
-			std::cin >> classe_animal;
+			std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
+			do {
+				std::cin >> nativo_ou_exotico;
 
-			if(classe_animal == 1) {
-				classe_animal_ = "Anfibio";
-			} else if (classe_animal == 2) {
-				classe_animal_ = "Ave";
-			} else if (classe_animal == 3) {
-				classe_animal_ = "Mamifero";
-			} else {
-				classe_animal_ = "Reptil";
-			}
-		} while (classe_animal < 1 || classe_animal > 4);
-		std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
-		do {
-			std::cin >> nativo_ou_exotico;
+				if(nativo_ou_exotico == 1) {
+					nativo_ou_exotico_ = "Nativa";
+				} else if (nativo_ou_exotico == 2) {
+					nativo_ou_exotico_ = "Exotico";
+				} else {
+					nativo_ou_exotico_ = "";
+				}
+			} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
 
-			if(nativo_ou_exotico == 1) {
-				nativo_ou_exotico_ = "Nativa";
-			} else if (nativo_ou_exotico == 2) {
-				nativo_ou_exotico_ = "Exotico";
-			} else {
-				nativo_ou_exotico_ = "";
-			}
-		} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
+			std::cout << "\n";
+			
+			pesquisa = classe_animal_ +nativo_ou_exotico_;
 
-		pesquisa = classe_animal_ +nativo_ou_exotico_;
+			for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 
-		for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
-			//Verificação para anfibios
-			if(itr_t->second->getClasse() == "Anfibio" && pesquisa == "Anfibio"){
-				std::cout << *(dynamic_cast<Anfibio*>(itr_t->second)) << std::endl;
+				if(pesquisa == itr_t->second->getClasse()){
+					imprimeAnimalEspecifico(itr_t->second);
+				}
 			}
-			if(itr_t->second->getClasse() == "AnfibioNativo" && pesquisa == "AnfibioNativo"){
-				std::cout << *(dynamic_cast<AnfibioNativo*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "AnfibioExotico" && pesquisa == "AnfibioExotico"){
-				std::cout << *(dynamic_cast<AnfibioExotico*>(itr_t->second)) << std::endl;
-			}
-			//Verificação para aves
-			if(itr_t->second->getClasse() == "Ave" && pesquisa == "Ave"){
-				std::cout << *(dynamic_cast<Ave*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "AveNativa" && pesquisa == "AveNativa"){
-				std::cout << *(dynamic_cast<AveNativa*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "AveExotica" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<AveExotica*>(itr_t->second)) << std::endl;
-			}
-			//Verificação para mamíferos
-			if(itr_t->second->getClasse() == "Mamifero" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<Mamifero*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "MamiferoNativo" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<MamiferoNativo*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "MamiferoExotico" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<MamiferoExotico*>(itr_t->second)) << std::endl;
-			}
-			//Verificação para répteis
-			if(itr_t->second->getClasse() == "Reptil" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<Reptil*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "ReptilNativo" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<ReptilNativo*>(itr_t->second)) << std::endl;
-			}
-			if(itr_t->second->getClasse() == "ReptilExotico" && pesquisa == "AveExotica"){
-				std::cout << *(dynamic_cast<ReptilExotico*>(itr_t->second)) << std::endl;
-			}
-		}	
+			break;
+		case 3:
+			
+			id_tratador = buscarPorId("Funcionario");
+			func = map_funcionarios.find(id_tratador);
+			std::cout << "\n";
 
-	} else if (escolha_consulta == 3) {
+			// sobrecarregar objetos
+			for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 
-		int id_tratador;
-		id_tratador = buscarPorId("Funcionario");
-		func = map_funcionarios.find(id_tratador);
-		std::cout << "\n";
-
-		// sobrecarregar objetos
-		for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
-
-			if(itr_t->second->getTratador() == *(dynamic_cast<Tratador*>(func->second))){
-				imprimeAnimalEspecifico(itr_t->second);
-			}
-		}	
-		
-	} else {
-		std::cout << "nada ainda" << std::endl;
+				if(itr_t->second->getTratador() == *(dynamic_cast<Tratador*>(func->second))){
+					imprimeAnimalEspecifico(itr_t->second);
+				}
+			}	
+			break;
+		case 4:
+			std::cout << "nada ainda" << std::endl;
+			break;
 	}
 }
 
