@@ -34,9 +34,39 @@ int Petshop::buscarPorId(std::string tipo_map){
 			}else{
 				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
-
 		}
 	}while(match == false);
+	return id;
+}
+
+int Petshop::verificaId(std::string tipo_map){
+	bool match = true;
+	int id;
+	do{
+		std::cout << "Id: ";
+		std::cin >> id;
+
+		if(tipo_map == "Animal"){
+
+			std::map<int,Animal*>::iterator it;
+			it = map_animais.find(id);
+			if(it != map_animais.end()){
+				std::cout << "Id existente. Tente novamente!" << std::endl;
+			}else{
+				match = false;
+			}
+
+		}else if(tipo_map == "Funcionario"){
+
+			std::map<int,Funcionario*>::iterator it;
+			it = map_funcionarios.find(id);
+			if(it != map_funcionarios.end()){
+				std::cout << "Id existente. Tente novamente!" << std::endl;
+			}else{
+				match = false;
+			}
+		}
+	}while(match == true);
 	return id;
 }
 
@@ -208,7 +238,7 @@ void Petshop::lerArquivoAnimal() {
 		std::size_t found3 = classe.find("Reptil");
 		if(found3!=std::string::npos) {
 			venenoso = (v[9] == "1") ? true : false;
-			tipo_venenoso = (v[10]);
+			tipo_venenoso = (venenoso == true) ? v[10] : "Não venenoso";
 
 			if(classe.compare("Reptil") > 0) {
 				autorizacao = v[11];
@@ -602,9 +632,7 @@ void Petshop::cadastrarAnimal() {
 		std::cin >> escolha_classe;
 	}while(escolha_classe < 1 || escolha_classe > 4);
 
-	int id_;
-	std::cout << "- Id do animal: ";
-	std::cin >> id_;
+	int id_ = verificaId("Animal");
 
 	std::string nome_cientifico_;
 	std::cout << "- Insira o nome científico: ";
@@ -990,11 +1018,7 @@ void Petshop::consultarAnimal(){
 }
 
 void Petshop::gravarArquivoFuncionario(){
-	try{
-		remove("controle_funcionarios.csv");	
-	}catch(int e){
-		throw;
-	}
+	remove("controle_funcionarios.csv");
 	
 	std::fstream arquivo = abrirArquivo("Funcionario");
 
@@ -1021,11 +1045,12 @@ void Petshop::gravarArquivoFuncionario(){
 }
 
 void Petshop::lerArquivoFuncionario(){
+
 	std::fstream arquivo = abrirArquivo("Funcionario");
 
 	std::vector<std::string> funcionario;
 	std::string linha, palavra;
-
+	
 	while(!arquivo.eof()){
 		funcionario.clear(); //necessário para inserir e manipular cada linha
 		getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
@@ -1061,9 +1086,7 @@ void Petshop::cadastrarFuncionario(){
 		std::cin >> tipo_funcionario;
 	}while(tipo_funcionario < 1 || tipo_funcionario > 2);
 
-	int id_;
-	std::cout << "- Id do funcionário: ";
-	std::cin >> id_;
+	int id_ = verificaId("Funcionario");
 
 	std::string nome_;
 	std::cout << "- Nome: ";
@@ -1160,11 +1183,7 @@ void Petshop::editarFuncionario(){
 
 		std::string novo_id, novo_nome, novo_cpf, nova_idade, novo_tipo_sanguineo, novo_fator_rh, nova_especialidade, novo_crmv, novo_nivel_de_seguranca;
 
-		std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Id [" << it->second->getId() << "]: ";
-		std::cin >> novo_id;
-		if(novo_id != "*"){ it->second->setId(stoi(novo_id)); }
-
-		std::cout << "- Nome [" << it->second->getNome() << "]: ";
+		std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Nome [" << it->second->getNome() << "]: ";
 		std::cin >> novo_nome;
 		if(novo_nome != "*"){ it->second->setNome(novo_nome); }
 

@@ -47,6 +47,7 @@ class Petshop{
 		void atualizaArquivoAnimal();
 
 		int buscarPorId(std::string tipo_map);
+		int verificaId(std::string tipo_map);
 		void imprimeAnimalEspecifico(Animal* animal);
 
 		void cadastrarAnimal();

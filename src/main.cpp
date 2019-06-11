@@ -17,5 +17,11 @@ int main() {
 	//pet->removerAnimal();
 	pet->listarAnimais();
 	//pet->consultarAnimal();
+	/*
+	pet->lerArquivoFuncionario();
+	pet->listarFuncionarios();
+	pet->cadastrarFuncionario();
+	pet->gravarArquivoFuncionario();
+	*/
 	return 0;
 }
