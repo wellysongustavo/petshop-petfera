@@ -45,6 +45,10 @@ class Petshop{
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
 
+		std::fstream abrirArquivoFuncionario();
+		void gravarArquivoFuncionario();
+		void lerArquivoFuncionario();
+
 		void cadastrarFuncionario();
 		void listarFuncionarios();
 		void removerFuncionario();

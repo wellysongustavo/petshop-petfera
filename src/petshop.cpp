@@ -117,7 +117,7 @@ std::fstream Petshop::abrirArquivoAnimal() {
 	std::fstream arquivo_("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
 
 	if(!(arquivo_.is_open())) { 
-		std::cerr << "ERRO! Abertura de arquivo inválida." << std:: endl; 
+		std::cerr << "ERRO! Abertura de arquivo inválida." << std::endl; 
 		exit(1);
 	}
 	arquivo_.seekg(0);
@@ -916,14 +916,14 @@ void Petshop::consultarAnimal(){
 	std::map<int, Animal*>::iterator itr_animal;
 	std::map<int, Funcionario*>::iterator itr_func;
 
-/////Variáveis usadas no switch////////////////
+	/////Variáveis usadas no switch////////////////
 	int id_animal, id_tratador, id_veterinario;
 	int classe_animal;
 	std::string classe_animal_;
 	int nativo_ou_exotico;
 	std::string nativo_ou_exotico_;
 	std::string pesquisa;
-//////////////////////////////////////////////
+	//////////////////////////////////////////////
 
 	switch(escolha_consulta){
 		case 1:
@@ -1009,6 +1009,81 @@ void Petshop::consultarAnimal(){
 	}
 }
 
+std::fstream Petshop::abrirArquivoFuncionario(){
+	std::fstream arquivo("controle_funcionarios.csv", std::fstream::in | std::fstream::out | std::fstream::app);
+
+	if(!arquivo.is_open()){
+		std::cerr << "Erro ao abrir arquivo." << std::endl;
+		exit(0);
+	}
+	return arquivo;
+}
+
+void Petshop::gravarArquivoFuncionario(){
+	try{
+		remove("controle_funcionarios.csv");	
+	}catch(int e){
+		throw;
+	}
+	
+	std::fstream arquivo = abrirArquivoFuncionario();
+
+	std::map<int, Funcionario*>::iterator it;
+
+	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
+		arquivo << it->second->getClasse() << ";"
+				<< it->second->getId() << ";"
+				<< it->second->getNome() << ";"
+				<< it->second->getCpf() << ";"
+				<< it->second->getIdade() << ";"
+				<< it->second->getTipoSanguineo() << ";"
+				<< it->second->getFatorRh() << ";"
+				<< it->second->getEspecialidade() << ";";
+
+		if(it->second->getClasse() == "Veterinario"){
+			arquivo << dynamic_cast<Veterinario*>(it->second)->getCrmv() << "\n";
+		}else if(it->second->getClasse() == "Tratador"){
+			arquivo << dynamic_cast<Tratador*>(it->second)->getNivelSeguranca() << "\n";
+		}			
+	}
+
+	arquivo.close();
+}
+
+void Petshop::lerArquivoFuncionario(){
+	std::fstream arquivo = abrirArquivoFuncionario();
+
+	std::vector<std::string> funcionario;
+	std::string linha, palavra;
+
+	while(!arquivo.eof()){
+		funcionario.clear(); //necessário para inserir e manipular cada linha
+		getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
+
+		stringstream s(linha); //usado para quebrar string em palavras
+		while(getline(s, palavra, ';')){
+			funcionario.push_back(palavra);
+		}
+
+		//Transformando string de funcionario[6] em char------------
+		char * funcionario_6 = new char [funcionario[6].length()+1];
+		std::strcpy (funcionario_6, funcionario[6].c_str());
+		//----------------------------------------------------------
+
+		if(funcionario[0] == "Veterinario"){
+			
+			Veterinario* vet = new Veterinario(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], funcionario[8]);
+			map_funcionarios.insert({stoi(funcionario[1]),vet});
+
+		}else if(funcionario[0] == "Tratador"){
+
+			Tratador* trat = new Tratador(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], stoi(funcionario[8]));
+			map_funcionarios.insert({stoi(funcionario[1]),trat});
+		}
+	}
+	arquivo.close();
+}
+
 void Petshop::cadastrarFuncionario(){
 	int tipo_funcionario;
 	std::cout << "\n**************************** CADASTRO DE FUNCIONÁRIOS ****************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
@@ -1058,7 +1133,6 @@ void Petshop::cadastrarFuncionario(){
 		
 		map_funcionarios.insert({id_,vet});
 		std::cout << "Veterinário "<< vet->getNome() <<" cadastrado com sucesso.\n" << std::endl;
-		//std::cout << *(dynamic_cast<Veterinario*>(map_funcionarios.at(id_))); //FUNCIONANDO
 	}else{
 		int nivel_de_seguranca_;
 		std::cout << "- Nível de segurança: ";
@@ -1068,7 +1142,6 @@ void Petshop::cadastrarFuncionario(){
 		
 		map_funcionarios.insert({id_,trat});
 		std::cout << "Tratador "<< trat->getNome() <<" cadastrado com sucesso.\n" << std::endl;
-		//std::cout << *(dynamic_cast<Tratador*>(map_funcionarios.at(id_)));  //FUNCIONANDO
 	}
 }
 

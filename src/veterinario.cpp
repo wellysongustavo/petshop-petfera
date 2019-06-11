@@ -21,12 +21,11 @@ std::ostream& operator << (std::ostream& os, const Veterinario& v) {
 
 	return os;
 }
-/*
-bool Veterinario::operator == (const Veterinario& v) const{
-	if(this.m_id == v.m_id){
+
+bool operator == (const Veterinario& v1, const Veterinario& v2){
+	if(v1.m_id == v2.m_id){
 		return true;
 	}else{
 		return false;
 	}
 }
-*/
