@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 #include "petshop.h"
 
 int main() {
@@ -14,16 +11,11 @@ int main() {
 	//pet->consultarFuncionario();
 	//pet->removerFuncionario();
 	//pet->cadastrarAnimal();
-	//pet->lerArquivoAnimal();
-	//pet->editarAnimal();
-	//pet->atualizaArquivoAnimal();
+	pet->lerArquivoAnimal();
+	pet->editarAnimal();
+	pet->atualizaArquivoAnimal();
 	//pet->removerAnimal();
-	//pet->listarAnimais();
+	pet->listarAnimais();
 	//pet->consultarAnimal();
-
-	pet->lerArquivoFuncionario();
-	pet->listarFuncionarios();
-	pet->cadastrarFuncionario();
-	pet->gravarArquivoFuncionario();
 	return 0;
 }

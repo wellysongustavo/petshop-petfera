@@ -1,33 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <sstream>
-#include <map>
-#include <iterator>
-#include <typeinfo>
-#include <fstream>
-#include <vector>
-
-#include "funcionario.h"
-#include "tratador.h"
-#include "veterinario.h"
-#include "animal.h"
-#include "animal_silvestre.h"
-#include "animal_nativo.h"
-#include "animal_exotico.h"
-#include "anfibio.h"
-#include "anfibio_nativo.h"
-#include "anfibio_exotico.h"
-#include "mamifero.h"
-#include "mamifero_nativo.h"
-#include "mamifero_exotico.h"
-#include "reptil.h"
-#include "reptil_nativo.h"
-#include "reptil_exotico.h"
-#include "ave.h"
-#include "ave_exotica.h"
-#include "ave_nativa.h"
-#include "date.h"
 #include "petshop.h"
 
 //criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
@@ -113,20 +83,24 @@ void Petshop::imprimeAnimalEspecifico(Animal* animal){
 	}
 }
 
-std::fstream Petshop::abrirArquivoAnimal() {
-	std::fstream arquivo_("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
-
-	if(!(arquivo_.is_open())) { 
+std::fstream Petshop::abrirArquivo(std::string tipo_map) {
+	std::fstream arquivo;
+	if(tipo_map == "Animal") {
+		arquivo.open("controle_animais.csv", std::ios::in | std::ios::out | std::ios::app);
+	}else if(tipo_map == "Funcionario") {
+		arquivo.open("controle_funcionarios.csv", std::ios::in | std::ios::out | std::ios::app);
+	}
+	if(!(arquivo.is_open())) { 
 		std::cerr << "ERRO! Abertura de arquivo inválida." << std::endl; 
 		exit(1);
 	}
-	arquivo_.seekg(0);
+	arquivo.seekg(0);
 
-	return arquivo_;
+	return arquivo;
 }
 
 void Petshop::lerArquivoAnimal() {
-	std::fstream arquivo = abrirArquivoAnimal();
+	std::fstream arquivo = abrirArquivo("Animal");
 	//criando as variáveis
 	std::string aux, linha, classe, cientifico, sexo, dieta, batismo, autorizacao, uf, pais, tipo_venenoso, cor_do_pelo;
 	bool venenoso; 
@@ -134,21 +108,17 @@ void Petshop::lerArquivoAnimal() {
 	int id;
 	int total_de_mudas;
 	date data_ultima_muda;
+	
+	std::vector<std::string> v;
 
-	while(!arquivo.eof()) {
-		std::vector<std::string> v;
-		std::fstream arquivo_auxiliar("auxiliar.csv", std::ios::in | std::ios::out);
-		arquivo_auxiliar.seekg(0);
+	while(!arquivo.eof()){
+		v.clear(); //necessário para inserir e manipular cada linha
+		getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
 
-		std::getline(arquivo, linha);
-		arquivo_auxiliar << linha;
-		arquivo_auxiliar.seekg(0);
-
-		while(!arquivo_auxiliar.eof()) {
-			std::getline(arquivo_auxiliar, aux, ';');
+		stringstream ss(linha); //usado para quebrar string em palavras
+		while(getline(ss, aux, ';')){
 			v.push_back(aux);
 		}
-		arquivo_auxiliar.close();
 		
 		//Salvando os valores lidos do csv
 		id = std::stoi(v[0]);
@@ -168,7 +138,7 @@ void Petshop::lerArquivoAnimal() {
 		if(found!=std::string::npos) {
 			total_de_mudas = std::stoi(v[9]);
 
-			if(v[10] != " invalid date ") {
+			if(v[10] != "Não informado") {
 			data_ultima_muda = data_ultima_muda.converte_string(v[10]);
 			}else {
 				data_ultima_muda.set_day(00); data_ultima_muda.set_month(00); data_ultima_muda.set_year(0000);
@@ -305,7 +275,7 @@ void Petshop::lerArquivoAnimal() {
 
 void Petshop::atualizaArquivoAnimal() {
 	remove("controle_animais.csv");
-	std::fstream arquivo = abrirArquivoAnimal();
+	std::fstream arquivo = abrirArquivo("Animal");
 
 	std::map<int, Animal*>::iterator itr_t;
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
@@ -374,8 +344,13 @@ void Petshop::cadastrarAnfibio(std::fstream& arquivo_, int id_, std::string nome
 	std::cin >> total_de_mudas_;
 
 	int dia_, mes_, ano_;
-	std::cout << "- Data da última muda do anfíbio (dia mês ano): ";
-	std::cin >> dia_; std::cin >> mes_; std::cin >> ano_;
+	if(total_de_mudas_ > 0) {
+		std::cout << "- Data da última muda do anfíbio (dia mês ano): ";
+		std::cin >> dia_; std::cin >> mes_; std::cin >> ano_;
+	}else {
+		dia_ = 00; mes_ = 00; ano_ = 0000;
+	}
+
 	date data_(dia_, mes_, ano_);
 
 	int especie;
@@ -620,7 +595,7 @@ void Petshop::cadastrarMamifero(std::fstream& arquivo_, int id_, std::string nom
 
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
-	std::fstream arquivo = abrirArquivoAnimal();
+	std::fstream arquivo = abrirArquivo("Animal");
 
 	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
@@ -742,12 +717,17 @@ void Petshop::editarAnimal() {
 				std::cin >> total_de_mudas;
 				if(total_de_mudas != "*") { dynamic_cast<Anfibio*>(it->second)->setTotalMudas(std::stoi(total_de_mudas)); }
 
-				std::cout << "- Data da última muda [" << dynamic_cast<Anfibio*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
-				std::cin >> dia; std::cin >> mes; std::cin >> ano;
-				if(dia != "*" && mes != "*" && ano != "*") { 
-					date ultima_muda(std::stoi(dia), std::stoi(mes), std::stoi(ano));
-					dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda); }
-				
+				if(dynamic_cast<Anfibio*>(it->second)->getTotalMudas() > 0) {
+					std::cout << "- Data da última muda [" << dynamic_cast<Anfibio*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
+					std::cin >> dia; std::cin >> mes; std::cin >> ano;
+					if(dia != "*" && mes != "*" && ano != "*") { 
+						date ultima_muda(std::stoi(dia), std::stoi(mes), std::stoi(ano));
+						dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda); }
+				}else {
+					date ultima_muda(00, 00, 0000);
+						dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda);
+				}
+
 				if((it->second->getClasse()).compare("Anfibio") > 0) {
 					std::string autorizacao_silvestre;
 
@@ -1009,16 +989,6 @@ void Petshop::consultarAnimal(){
 	}
 }
 
-std::fstream Petshop::abrirArquivoFuncionario(){
-	std::fstream arquivo("controle_funcionarios.csv", std::fstream::in | std::fstream::out | std::fstream::app);
-
-	if(!arquivo.is_open()){
-		std::cerr << "Erro ao abrir arquivo." << std::endl;
-		exit(0);
-	}
-	return arquivo;
-}
-
 void Petshop::gravarArquivoFuncionario(){
 	try{
 		remove("controle_funcionarios.csv");	
@@ -1026,7 +996,7 @@ void Petshop::gravarArquivoFuncionario(){
 		throw;
 	}
 	
-	std::fstream arquivo = abrirArquivoFuncionario();
+	std::fstream arquivo = abrirArquivo("Funcionario");
 
 	std::map<int, Funcionario*>::iterator it;
 
@@ -1051,7 +1021,7 @@ void Petshop::gravarArquivoFuncionario(){
 }
 
 void Petshop::lerArquivoFuncionario(){
-	std::fstream arquivo = abrirArquivoFuncionario();
+	std::fstream arquivo = abrirArquivo("Funcionario");
 
 	std::vector<std::string> funcionario;
 	std::string linha, palavra;
