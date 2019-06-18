@@ -51,16 +51,16 @@ class Petshop{
 		void imprimeAnimalEspecifico(Animal* animal);
 
 		void cadastrarAnimal();
-		void cadastrarAnfibio(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
+		void cadastrarAnfibio(int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarReptil(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
+		void cadastrarReptil(int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarAve(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
+		void cadastrarAve(int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
-		void cadastrarMamifero(std::fstream& arquivo, int id, std::string nome_cientifico, char sexo, 
+		void cadastrarMamifero(int id, std::string nome_cientifico, char sexo, 
 			double tamanho, std::string dieta, int id_veterinario, int id_tratador, 
 			std::string nome_batismo);
 		void listarAnimais();	
