@@ -131,6 +131,11 @@ std::fstream Petshop::abrirArquivo(std::string tipo_map) {
 
 void Petshop::lerArquivoAnimal() {
 	std::fstream arquivo = abrirArquivo("Animal");
+
+	arquivo.seekg (0, ios::end);
+	int length = arquivo.tellg();
+	arquivo.seekg (0, ios::beg);
+
 	//criando as variáveis
 	std::string aux, linha, classe, cientifico, sexo, dieta, batismo, autorizacao, uf, pais, tipo_venenoso, cor_do_pelo;
 	bool venenoso; 
@@ -139,164 +144,165 @@ void Petshop::lerArquivoAnimal() {
 	date data_ultima_muda;
 	
 	std::vector<std::string> v;
-
-	while(!arquivo.eof()){
-		v.clear(); //necessário para inserir e manipular cada linha
-		getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
-
-		stringstream ss(linha); //usado para quebrar string em palavras
-		while(getline(ss, aux, ';')){
-			v.push_back(aux);
-		}
+	if(length > 0) {
+		while(!arquivo.eof()){
+			v.clear(); //necessário para inserir e manipular cada linha
+			getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
+	
+			stringstream ss(linha); //usado para quebrar string em palavras
+			while(getline(ss, aux, ';')){
+				v.push_back(aux);
+			}
+			
+			//Salvando os valores lidos do csv
+			id = std::stoi(v[0]);
+			classe = v[1];
+			cientifico = v[2];
+			sexo = v[3];
+			tam = std::stod(v[4]);
+			dieta = v[5];
+			id_v = std::stoi(v[6]);
+			id_t_ = std::stoi(v[7]);
+			batismo = v[8];
+	
+			char* s = new char[sexo.length()+1];
+			std::strcpy(s, sexo.c_str());
+	
+			std::size_t found = classe.find("Anfibio");
+			if(found!=std::string::npos) {
+				total_de_mudas = std::stoi(v[9]);
+	
+				if(v[10] != "Não informado") {
+				data_ultima_muda = data_ultima_muda.converte_string(v[10]);
+				}else {
+					data_ultima_muda.set_day(00); data_ultima_muda.set_month(00); data_ultima_muda.set_year(0000);
+				}
+	
+				if(classe.compare("Anfibio") > 0) {
+					autorizacao = v[11];
+	
+					if(classe == "AnfibioNativo") {
+						uf = v[12];
+	
+						AnfibioNativo* anfibio_nativo = new AnfibioNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							total_de_mudas, data_ultima_muda, autorizacao, uf);
+	
+						this->map_animais.insert({id, anfibio_nativo});
+					}
+					if(classe == "AnfibioExotico") {
+						pais = v[12];
+	
+						AnfibioExotico* anfibio_exotico = new AnfibioExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							total_de_mudas, data_ultima_muda, autorizacao, pais);
+	
+						this->map_animais.insert({id, anfibio_exotico});
+					}
+				}else{
+					Anfibio* anfibio_domestico = new Anfibio(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+						total_de_mudas, data_ultima_muda);
 		
-		//Salvando os valores lidos do csv
-		id = std::stoi(v[0]);
-		classe = v[1];
-		cientifico = v[2];
-		sexo = v[3];
-		tam = std::stod(v[4]);
-		dieta = v[5];
-		id_v = std::stoi(v[6]);
-		id_t_ = std::stoi(v[7]);
-		batismo = v[8];
-
-		char* s = new char[sexo.length()+1];
-		std::strcpy(s, sexo.c_str());
-
-		std::size_t found = classe.find("Anfibio");
-		if(found!=std::string::npos) {
-			total_de_mudas = std::stoi(v[9]);
-
-			if(v[10] != "Não informado") {
-			data_ultima_muda = data_ultima_muda.converte_string(v[10]);
-			}else {
-				data_ultima_muda.set_day(00); data_ultima_muda.set_month(00); data_ultima_muda.set_year(0000);
+					this->map_animais.insert({id, anfibio_domestico});
+				}
+				v.clear();
 			}
-
-			if(classe.compare("Anfibio") > 0) {
-				autorizacao = v[11];
-
-				if(classe == "AnfibioNativo") {
-					uf = v[12];
-
-					AnfibioNativo* anfibio_nativo = new AnfibioNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						total_de_mudas, data_ultima_muda, autorizacao, uf);
-
-					this->map_animais.insert({id, anfibio_nativo});
-				}
-				if(classe == "AnfibioExotico") {
-					pais = v[12];
-
-					AnfibioExotico* anfibio_exotico = new AnfibioExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						total_de_mudas, data_ultima_muda, autorizacao, pais);
-
-					this->map_animais.insert({id, anfibio_exotico});
-				}
-			}else{
-				Anfibio* anfibio_domestico = new Anfibio(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-					total_de_mudas, data_ultima_muda);
 	
-				this->map_animais.insert({id, anfibio_domestico});
-			}
-			v.clear();
-		}
-
-		std::size_t found2= classe.find("Ave");
-		if(found2!=std::string::npos) {
-			tam_bico_cm = std::stod(v[9]);
-			envergadura = std::stod(v[10]);
-
-			if(classe.compare("Ave") > 0) {
-				autorizacao = v[11];
-
-				if(classe == "AveNativa") {
-					uf = v[12];
-
-					AveNativa* ave_nativa = new AveNativa(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						tam_bico_cm, envergadura, autorizacao, uf);
-
-					this->map_animais.insert({id, ave_nativa});
-				}
-				if(classe == "AveExotica") {
-					pais = v[12];
-
-					AveExotica* ave_exotica = new AveExotica(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						tam_bico_cm, envergadura, autorizacao, pais);
-
-					this->map_animais.insert({id, ave_exotica});
-				}
-			}else{
-				Ave* ave_domestica = new Ave(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-					tam_bico_cm, envergadura);
+			std::size_t found2= classe.find("Ave");
+			if(found2!=std::string::npos) {
+				tam_bico_cm = std::stod(v[9]);
+				envergadura = std::stod(v[10]);
 	
-				this->map_animais.insert({id, ave_domestica});
-			}
-			v.clear();
-		}
-
-		std::size_t found3 = classe.find("Reptil");
-		if(found3!=std::string::npos) {
-			venenoso = (v[9] == "1") ? true : false;
-			tipo_venenoso = (venenoso == true) ? v[10] : "Não venenoso";
-
-			if(classe.compare("Reptil") > 0) {
-				autorizacao = v[11];
-
-				if(classe == "ReptilNativo") {
-					uf = v[12];
-
-					ReptilNativo* reptil_nativo = new ReptilNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						venenoso, tipo_venenoso, autorizacao, uf);
-
-					this->map_animais.insert({id, reptil_nativo});
-				}
-				if(classe == "ReptilExotico") {
-					pais = v[12];
-
-					ReptilExotico* reptil_exotico = new ReptilExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						venenoso, tipo_venenoso, autorizacao, pais);
-
-					this->map_animais.insert({id, reptil_exotico});
-				}
-			}else{
-				Reptil* reptil_domestico = new Reptil(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-					venenoso, tipo_venenoso);
+				if(classe.compare("Ave") > 0) {
+					autorizacao = v[11];
 	
-				this->map_animais.insert({id, reptil_domestico});
-			}
-			v.clear();
-		}
-
-		std::size_t found4 = classe.find("Mamifero");
-		if(found4!=std::string::npos) {
-			cor_do_pelo = v[9];
-
-			if(classe.compare("Mamifero") > 0) {
-				autorizacao = v[10];
-
-				if(classe == "MamiferoNativo") {
-					uf = v[11];
-
-					MamiferoNativo* mamifero_nativo = new MamiferoNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						cor_do_pelo, autorizacao, uf);
-
-					this->map_animais.insert({id, mamifero_nativo});
+					if(classe == "AveNativa") {
+						uf = v[12];
+	
+						AveNativa* ave_nativa = new AveNativa(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							tam_bico_cm, envergadura, autorizacao, uf);
+	
+						this->map_animais.insert({id, ave_nativa});
+					}
+					if(classe == "AveExotica") {
+						pais = v[12];
+	
+						AveExotica* ave_exotica = new AveExotica(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							tam_bico_cm, envergadura, autorizacao, pais);
+	
+						this->map_animais.insert({id, ave_exotica});
+					}
+				}else{
+					Ave* ave_domestica = new Ave(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+						tam_bico_cm, envergadura);
+		
+					this->map_animais.insert({id, ave_domestica});
 				}
-				if(classe == "MamiferoExotico") {
-					pais = v[11];
-
-					MamiferoExotico* mamifero_exotico = new MamiferoExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						cor_do_pelo, autorizacao, pais);
-
-					this->map_animais.insert({id, mamifero_exotico});
-				}
-			}else{
-				Mamifero* mamifero_domestico = new Mamifero(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
-						cor_do_pelo);
-
-				this->map_animais.insert({id, mamifero_domestico});
+				v.clear();
 			}
-			v.clear();
+	
+			std::size_t found3 = classe.find("Reptil");
+			if(found3!=std::string::npos) {
+				venenoso = (v[9] == "1") ? true : false;
+				tipo_venenoso = (venenoso == true) ? v[10] : "Não venenoso";
+	
+				if(classe.compare("Reptil") > 0) {
+					autorizacao = v[11];
+	
+					if(classe == "ReptilNativo") {
+						uf = v[12];
+	
+						ReptilNativo* reptil_nativo = new ReptilNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							venenoso, tipo_venenoso, autorizacao, uf);
+	
+						this->map_animais.insert({id, reptil_nativo});
+					}
+					if(classe == "ReptilExotico") {
+						pais = v[12];
+	
+						ReptilExotico* reptil_exotico = new ReptilExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							venenoso, tipo_venenoso, autorizacao, pais);
+	
+						this->map_animais.insert({id, reptil_exotico});
+					}
+				}else{
+					Reptil* reptil_domestico = new Reptil(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+						venenoso, tipo_venenoso);
+		
+					this->map_animais.insert({id, reptil_domestico});
+				}
+				v.clear();
+			}
+	
+			std::size_t found4 = classe.find("Mamifero");
+			if(found4!=std::string::npos) {
+				cor_do_pelo = v[9];
+	
+				if(classe.compare("Mamifero") > 0) {
+					autorizacao = v[10];
+	
+					if(classe == "MamiferoNativo") {
+						uf = v[11];
+	
+						MamiferoNativo* mamifero_nativo = new MamiferoNativo(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							cor_do_pelo, autorizacao, uf);
+	
+						this->map_animais.insert({id, mamifero_nativo});
+					}
+					if(classe == "MamiferoExotico") {
+						pais = v[11];
+	
+						MamiferoExotico* mamifero_exotico = new MamiferoExotico(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							cor_do_pelo, autorizacao, pais);
+	
+						this->map_animais.insert({id, mamifero_exotico});
+					}
+				}else{
+					Mamifero* mamifero_domestico = new Mamifero(id, classe, cientifico, *s, tam, dieta, id_v, id_t_, batismo, 
+							cor_do_pelo);
+	
+					this->map_animais.insert({id, mamifero_domestico});
+				}
+				v.clear();
+			}
 		}
 	}
 	arquivo.close();		
@@ -1007,32 +1013,37 @@ void Petshop::lerArquivoFuncionario(){
 
 	std::fstream arquivo = abrirArquivo("Funcionario");
 
+	arquivo.seekg (0, ios::end);
+	int length = arquivo.tellg();
+	arquivo.seekg (0, ios::beg);
+
 	std::vector<std::string> funcionario;
 	std::string linha, palavra;
+	if(length > 0) {
+		while(!arquivo.eof()){
+			funcionario.clear(); //necessário para inserir e manipular cada linha
+			getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
 	
-	while(!arquivo.eof()){
-		funcionario.clear(); //necessário para inserir e manipular cada linha
-		getline(arquivo, linha); //lê uma linha e salva como string na variável "linha"
-
-		stringstream s(linha); //usado para quebrar string em palavras
-		while(getline(s, palavra, ';')){
-			funcionario.push_back(palavra);
-		}
-
-		//Transformando string de funcionario[6] em char------------
-		char * funcionario_6 = new char [funcionario[6].length()+1];
-		std::strcpy (funcionario_6, funcionario[6].c_str());
-		//----------------------------------------------------------
-
-		if(funcionario[0] == "Veterinario"){
-			
-			Veterinario* vet = new Veterinario(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], funcionario[8]);
-			map_funcionarios.insert({stoi(funcionario[1]),vet});
-
-		}else if(funcionario[0] == "Tratador"){
-
-			Tratador* trat = new Tratador(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], stoi(funcionario[8]));
-			map_funcionarios.insert({stoi(funcionario[1]),trat});
+			stringstream s(linha); //usado para quebrar string em palavras
+			while(getline(s, palavra, ';')){
+				funcionario.push_back(palavra);
+			}
+	
+			//Transformando string de funcionario[6] em char------------
+			char * funcionario_6 = new char [funcionario[6].length()+1];
+			std::strcpy (funcionario_6, funcionario[6].c_str());
+			//----------------------------------------------------------
+	
+			if(funcionario[0] == "Veterinario"){
+				
+				Veterinario* vet = new Veterinario(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], funcionario[8]);
+				map_funcionarios.insert({stoi(funcionario[1]),vet});
+	
+			}else if(funcionario[0] == "Tratador"){
+	
+				Tratador* trat = new Tratador(funcionario[0], stoi(funcionario[1]), funcionario[2], funcionario[3], stoi(funcionario[4]), funcionario[5], *funcionario_6, funcionario[7], stoi(funcionario[8]));
+				map_funcionarios.insert({stoi(funcionario[1]),trat});
+			}
 		}
 	}
 	arquivo.close();
