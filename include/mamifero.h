@@ -12,8 +12,8 @@ class Mamifero : public Animal {
 
 	public:
 		Mamifero(int id, std::string classe, std::string nome_cientifico, 
-			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
-			Tratador tratador, std::string nome_batismo, std::string cor_pelo);
+			char sexo, double tamanho, std::string dieta, int id_veterinario, 
+			int id_tratador, std::string nome_batismo, std::string cor_pelo);
 		~Mamifero();
 
 		void dummy();

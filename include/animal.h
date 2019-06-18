@@ -14,14 +14,14 @@ class Animal {
 		char m_sexo;
 		double m_tamanho;
 		std::string m_dieta;
-		Veterinario m_veterinario;
-		Tratador m_tratador;
+		int m_id_veterinario;
+		int m_id_tratador;
 		std::string m_nome_batismo;
 
 	public:
 		Animal(int id, std::string classe, std::string nome_cientifico, 
-			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
-			Tratador tratador, std::string nome_batismo);
+			char sexo, double tamanho, std::string dieta, int id_veterinario, 
+			int id_tratador, std::string nome_batismo);
 		Animal();
 		~Animal();
 
@@ -33,8 +33,8 @@ class Animal {
 		void setSexo(char sexo);
 		void setTamanho(double tamanho);
 		void setDieta(std::string dieta);
-		void setVeterinario(Veterinario veterinario);
-		void setTratador(Tratador tratador);
+		void setIdVeterinario(int id_veterinario);
+		void setIdTratador(int id_tratador);
 		void setNomeBatismo(std::string nome_batismo);
 
 		int getId();
@@ -43,8 +43,8 @@ class Animal {
 		char getSexo();
 		double getTamanho();
 		std::string getDieta();
-		Veterinario getVeterinario();
-		Tratador getTratador();
+		int getIdVeterinario();
+		int getIdTratador();
 		std::string getNomeBatismo();
 	
 };

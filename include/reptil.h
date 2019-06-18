@@ -13,8 +13,8 @@ class Reptil : public Animal {
 
 	public:
 		Reptil(int id, std::string classe, std::string nome_cientifico, 
-			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
-			Tratador tratador, std::string nome_batismo, bool venenoso, 
+			char sexo, double tamanho, std::string dieta, int id_veterinario, 
+			int id_tratador, std::string nome_batismo, bool venenoso, 
 			std::string tipo_venenoso = "Não venenoso");
 		~Reptil();
 

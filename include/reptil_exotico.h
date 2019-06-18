@@ -7,8 +7,8 @@
 class ReptilExotico: public Reptil, AnimalExotico {
 	public:
 		ReptilExotico(int id, std::string classe, std::string nome_cientifico, 
-			char sexo, double tamanho, std::string dieta, Veterinario veterinario, 
-			Tratador tratador, std::string nome_batismo, bool venenoso, 
+			char sexo, double tamanho, std::string dieta, int id_veterinario, 
+			int id_tratador, std::string nome_batismo, bool venenoso, 
 			std::string tipo_venenoso, std::string autorizacao, std::string pais_origem);
 		~ReptilExotico();
 
