@@ -8,7 +8,7 @@ Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
-int Petshop::buscarPorId(std::string tipo_map){
+int Petshop::buscarPorId(std::string tipo_map){//ajeitar pra identificar vet e trat
 	bool match = false;
 	int id;
 	do{
@@ -25,7 +25,7 @@ int Petshop::buscarPorId(std::string tipo_map){
 				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
 
-		}else if(tipo_map == "Funcionario"){
+		}else if(tipo_map == "Funcionario" && id != 0){
 
 			std::map<int,Funcionario*>::iterator it;
 			it = map_funcionarios.find(id);
@@ -34,6 +34,8 @@ int Petshop::buscarPorId(std::string tipo_map){
 			}else{
 				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
+		}else if(tipo_map == "Funcionario" && id == 0){
+			match = true;
 		}
 	}while(match == false);
 	return id;
@@ -656,16 +658,18 @@ void Petshop::listarAnimais() {
 	}
 }
 
-void Petshop::editarAnimal() {
+void Petshop::editarAnimal() { // editar funcionarios específico de vet e trat
 	lerArquivoAnimal(); //atualizar o map
 
 	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
 	listarAnimais();
 	int id_animal;
 	bool match = false;
+	bool match_vet = false;
+	bool match_trat = false;
 	std::map<int, Animal*>::iterator it;
 
-	std::string novo_id, novo_nome_cientifico, novo_sexo, novo_tamanho, nova_dieta, novo_nome_batismo;
+	std::string novo_id, novo_nome_cientifico, novo_sexo, novo_tamanho, nova_dieta, novo_veterinario, novo_tratador, novo_nome_batismo;
 
 	do{
 		std::cout << "\n- Insira o ID do animal que deseja editar: ";
@@ -695,6 +699,37 @@ void Petshop::editarAnimal() {
 			std::cout << "- Dieta [" << it->second->getDieta() << "]: ";
 			std::cin >> nova_dieta;
 			if(nova_dieta != "*") { it->second->setDieta(nova_dieta); }
+
+
+			do{
+				std::cout << "- Id do Veterinário [" << it->second->getIdVeterinario() << "]: ";
+				std::cin >> novo_veterinario;
+				if(novo_veterinario != "*"){
+					std::map<int,Funcionario*>::iterator it_vet;
+					it_vet = map_funcionarios.find(std::stoi(novo_veterinario));
+					if(it_vet != map_funcionarios.end()){
+						match_vet = true;
+						it->second->setIdVeterinario(std::stoi(novo_veterinario));
+					}else{
+						std::cout << "Id inexistente. Tente novamente!" << std::endl;
+					}
+				}
+			}while(match_vet == false);
+
+			do{
+				std::cout << "- Id do Tratador [" << it->second->getIdTratador() << "]: ";
+				std::cin >> novo_tratador;
+				if(novo_tratador != "*"){
+					std::map<int,Funcionario*>::iterator it_trat;
+					it_trat = map_funcionarios.find(std::stoi(novo_tratador));
+					if(it_trat != map_funcionarios.end()){
+						match_trat = true;
+						it->second->setIdTratador(std::stoi(novo_tratador));
+					}else{
+						std::cout << "Id inexistente. Tente novamente!" << std::endl;
+					}
+				}
+			}while(match_trat == false);
 
 			std::cout << "- Nome de batismo [" << it->second->getNomeBatismo() << "]: ";
 			std::cin >> novo_nome_batismo;

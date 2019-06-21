@@ -12,8 +12,8 @@ int main() {
 	//pet->editarFuncionario();
 	//pet->consultarFuncionario();
 	//pet->removerFuncionario();
-	pet->cadastrarAnimal();
-	//pet->editarAnimal();
+	//pet->cadastrarAnimal();
+	pet->editarAnimal();
 	//pet->removerAnimal();
 	pet->listarAnimais();
 	//pet->consultarAnimal();
@@ -24,5 +24,8 @@ int main() {
 	*/
 	pet->gravarArquivoFuncionario(); //NÃO TIRE ISSO DAQUI
 	pet->atualizaArquivoAnimal(); //NÃO TIRE ISSO DAQUI
+
+	//fazer delete de objetos
+	//fazer menu
 	return 0;
 }
