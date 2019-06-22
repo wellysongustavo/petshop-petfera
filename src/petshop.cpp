@@ -1,41 +1,44 @@
 #include "petshop.h"
 
-//criaçao dos veterinario e tratador só pra conseguir instanciar já que tá no construtor da classe animal
-Veterinario* vet1 = new Veterinario("Veterinario", 2, "Daniel Oscar", "123.456.789-10", 30, "O", '+', "Felinos", "CRMV-GO 0406");
-Tratador* trat1 = new Tratador("Tratador", 1, "João Alberto", "007.404.200-98", 45, "AB", '-', "Répteis e Aves", 1);
 
 Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
 
-int Petshop::buscarPorId(std::string tipo_map){//ajeitar pra identificar vet e trat
+int Petshop::buscarPorId(std::string tipo_map){
 	bool match = false;
 	int id;
 	do{
-		std::cout << "Id: ";
+		std::cout << "- Id: ";
 		std::cin >> id;
 
-		if(tipo_map == "Animal"){
+		if( tipo_map == "Animal" ){
 
 			std::map<int,Animal*>::iterator it;
 			it = map_animais.find(id);
 			if(it != map_animais.end()){
 				match = true;
-			}else{
-				std::cout << "Id inexistente. Tente novamente!" << std::endl;
 			}
 
-		}else if(tipo_map == "Funcionario" && id != 0){
+		}else if( id != 0 && (tipo_map == "Funcionario" || tipo_map == "Veterinario" || tipo_map == "Tratador")){
 
 			std::map<int,Funcionario*>::iterator it;
 			it = map_funcionarios.find(id);
 			if(it != map_funcionarios.end()){
-				match = true;
-			}else{
-				std::cout << "Id inexistente. Tente novamente!" << std::endl;
+				if(tipo_map == "Funcionario"){
+					match = true;
+				}else{
+					if(it->second->getClasse() == tipo_map)
+						match = true;
+				}
 			}
-		}else if(tipo_map == "Funcionario" && id == 0){
+
+		}else if( id == 0 && (tipo_map == "Funcionario" || tipo_map == "Veterinario" || tipo_map == "Tratador")){
 			match = true;
+		}
+
+		if(match == false){
+			std::cout << "Id inexistente. Tente novamente!" << std::endl;
 		}
 	}while(match == false);
 	return id;
@@ -45,7 +48,7 @@ int Petshop::verificaId(std::string tipo_map){
 	bool match = true;
 	int id;
 	do{
-		std::cout << "Id: ";
+		std::cout << "- Id: ";
 		std::cin >> id;
 
 		if(tipo_map == "Animal"){
@@ -594,7 +597,7 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
 
-	std::cout << "\n****************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
+	std::cout << "\n**************************** CADASTRO DE ANIMAIS ****************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
 		std::cin >> escolha_classe;
 	}while(escolha_classe < 1 || escolha_classe > 4);
@@ -622,7 +625,6 @@ void Petshop::cadastrarAnimal() {
 	int id_veterinario_;
 	std::cout << "- Veterinário -> ";
 	id_veterinario_ = buscarPorId("Funcionario");
-	//std::cin >> id_veterinario_;
 
 	int id_tratador_;
 	std::cout << "- Tratador -> ";
@@ -652,250 +654,227 @@ void Petshop::cadastrarAnimal() {
 
 void Petshop::listarAnimais() {
 	std::map<int, Animal*>::iterator itr_t;
-	std::cout << "\n****************************** ANIMAIS CADASTRADOS ******************************\n" << std::endl;
+	std::cout << "\n**************************** LISTAGEM DE ANIMAIS ****************************\n\n";
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 		imprimeAnimalEspecifico(itr_t->second);
 	}
 }
 
-void Petshop::editarAnimal() { // editar funcionarios específico de vet e trat
-	lerArquivoAnimal(); //atualizar o map
-
+void Petshop::editarAnimal() {
 	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
-	listarAnimais();
-	int id_animal;
-	bool match = false;
-	bool match_vet = false;
-	bool match_trat = false;
+	int id_animal, novo_veterinario, novo_tratador;
+	bool edicao_opcao = false;
+	int opcao;
 	std::map<int, Animal*>::iterator it;
 
-	std::string novo_id, novo_nome_cientifico, novo_sexo, novo_tamanho, nova_dieta, novo_veterinario, novo_tratador, novo_nome_batismo;
+	std::string novo_id, novo_nome_cientifico, novo_sexo, novo_tamanho, nova_dieta, edicao_veterinario, edicao_tratador, novo_nome_batismo;
 
 	do{
-		std::cout << "\n- Insira o ID do animal que deseja editar: ";
-		std::cin >> id_animal;
+		id_animal = buscarPorId("Animal");
 		it = map_animais.find(id_animal);
-		if(it != map_animais.end()){
-			match = true;
 			
-			std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Id [" << it->second->getId() << "]: ";
-			std::cin >> novo_id;
-			if(novo_id != "*") { it->second->setId(std::stoi(novo_id)); }
+		std::cout << "\n- Preencha com o novo valor caso deseje alterar ou '*' para manter o antigo:\n\n- Id [" << it->second->getId() << "]: ";
+		std::cin >> novo_id;
+		if(novo_id != "*") { it->second->setId(std::stoi(novo_id)); }
 
-			std::cout << "- Nome científico [" << it->second->getNomeCientifico() << "]: ";
-			std::cin >> novo_nome_cientifico;
-			if(novo_nome_cientifico != "*") { it->second->setNomeCientifico(novo_nome_cientifico); }
+		std::cout << "- Nome científico [" << it->second->getNomeCientifico() << "]: ";
+		std::cin >> novo_nome_cientifico;
+		if(novo_nome_cientifico != "*") { it->second->setNomeCientifico(novo_nome_cientifico); }
 
-			std::cout << "- Sexo [" << it->second->getSexo() << "]: ";
-			std::cin >> novo_sexo;
-			char * aux = new char [novo_sexo.length()+1];
-			std::strcpy (aux, novo_sexo.c_str());
-			if(novo_sexo != "*") { it->second->setSexo(*aux); }
+		std::cout << "- Sexo [" << it->second->getSexo() << "]: ";
+		std::cin >> novo_sexo;
+		char * aux = new char [novo_sexo.length()+1];
+		std::strcpy (aux, novo_sexo.c_str());
+		if(novo_sexo != "*") { it->second->setSexo(*aux); }
 
-			std::cout << "- Tamanho [" << it->second->getTamanho() << "]: ";
-			std::cin >> novo_tamanho;
-			if(novo_tamanho != "*") { it->second->setTamanho(std::stod(novo_tamanho)); }
+		std::cout << "- Tamanho [" << it->second->getTamanho() << "]: ";
+		std::cin >> novo_tamanho;
+		if(novo_tamanho != "*") { it->second->setTamanho(std::stod(novo_tamanho)); }
 
-			std::cout << "- Dieta [" << it->second->getDieta() << "]: ";
-			std::cin >> nova_dieta;
-			if(nova_dieta != "*") { it->second->setDieta(nova_dieta); }
+		std::cout << "- Dieta [" << it->second->getDieta() << "]: ";
+		std::cin >> nova_dieta;
+		if(nova_dieta != "*") { it->second->setDieta(nova_dieta); }
 
-
-			do{
-				std::cout << "- Id do Veterinário [" << it->second->getIdVeterinario() << "]: ";
-				std::cin >> novo_veterinario;
-				if(novo_veterinario != "*"){
-					std::map<int,Funcionario*>::iterator it_vet;
-					it_vet = map_funcionarios.find(std::stoi(novo_veterinario));
-					if(it_vet != map_funcionarios.end()){
-						match_vet = true;
-						it->second->setIdVeterinario(std::stoi(novo_veterinario));
-					}else{
-						std::cout << "Id inexistente. Tente novamente!" << std::endl;
-					}
-				}
-			}while(match_vet == false);
-
-			do{
-				std::cout << "- Id do Tratador [" << it->second->getIdTratador() << "]: ";
-				std::cin >> novo_tratador;
-				if(novo_tratador != "*"){
-					std::map<int,Funcionario*>::iterator it_trat;
-					it_trat = map_funcionarios.find(std::stoi(novo_tratador));
-					if(it_trat != map_funcionarios.end()){
-						match_trat = true;
-						it->second->setIdTratador(std::stoi(novo_tratador));
-					}else{
-						std::cout << "Id inexistente. Tente novamente!" << std::endl;
-					}
-				}
-			}while(match_trat == false);
-
-			std::cout << "- Nome de batismo [" << it->second->getNomeBatismo() << "]: ";
-			std::cin >> novo_nome_batismo;
-			if(novo_nome_batismo != "*") { it->second->setNomeBatismo(novo_nome_batismo); }
-
-			//FALTA VER COMO PEGAR APENAS ID VETERINARIO E ID TRATADOR
-			std::string classe = it->second->getClasse();
-			std::size_t found = classe.find("Anfibio");
-			if(found!=std::string::npos){
-				std::string total_de_mudas, dia, mes, ano;
-
-				std::cout << "- Total de mudas [" << dynamic_cast<Anfibio*>(it->second)->getTotalMudas() << "]: ";
-				std::cin >> total_de_mudas;
-				if(total_de_mudas != "*") { dynamic_cast<Anfibio*>(it->second)->setTotalMudas(std::stoi(total_de_mudas)); }
-
-				if(dynamic_cast<Anfibio*>(it->second)->getTotalMudas() > 0) {
-					std::cout << "- Data da última muda [" << dynamic_cast<Anfibio*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
-					std::cin >> dia; std::cin >> mes; std::cin >> ano;
-					if(dia != "*" && mes != "*" && ano != "*") { 
-						date ultima_muda(std::stoi(dia), std::stoi(mes), std::stoi(ano));
-						dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda); }
-				}else {
-					date ultima_muda(00, 00, 0000);
-						dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda);
-				}
-
-				if((it->second->getClasse()).compare("Anfibio") > 0) {
-					std::string autorizacao_silvestre;
-
-					std::cout << "- Autorização [" << reinterpret_cast<AnfibioNativo*>(it->second)->getAutorizacao() << "]: ";
-					std::cin >> autorizacao_silvestre;
-					if(autorizacao_silvestre != "*") { reinterpret_cast<AnfibioNativo*>(it->second)->setAutorizacao(autorizacao_silvestre); }
-
-					if(it->second->getClasse() == "AnfibioNativo"){
-						std::string uf_origem_nativo;
-
-						std::cout << "- UF de origem [" << dynamic_cast<AnfibioNativo*>(it->second)->getUfOrigem() << "]: ";
-						std::cin >> uf_origem_nativo;
-						if(uf_origem_nativo != "*") { dynamic_cast<AnfibioNativo*>(it->second)->setUfOrigem(uf_origem_nativo); }
-					}
-					if(it->second->getClasse() == "AnfibioExotico"){
-						std::string pais_origem_exotico;
-
-						std::cout << "- País de origem [" << dynamic_cast<AnfibioExotico*>(it->second)->getPaisOrigem() << "]: ";
-						std::cin >> pais_origem_exotico;
-						if(pais_origem_exotico != "*") { dynamic_cast<AnfibioExotico*>(it->second)->setPaisOrigem(pais_origem_exotico); }
-					}
-				}
-			}			
-			//Verificação para aves
-			std::size_t found2 = classe.find("Ave");
-			if(found2!=std::string::npos){
-				std::string tamanho_do_bico_cm, envergadura_das_asas;
-
-				std::cout << "- Tamanho do bico em cm [" << dynamic_cast<Ave*>(it->second)->getTamanhoBico() << "]: ";
-				std::cin >> tamanho_do_bico_cm;
-				if(tamanho_do_bico_cm != "*") { dynamic_cast<Ave*>(it->second)->setTamanhoBico(std::stod(tamanho_do_bico_cm)); }
-
-				std::cout << "- Envergadura das asas em cm [" << dynamic_cast<Ave*>(it->second)->getEnvergaduraAsas() << "]: ";
-				std::cin >> envergadura_das_asas;
-				if(envergadura_das_asas != "*") { dynamic_cast<Ave*>(it->second)->setEnvergaduraAsas(std::stod(envergadura_das_asas)); }
-				
-				if((it->second->getClasse()).compare("Ave") > 0) {
-					std::string autorizacao_silvestre;
-
-					std::cout << "- Autorização [" << reinterpret_cast<AveNativa*>(it->second)->getAutorizacao() << "]: ";
-					std::cin >> autorizacao_silvestre;
-					if(autorizacao_silvestre != "*") { reinterpret_cast<AveNativa*>(it->second)->setAutorizacao(autorizacao_silvestre); }
-				
-					if(it->second->getClasse() == "AveNativa"){
-						std::string uf_origem_nativa;
-
-						std::cout << "- UF de origem [" << dynamic_cast<AveNativa*>(it->second)->getUfOrigem() << "]: ";
-						std::cin >> uf_origem_nativa;
-						if(uf_origem_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setUfOrigem(uf_origem_nativa); }			
-					}
-					if(it->second->getClasse() == "AveExotica"){
-						std::string pais_origem_exotica;
-					
-						std::cout << "- País de origem [" << dynamic_cast<AveExotica*>(it->second)->getPaisOrigem() << "]: ";
-						std::cin >> pais_origem_exotica;
-						if(pais_origem_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setPaisOrigem(pais_origem_exotica); }				
-					}
-				}
-			}
-			//Verificação para mamíferos
-			std::size_t found3 = classe.find("Mamifero");
-			if(found3!=std::string::npos){
-				std::string cor_pelo;
-
-				std::cout << "- Cor do pelo [" << dynamic_cast<Mamifero*>(it->second)->getCorPelo() << "]: ";
-				std::cin >> cor_pelo;
-				if(cor_pelo != "*") { dynamic_cast<Mamifero*>(it->second)->setCorPelo(cor_pelo); }	
-				
-				if((it->second->getClasse()).compare("Mamifero") > 0) {
-					std::string autorizacao_mamifero_silvestre;
-
-					std::cout << "- Autorização [" << reinterpret_cast<MamiferoNativo*>(it->second)->getAutorizacao() << "]: ";
-					std::cin >> autorizacao_mamifero_silvestre;
-					if(autorizacao_mamifero_silvestre != "*") { reinterpret_cast<MamiferoNativo*>(it->second)->setAutorizacao(autorizacao_mamifero_silvestre); }
-
-					if(it->second->getClasse() == "MamiferoNativo"){				
-						std::string uf_origem_mamifero_nativo;						
-
-						std::cout << "- UF de origem [" << dynamic_cast<MamiferoNativo*>(it->second)->getUfOrigem() << "]: ";
-						std::cin >> uf_origem_mamifero_nativo;
-						if(uf_origem_mamifero_nativo != "*") { dynamic_cast<MamiferoNativo*>(it->second)->setUfOrigem(uf_origem_mamifero_nativo); }			
-					}
-					if(it->second->getClasse() == "MamiferoExotico"){				
-						std::string pais_origem_mamifero_exotico;
-
-						std::cout << "- UF de origem [" << dynamic_cast<MamiferoExotico*>(it->second)->getPaisOrigem() << "]: ";
-						std::cin >> pais_origem_mamifero_exotico;
-						if(pais_origem_mamifero_exotico != "*") { dynamic_cast<MamiferoExotico*>(it->second)->setPaisOrigem(pais_origem_mamifero_exotico); }			
-					}
-				}
-			}
-			//Verificação para répteis
-			std::size_t found4 = classe.find("Reptil");
-			if(found4!=std::string::npos){
-				std::string venenoso, tipo_venenoso;
-				
-				std::cout << "- Venenoso [" << dynamic_cast<Reptil*>(it->second)->getVenenoso() << "] (1 para verdadeiro, 0 para falso): ";
-				std::cin >> venenoso;
-				bool bool_venenoso = (venenoso == "1") ? true : false;
-				if(venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setVenenoso(bool_venenoso); }	
-
-				if(dynamic_cast<Reptil*>(it->second)->getVenenoso() == 1) {
-					std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: ";
-					std::cin >> tipo_venenoso; 
-					if(tipo_venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setTipoVenenoso(tipo_venenoso); }
-					else {
-						dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("Não informado");
-					}
-				}else {
-					dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("");
-					std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: " << std::endl;
-				}			
-				if((it->second->getClasse()).compare("Reptil") > 0) {
-					std::string autorizacao_reptil_silvestre;
-
-					std::cout << "- Autorização [" << reinterpret_cast<ReptilNativo*>(it->second)->getAutorizacao() << "]: ";
-					std::cin >> autorizacao_reptil_silvestre;
-					if(autorizacao_reptil_silvestre != "*") { reinterpret_cast<ReptilNativo*>(it->second)->setAutorizacao(autorizacao_reptil_silvestre); }
-
-					if(it->second->getClasse() == "ReptilNativo"){
-						std::string uf_origem_reptil_nativo;	
-
-						std::cout << "- UF de origem [" << dynamic_cast<ReptilNativo*>(it->second)->getUfOrigem() << "]: ";
-						std::cin >> uf_origem_reptil_nativo;
-						if(uf_origem_reptil_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setUfOrigem(uf_origem_reptil_nativo); }						
-					}
-					if(it->second->getClasse() == "ReptilExotico"){
-						std::string pais_origem_reptil_exotico;
-						
-						std::cout << "- País de origem [" << dynamic_cast<ReptilExotico*>(it->second)->getPaisOrigem() << "]: ";
-						std::cin >> pais_origem_reptil_exotico;
-						if(pais_origem_reptil_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setPaisOrigem(pais_origem_reptil_exotico); }				
-					}
-				}
-			}
-			std::cout << "\nAnimal atualizado com sucesso!" << std::endl;
-		}else{
-			std::cout << "Id inexistente. Tente novamente!" << std::endl;
+		std::cout << "Digite 1 para Editar ou * para Não editar.\n";
+		std::cout << "- Id do Veterinário [" << it->second->getIdVeterinario() << "]: ";
+		std::cin >> edicao_veterinario;
+		if(edicao_veterinario != "*"){
+			novo_veterinario = buscarPorId("Veterinario");
+			it->second->setIdVeterinario(novo_veterinario);
 		}
-	}while(match == false);
+
+		std::cout << "Digite 1 para Editar ou * para Não editar.\n";
+		std::cout << "- Id do Tratador [" << it->second->getIdTratador() << "]: ";
+		std::cin >> edicao_tratador;
+		if(edicao_tratador != "*"){
+			novo_tratador = buscarPorId("Tratador");
+			it->second->setIdTratador(novo_tratador);
+		}
+
+		std::cout << "- Nome de batismo [" << it->second->getNomeBatismo() << "]: ";
+		std::cin >> novo_nome_batismo;
+		if(novo_nome_batismo != "*") { it->second->setNomeBatismo(novo_nome_batismo); }
+
+		//FALTA VER COMO PEGAR APENAS ID VETERINARIO E ID TRATADOR
+		std::string classe = it->second->getClasse();
+		std::size_t found = classe.find("Anfibio");
+		if(found!=std::string::npos){
+			std::string total_de_mudas, dia, mes, ano;
+
+			std::cout << "- Total de mudas [" << dynamic_cast<Anfibio*>(it->second)->getTotalMudas() << "]: ";
+			std::cin >> total_de_mudas;
+			if(total_de_mudas != "*") { dynamic_cast<Anfibio*>(it->second)->setTotalMudas(std::stoi(total_de_mudas)); }
+
+			if(dynamic_cast<Anfibio*>(it->second)->getTotalMudas() > 0) {
+				std::cout << "- Data da última muda [" << dynamic_cast<Anfibio*>(it->second)->getUltimaMuda() << "] (dia mes ano): ";
+				std::cin >> dia; std::cin >> mes; std::cin >> ano;
+				if(dia != "*" && mes != "*" && ano != "*") { 
+					date ultima_muda(std::stoi(dia), std::stoi(mes), std::stoi(ano));
+					dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda); }
+			}else {
+				date ultima_muda(00, 00, 0000);
+					dynamic_cast<Anfibio*>(it->second)->setUltimaMuda(ultima_muda);
+			}
+
+			if((it->second->getClasse()).compare("Anfibio") > 0) {
+				std::string autorizacao_silvestre;
+
+				std::cout << "- Autorização [" << reinterpret_cast<AnfibioNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_silvestre;
+				if(autorizacao_silvestre != "*") { reinterpret_cast<AnfibioNativo*>(it->second)->setAutorizacao(autorizacao_silvestre); }
+
+				if(it->second->getClasse() == "AnfibioNativo"){
+					std::string uf_origem_nativo;
+
+					std::cout << "- UF de origem [" << dynamic_cast<AnfibioNativo*>(it->second)->getUfOrigem() << "]: ";
+					std::cin >> uf_origem_nativo;
+					if(uf_origem_nativo != "*") { dynamic_cast<AnfibioNativo*>(it->second)->setUfOrigem(uf_origem_nativo); }
+				}
+				if(it->second->getClasse() == "AnfibioExotico"){
+					std::string pais_origem_exotico;
+
+					std::cout << "- País de origem [" << dynamic_cast<AnfibioExotico*>(it->second)->getPaisOrigem() << "]: ";
+					std::cin >> pais_origem_exotico;
+					if(pais_origem_exotico != "*") { dynamic_cast<AnfibioExotico*>(it->second)->setPaisOrigem(pais_origem_exotico); }
+				}
+			}
+		}			
+		//Verificação para aves
+		std::size_t found2 = classe.find("Ave");
+		if(found2!=std::string::npos){
+			std::string tamanho_do_bico_cm, envergadura_das_asas;
+
+			std::cout << "- Tamanho do bico em cm [" << dynamic_cast<Ave*>(it->second)->getTamanhoBico() << "]: ";
+			std::cin >> tamanho_do_bico_cm;
+			if(tamanho_do_bico_cm != "*") { dynamic_cast<Ave*>(it->second)->setTamanhoBico(std::stod(tamanho_do_bico_cm)); }
+
+			std::cout << "- Envergadura das asas em cm [" << dynamic_cast<Ave*>(it->second)->getEnvergaduraAsas() << "]: ";
+			std::cin >> envergadura_das_asas;
+			if(envergadura_das_asas != "*") { dynamic_cast<Ave*>(it->second)->setEnvergaduraAsas(std::stod(envergadura_das_asas)); }
+			
+			if((it->second->getClasse()).compare("Ave") > 0) {
+				std::string autorizacao_silvestre;
+
+				std::cout << "- Autorização [" << reinterpret_cast<AveNativa*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_silvestre;
+				if(autorizacao_silvestre != "*") { reinterpret_cast<AveNativa*>(it->second)->setAutorizacao(autorizacao_silvestre); }
+			
+				if(it->second->getClasse() == "AveNativa"){
+					std::string uf_origem_nativa;
+
+					std::cout << "- UF de origem [" << dynamic_cast<AveNativa*>(it->second)->getUfOrigem() << "]: ";
+					std::cin >> uf_origem_nativa;
+					if(uf_origem_nativa != "*") { dynamic_cast<AveNativa*>(it->second)->setUfOrigem(uf_origem_nativa); }			
+				}
+				if(it->second->getClasse() == "AveExotica"){
+					std::string pais_origem_exotica;
+				
+					std::cout << "- País de origem [" << dynamic_cast<AveExotica*>(it->second)->getPaisOrigem() << "]: ";
+					std::cin >> pais_origem_exotica;
+					if(pais_origem_exotica != "*") { dynamic_cast<AveExotica*>(it->second)->setPaisOrigem(pais_origem_exotica); }				
+				}
+			}
+		}
+		//Verificação para mamíferos
+		std::size_t found3 = classe.find("Mamifero");
+		if(found3!=std::string::npos){
+			std::string cor_pelo;
+
+			std::cout << "- Cor do pelo [" << dynamic_cast<Mamifero*>(it->second)->getCorPelo() << "]: ";
+			std::cin >> cor_pelo;
+			if(cor_pelo != "*") { dynamic_cast<Mamifero*>(it->second)->setCorPelo(cor_pelo); }	
+			
+			if((it->second->getClasse()).compare("Mamifero") > 0) {
+				std::string autorizacao_mamifero_silvestre;
+
+				std::cout << "- Autorização [" << reinterpret_cast<MamiferoNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_mamifero_silvestre;
+				if(autorizacao_mamifero_silvestre != "*") { reinterpret_cast<MamiferoNativo*>(it->second)->setAutorizacao(autorizacao_mamifero_silvestre); }
+
+				if(it->second->getClasse() == "MamiferoNativo"){				
+					std::string uf_origem_mamifero_nativo;						
+
+					std::cout << "- UF de origem [" << dynamic_cast<MamiferoNativo*>(it->second)->getUfOrigem() << "]: ";
+					std::cin >> uf_origem_mamifero_nativo;
+					if(uf_origem_mamifero_nativo != "*") { dynamic_cast<MamiferoNativo*>(it->second)->setUfOrigem(uf_origem_mamifero_nativo); }			
+				}
+				if(it->second->getClasse() == "MamiferoExotico"){				
+					std::string pais_origem_mamifero_exotico;
+
+					std::cout << "- UF de origem [" << dynamic_cast<MamiferoExotico*>(it->second)->getPaisOrigem() << "]: ";
+					std::cin >> pais_origem_mamifero_exotico;
+					if(pais_origem_mamifero_exotico != "*") { dynamic_cast<MamiferoExotico*>(it->second)->setPaisOrigem(pais_origem_mamifero_exotico); }			
+				}
+			}
+		}
+		//Verificação para répteis
+		std::size_t found4 = classe.find("Reptil");
+		if(found4!=std::string::npos){
+			std::string venenoso, tipo_venenoso;
+			
+			std::cout << "- Venenoso [" << dynamic_cast<Reptil*>(it->second)->getVenenoso() << "] (1 para verdadeiro, 0 para falso): ";
+			std::cin >> venenoso;
+			bool bool_venenoso = (venenoso == "1") ? true : false;
+			if(venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setVenenoso(bool_venenoso); }	
+
+			if(dynamic_cast<Reptil*>(it->second)->getVenenoso() == 1) {
+				std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: ";
+				std::cin >> tipo_venenoso; 
+				if(tipo_venenoso != "*") { dynamic_cast<Reptil*>(it->second)->setTipoVenenoso(tipo_venenoso); }
+				else {
+					dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("Não informado");
+				}
+			}else {
+				dynamic_cast<Reptil*>(it->second)->setTipoVenenoso("");
+				std::cout << "- Tipo venenoso [" << dynamic_cast<Reptil*>(it->second)->getTipoVenenoso() << "]: " << std::endl;
+			}			
+			if((it->second->getClasse()).compare("Reptil") > 0) {
+				std::string autorizacao_reptil_silvestre;
+
+				std::cout << "- Autorização [" << reinterpret_cast<ReptilNativo*>(it->second)->getAutorizacao() << "]: ";
+				std::cin >> autorizacao_reptil_silvestre;
+				if(autorizacao_reptil_silvestre != "*") { reinterpret_cast<ReptilNativo*>(it->second)->setAutorizacao(autorizacao_reptil_silvestre); }
+
+				if(it->second->getClasse() == "ReptilNativo"){
+					std::string uf_origem_reptil_nativo;	
+
+					std::cout << "- UF de origem [" << dynamic_cast<ReptilNativo*>(it->second)->getUfOrigem() << "]: ";
+					std::cin >> uf_origem_reptil_nativo;
+					if(uf_origem_reptil_nativo != "*") { dynamic_cast<ReptilNativo*>(it->second)->setUfOrigem(uf_origem_reptil_nativo); }						
+				}
+				if(it->second->getClasse() == "ReptilExotico"){
+					std::string pais_origem_reptil_exotico;
+					
+					std::cout << "- País de origem [" << dynamic_cast<ReptilExotico*>(it->second)->getPaisOrigem() << "]: ";
+					std::cin >> pais_origem_reptil_exotico;
+					if(pais_origem_reptil_exotico != "*") { dynamic_cast<ReptilExotico*>(it->second)->setPaisOrigem(pais_origem_reptil_exotico); }				
+				}
+			}
+		}
+		std::cout << "Animal " << it->second->getNomeBatismo() << "atualizado com sucesso!\nPara editar outro animal: (1-Sim | 2-Não)\n";
+		std::cin >> opcao;
+		edicao_opcao = (opcao == 1)?true:false;
+	}while(edicao_opcao == true);
 }	
 
 void Petshop::removerAnimal(){
@@ -908,113 +887,118 @@ void Petshop::removerAnimal(){
 }
 
 void Petshop::consultarAnimal(){
-	int escolha_consulta;
+	int escolha_consulta, nova_consulta_int;
+	bool nova_consulta_bool = false;
+	std::cout << "\n**************************** CONSULTA DE ANIMAIS ****************************\n\n";
+	do{
 
-	std::cout << "1 - Pesquisar por id" << std::endl;
-	std::cout << "2 - Pesquisar por classe" << std::endl;
-	std::cout << "3 - Pesquisar por tratador" << std::endl;
-	std::cout << "4 - Pesquisar por veterinário" << std::endl;
-	std::cout << "Opção: ";
-	std::cin >> escolha_consulta;
-	while(escolha_consulta < 1 || escolha_consulta > 4){
-		std::cout << "A opção digitada não existe. Digite a opção desejada: ";
+		std::cout << "1 - Consultar por id" << std::endl;
+		std::cout << "2 - Consultar por classe" << std::endl;
+		std::cout << "3 - Consultar por tratador" << std::endl;
+		std::cout << "4 - Consultar por veterinário" << std::endl;
+		std::cout << "Opção: ";
 		std::cin >> escolha_consulta;
-	}
+		while(escolha_consulta < 1 || escolha_consulta > 4){
+			std::cout << "A opção digitada não existe. Digite a opção desejada: ";
+			std::cin >> escolha_consulta;
+		}
 
-	std::map<int, Animal*>::iterator itr_animal;
-	std::map<int, Funcionario*>::iterator itr_func;
+		std::map<int, Animal*>::iterator itr_animal;
+		std::map<int, Funcionario*>::iterator itr_func;
 
-	/////Variáveis usadas no switch////////////////
-	int id_animal, id_tratador, id_veterinario;
-	int classe_animal;
-	std::string classe_animal_;
-	int nativo_ou_exotico;
-	std::string nativo_ou_exotico_;
-	std::string pesquisa;
-	//////////////////////////////////////////////
+		/////Variáveis usadas no switch////////////////
+		int id_animal, id_tratador, id_veterinario;
+		int classe_animal;
+		std::string classe_animal_;
+		int nativo_ou_exotico;
+		std::string nativo_ou_exotico_;
+		std::string pesquisa;
+		//////////////////////////////////////////////
 
-	switch(escolha_consulta){
-		case 1:
-			
-			id_animal = buscarPorId("Animal");
-			itr_animal = map_animais.find(id_animal);
-			std::cout << "\n";
+		switch(escolha_consulta){
+			case 1:
+				
+				id_animal = buscarPorId("Animal");
+				itr_animal = map_animais.find(id_animal);
+				std::cout << "\n";
 
-			imprimeAnimalEspecifico(itr_animal->second);
-			break;
-		case 2:
-			
-			std::cout << "Insira a classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
-			do {
-				std::cin >> classe_animal;
+				imprimeAnimalEspecifico(itr_animal->second);
+				break;
+			case 2:
+				
+				std::cout << "Insira a classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
+				do {
+					std::cin >> classe_animal;
 
-				if(classe_animal == 1) {
-					classe_animal_ = "Anfibio";
-				} else if (classe_animal == 2) {
-					classe_animal_ = "Ave";
-				} else if (classe_animal == 3) {
-					classe_animal_ = "Mamifero";
-				} else {
-					classe_animal_ = "Reptil";
-				}
-			} while (classe_animal < 1 || classe_animal > 4);
-
-			std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
-			do {
-				std::cin >> nativo_ou_exotico;
-
-				if(nativo_ou_exotico == 1) {
-					if(classe_animal == 2) {
-						nativo_ou_exotico_ = "Nativa";
+					if(classe_animal == 1) {
+						classe_animal_ = "Anfibio";
+					} else if (classe_animal == 2) {
+						classe_animal_ = "Ave";
+					} else if (classe_animal == 3) {
+						classe_animal_ = "Mamifero";
 					} else {
-						nativo_ou_exotico_ = "Nativo";
-					}	
-				} else if (nativo_ou_exotico == 2) {
-					nativo_ou_exotico_ = "Exotico";
-				} else {
-					nativo_ou_exotico_ = "";
+						classe_animal_ = "Reptil";
+					}
+				} while (classe_animal < 1 || classe_animal > 4);
+
+				std::cout << "Insira da classe do animal (1- Nativo | 2- Exotico | 3-Doméstico): ";
+				do {
+					std::cin >> nativo_ou_exotico;
+
+					if(nativo_ou_exotico == 1) {
+						if(classe_animal == 2) {
+							nativo_ou_exotico_ = "Nativa";
+						} else {
+							nativo_ou_exotico_ = "Nativo";
+						}	
+					} else if (nativo_ou_exotico == 2) {
+						nativo_ou_exotico_ = "Exotico";
+					} else {
+						nativo_ou_exotico_ = "";
+					}
+				} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
+
+				std::cout << "\n";
+				
+				pesquisa = classe_animal_ +nativo_ou_exotico_;
+
+				for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
+
+					if(pesquisa == itr_animal->second->getClasse()){
+						imprimeAnimalEspecifico(itr_animal->second);
+					}
 				}
-			} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
+				break;
+			case 3:
+				
+				id_tratador = buscarPorId("Funcionario");
+				std::cout << "\n";
 
-			std::cout << "\n";
-			
-			pesquisa = classe_animal_ +nativo_ou_exotico_;
+				// sobrecarregar objetos
+				for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
 
-			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
+					if(itr_animal->second->getIdTratador() == id_tratador ){
+						imprimeAnimalEspecifico(itr_animal->second);
+					}
+				}	
+				break;
+			case 4:
+				id_veterinario = buscarPorId("Funcionario");
+				std::cout << "\n";
 
-				if(pesquisa == itr_animal->second->getClasse()){
-					imprimeAnimalEspecifico(itr_animal->second);
-				}
-			}
-			break;
-		case 3:
-			
-			id_tratador = buscarPorId("Funcionario");
-			//itr_func = map_funcionarios.find(id_tratador);
-			std::cout << "\n";
+				// sobrecarregar objetos
+				for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
 
-			// sobrecarregar objetos
-			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
-
-				if(itr_animal->second->getIdTratador() == id_tratador ){
-					imprimeAnimalEspecifico(itr_animal->second);
-				}
-			}	
-			break;
-		case 4:
-			id_veterinario = buscarPorId("Funcionario");
-			//itr_func = map_funcionarios.find(id_veterinario);
-			std::cout << "\n";
-
-			// sobrecarregar objetos
-			for(itr_animal = map_animais.begin(); itr_animal != map_animais.end(); itr_animal++){
-
-				if(itr_animal->second->getIdVeterinario() == id_veterinario ){
-					imprimeAnimalEspecifico(itr_animal->second);
-				}
-			}	
-			break;
-	}
+					if(itr_animal->second->getIdVeterinario() == id_veterinario ){
+						imprimeAnimalEspecifico(itr_animal->second);
+					}
+				}	
+				break;
+		}
+		std::cout << "Para consultar outro animal: (1-Sim | 2-Não)\n";
+		std::cin >> nova_consulta_int;
+		nova_consulta_bool = (nova_consulta_int == 1)?true:false;
+	}while(nova_consulta_bool == true);
 }
 
 void Petshop::gravarArquivoFuncionario(){
@@ -1144,7 +1128,7 @@ void Petshop::cadastrarFuncionario(){
 }
 
 void Petshop::listarFuncionarios(){
-	std::cout << "\n---------Funcionários cadastrados--------\n" << std::endl;
+	std::cout << "\n*********************** LISTAGEM DE FUNCIONÁRIOS ***********************\n\n";
 	std::map<int, Funcionario*>::iterator it;
 
 	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
@@ -1244,9 +1228,9 @@ void Petshop::consultarFuncionario(){
 
 	std::cout << "\n**************************** CONSULTA DE FUNCIONÁRIOS ****************************\n\n";
 	do{
-		std::cout << "1 - Pesquisar por id" << std::endl;
-		std::cout << "2 - Pesquisar Veterinários" << std::endl;
-		std::cout << "3 - Pesquisar Tratadores" << std::endl;
+		std::cout << "1 - Consultar por id" << std::endl;
+		std::cout << "2 - Consultar Veterinários" << std::endl;
+		std::cout << "3 - Consultar Tratadores" << std::endl;
 		std::cout << "Escolha: ";
 		std::cin >> escolha_consulta;
 
@@ -1296,4 +1280,59 @@ void Petshop::consultarFuncionario(){
 		std::cin >> nova_consulta_int;
 		nova_consulta_bool = (nova_consulta_int == 1)?true:false;
 	}while(nova_consulta_bool == true);
+}
+
+void Petshop::desalocarObjetos(){
+	std::map<int, Funcionario*>::iterator it_f;
+	for(it_f = map_funcionarios.begin(); it_f != map_funcionarios.end(); it_f++){
+		
+		if(it_f->second->getClasse() == "Veterinario"){
+			dynamic_cast<Veterinario*>(it_f->second)->~Veterinario();
+		}
+		else if(it_f->second->getClasse() == "Tratador"){
+			dynamic_cast<Tratador*>(it_f->second)->~Tratador();	
+		}
+	}
+	map_funcionarios.clear();
+
+	std::map<int, Animal*>::iterator it_a;
+	for(it_a = map_animais.begin(); it_a != map_animais.end(); it_a++){
+		if(it_a->second->getClasse() == "Anfibio"){
+			dynamic_cast<Anfibio*>(it_a->second)->~Anfibio();
+		}
+		else if(it_a->second->getClasse() == "AnfibioNativo"){
+			dynamic_cast<AnfibioNativo*>(it_a->second)->~AnfibioNativo();
+		}
+		else if(it_a->second->getClasse() == "AnfibioExotico"){
+			dynamic_cast<AnfibioExotico*>(it_a->second)->~AnfibioExotico();
+		}
+		else if(it_a->second->getClasse() == "Ave"){
+			dynamic_cast<Ave*>(it_a->second)->~Ave();
+		}
+		else if(it_a->second->getClasse() == "AveNativa"){
+			dynamic_cast<AveNativa*>(it_a->second)->~AveNativa();
+		}
+		else if(it_a->second->getClasse() == "AveExotica"){
+			dynamic_cast<AveExotica*>(it_a->second)->~AveExotica();
+		}
+		else if(it_a->second->getClasse() == "Mamifero"){
+			dynamic_cast<Mamifero*>(it_a->second)->~Mamifero();
+		}
+		else if(it_a->second->getClasse() == "MamiferoNativo"){
+			dynamic_cast<MamiferoNativo*>(it_a->second)->~MamiferoNativo();
+		}
+		else if(it_a->second->getClasse() == "MamiferoExotico"){
+			dynamic_cast<MamiferoExotico*>(it_a->second)->~MamiferoExotico();
+		}
+		else if(it_a->second->getClasse() == "Reptil"){
+			dynamic_cast<Reptil*>(it_a->second)->~Reptil();
+		}
+		else if(it_a->second->getClasse() == "ReptilNativo"){
+			dynamic_cast<ReptilNativo*>(it_a->second)->~ReptilNativo();
+		}
+		else if(it_a->second->getClasse() == "ReptilExotico"){
+			dynamic_cast<ReptilExotico*>(it_a->second)->~ReptilExotico();
+		}
+	}
+	map_animais.clear();
 }

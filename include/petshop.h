@@ -45,7 +45,10 @@ class Petshop{
 		
 		void lerArquivoAnimal();
 		void atualizaArquivoAnimal();
-
+		void gravarArquivoFuncionario();
+		void lerArquivoFuncionario();
+		void desalocarObjetos();
+		
 		int buscarPorId(std::string tipo_map);
 		int verificaId(std::string tipo_map);
 		void imprimeAnimalEspecifico(Animal* animal);
@@ -67,9 +70,6 @@ class Petshop{
 		void removerAnimal();
 		void editarAnimal();
 		void consultarAnimal(); //pesquisar por animal, classe animal, veterinario e tratador 
-
-		void gravarArquivoFuncionario();
-		void lerArquivoFuncionario();
 
 		void cadastrarFuncionario();
 		void listarFuncionarios();
