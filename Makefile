@@ -35,6 +35,8 @@ INCLUDES = -I include
 # Space-separated pkg-config libraries used by this project
 LIBS =
 
+TARGET_COMP = sudo mv petfera.so /usr/lib/
+
 .PHONY: default_target
 default_target: release
 
@@ -85,3 +87,8 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
 	$(CXX) -shared -o petfera.so build/*.o
+	$(TARGET_COMP)
+
+all:
+	$(CXX) $(BUILD_PATH)/petshop.o /usr/lib/petfera.so -o $(BIN_NAME)
+	./$(BIN_NAME)
