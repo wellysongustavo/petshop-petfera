@@ -29,7 +29,7 @@ DEPS = $(OBJECTS:.o=.d)
 # flags #
 OPTIMIZE = -O03
 DEBUG = -g
-COMPILE_FLAGS = -std=c++11 -Wall -g
+COMPILE_FLAGS = -fPIC -std=c++11 -Wall -g
 INCLUDES = -I include
 #INCLUDES = -I include/ -I /usr/local/include
 # Space-separated pkg-config libraries used by this project
