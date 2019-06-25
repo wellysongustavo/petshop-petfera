@@ -27,8 +27,7 @@ int Petshop::buscarPorId(std::string tipo_map){
 			if(it != map_funcionarios.end()){
 				if(tipo_map == "Funcionario"){
 					match = true;
-				}else{
-					if(it->second->getClasse() == tipo_map)
+				}else if(it->second->getClasse() == tipo_map) {
 						match = true;
 				}
 			}
@@ -597,7 +596,7 @@ void Petshop::cadastrarMamifero(int id_, std::string nome_cientifico_, char sexo
 void Petshop::cadastrarAnimal() { 
 	int escolha_classe;
 
-	std::cout << "\n**************************** CADASTRO DE ANIMAIS ****************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
+	std::cout << "\n***************************** CADASTRO DE ANIMAIS ******************************\n\n- Insira da classe do animal (1- Anfíbio | 2- Ave | 3- Mamífero | 4- Réptil): ";
 	do{
 		std::cin >> escolha_classe;
 	}while(escolha_classe < 1 || escolha_classe > 4);
@@ -624,11 +623,11 @@ void Petshop::cadastrarAnimal() {
 
 	int id_veterinario_;
 	std::cout << "- Veterinário -> ";
-	id_veterinario_ = buscarPorId("Funcionario");
+	id_veterinario_ = buscarPorId("Veterinario");
 
 	int id_tratador_;
 	std::cout << "- Tratador -> ";
-	id_tratador_ = buscarPorId("Funcionario");
+	id_tratador_ = buscarPorId("Tratador");
 
 	std::string nome_batismo_;
 	std::cout << "- Nome de batismo: ";
@@ -654,14 +653,15 @@ void Petshop::cadastrarAnimal() {
 
 void Petshop::listarAnimais() {
 	std::map<int, Animal*>::iterator itr_t;
-	std::cout << "\n**************************** LISTAGEM DE ANIMAIS ****************************\n\n";
+	std::cout << "\n***************************** LISTAGEM DE ANIMAIS ******************************\n\n";
 	for(itr_t = map_animais.begin(); itr_t != map_animais.end(); itr_t++){
 		imprimeAnimalEspecifico(itr_t->second);
 	}
 }
 
 void Petshop::editarAnimal() {
-	std::cout << "\n********************************* EDITAR ANIMAIS ********************************" << std::endl;
+	std::cout << "\n******************************** EDITAR ANIMAIS ********************************" << std::endl;
+	listarAnimais();
 	int id_animal, novo_veterinario, novo_tratador;
 	bool edicao_opcao = false;
 	int opcao;
@@ -715,7 +715,6 @@ void Petshop::editarAnimal() {
 		std::cin >> novo_nome_batismo;
 		if(novo_nome_batismo != "*") { it->second->setNomeBatismo(novo_nome_batismo); }
 
-		//FALTA VER COMO PEGAR APENAS ID VETERINARIO E ID TRATADOR
 		std::string classe = it->second->getClasse();
 		std::size_t found = classe.find("Anfibio");
 		if(found!=std::string::npos){
@@ -871,13 +870,14 @@ void Petshop::editarAnimal() {
 				}
 			}
 		}
-		std::cout << "Animal " << it->second->getNomeBatismo() << "atualizado com sucesso!\nPara editar outro animal: (1-Sim | 2-Não)\n";
+		std::cout << "Animal " << it->second->getNomeBatismo() << " atualizado com sucesso!\nPara editar outro animal: (1-Sim | 2-Não)\n";
 		std::cin >> opcao;
 		edicao_opcao = (opcao == 1)?true:false;
 	}while(edicao_opcao == true);
 }	
 
 void Petshop::removerAnimal(){
+	std::cout << "\n****************************** REMOÇÃO DE ANIMAIS ******************************\n";
 	listarAnimais();
 	int id_animal;
 	id_animal = buscarPorId("Animal");
@@ -889,7 +889,7 @@ void Petshop::removerAnimal(){
 void Petshop::consultarAnimal(){
 	int escolha_consulta, nova_consulta_int;
 	bool nova_consulta_bool = false;
-	std::cout << "\n**************************** CONSULTA DE ANIMAIS ****************************\n\n";
+	std::cout << "\n***************************** CONSULTA DE ANIMAIS ******************************\n\n";
 	do{
 
 		std::cout << "1 - Consultar por id" << std::endl;
@@ -1070,7 +1070,7 @@ void Petshop::lerArquivoFuncionario(){
 
 void Petshop::cadastrarFuncionario(){
 	int tipo_funcionario;
-	std::cout << "\n**************************** CADASTRO DE FUNCIONÁRIOS ****************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
+	std::cout << "\n*************************** CADASTRO DE FUNCIONÁRIOS ***************************\n\n- Insira (1- Veterinário | 2- Tratador ): ";
 	do{
 		std::cin >> tipo_funcionario;
 	}while(tipo_funcionario < 1 || tipo_funcionario > 2);
@@ -1128,22 +1128,22 @@ void Petshop::cadastrarFuncionario(){
 }
 
 void Petshop::listarFuncionarios(){
-	std::cout << "\n*********************** LISTAGEM DE FUNCIONÁRIOS ***********************\n\n";
+	std::cout << "\n*************************** LISTAGEM DE FUNCIONÁRIOS ***************************\n\n";
 	std::map<int, Funcionario*>::iterator it;
 
 	for(it = map_funcionarios.begin(); it != map_funcionarios.end(); it++){
 
 		if(it->second->getClasse() == "Veterinario"){
-			std::cout << *(dynamic_cast<Veterinario*>(it->second)) << "\n" << std::endl;
+			std::cout << *(dynamic_cast<Veterinario*>(it->second)) << std::endl;
 
 		}else if(it->second->getClasse() == "Tratador"){
-			std::cout << *(dynamic_cast<Tratador*>(it->second)) << "\n" << std::endl;	
+			std::cout << *(dynamic_cast<Tratador*>(it->second)) << std::endl;	
 		}
 	}
 }
 
 void Petshop::removerFuncionario(){
-	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ****************************\n\n";
+	std::cout << "\n**************************** REMOÇÃO DE FUNCIONÁRIOS ***************************\n";
 	bool remocao_opcao = false;
 	int x;
 	listarFuncionarios();
@@ -1159,7 +1159,7 @@ void Petshop::removerFuncionario(){
 }
 
 void Petshop::editarFuncionario(){
-	std::cout << "\n**************************** EDIÇÃO DE FUNCIONÁRIOS ****************************\n\n";
+	std::cout << "\n**************************** EDIÇÃO DE FUNCIONÁRIOS ****************************\n";
 	bool edicao_opcao = false;
 	int opcao;
 	int id_edicao;
@@ -1226,11 +1226,11 @@ void Petshop::consultarFuncionario(){
 	std::map<int,Funcionario*>::iterator it;
 	int contador_de_funcionarios;
 
-	std::cout << "\n**************************** CONSULTA DE FUNCIONÁRIOS ****************************\n\n";
+	std::cout << "\n*************************** CONSULTA DE FUNCIONÁRIOS ***************************\n\n";
 	do{
 		std::cout << "1 - Consultar por id" << std::endl;
-		std::cout << "2 - Consultar Veterinários" << std::endl;
-		std::cout << "3 - Consultar Tratadores" << std::endl;
+		std::cout << "2 - Listar Veterinários" << std::endl;
+		std::cout << "3 - Listar Tratadores" << std::endl;
 		std::cout << "Escolha: ";
 		std::cin >> escolha_consulta;
 
