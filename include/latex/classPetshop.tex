@@ -1,0 +1,229 @@
+\hypertarget{classPetshop}{}\section{Referência da Classe Petshop}
+\label{classPetshop}\index{Petshop@{Petshop}}
+
+
+{\ttfamily \#include $<$petshop.\+h$>$}
+
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPetshop_a6ea911ff6ce0a63275d33db172086f69}{Petshop} (std\+::string nome)
+\item 
+\hyperlink{classPetshop_a3ec4d2ba5d85e86d63121b4efd199de2}{$\sim$\+Petshop} ()
+\item 
+std\+::fstream \hyperlink{classPetshop_a3e0c8fc8c46784fcd0bc7d650ba7dcec}{abrir\+Arquivo} (std\+::string tipo\+\_\+map)
+\item 
+void \hyperlink{classPetshop_a89862e7eff30a1241775ee836bc7a450}{ler\+Arquivo\+Animal} ()
+\item 
+void \hyperlink{classPetshop_a24cfb15a9aed53e6aea5f5faf6e202b2}{atualiza\+Arquivo\+Animal} ()
+\item 
+void \hyperlink{classPetshop_aead26f84cad6db0a70e75112ba3fe58d}{gravar\+Arquivo\+Funcionario} ()
+\item 
+void \hyperlink{classPetshop_a1c810571e6044321fa00c7b2ccac37d5}{ler\+Arquivo\+Funcionario} ()
+\item 
+void \hyperlink{classPetshop_af6269c2a28c849dc2ebf21e7438fec53}{desalocar\+Objetos} ()
+\item 
+int \hyperlink{classPetshop_ae36b7c1babae414e65a2d22593005494}{buscar\+Por\+Id} (std\+::string tipo\+\_\+map)
+\item 
+int \hyperlink{classPetshop_a84b268022826f11ab6ce36579d243d1b}{verifica\+Id} (std\+::string tipo\+\_\+map)
+\item 
+void \hyperlink{classPetshop_a5b18b5e2667f00547486ec1f01a4f639}{imprime\+Animal\+Especifico} (\hyperlink{classAnimal}{Animal} $\ast$animal)
+\item 
+void \hyperlink{classPetshop_ac06e79f236e5305d10553566095001da}{cadastrar\+Animal} ()
+\item 
+void \hyperlink{classPetshop_abe75c19422842cbb74163813bc99743b}{cadastrar\+Anfibio} (int id, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo)
+\item 
+void \hyperlink{classPetshop_a7758d5a4e1893c72afd5ff7b3793d726}{cadastrar\+Reptil} (int id, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo)
+\item 
+void \hyperlink{classPetshop_aab4d8b4855b0757cb8a76b7ffab4d6d1}{cadastrar\+Ave} (int id, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo)
+\item 
+void \hyperlink{classPetshop_a28183f85c0d6a0073da2fbb7082a6abe}{cadastrar\+Mamifero} (int id, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo)
+\item 
+void \hyperlink{classPetshop_a29770b7025d7b1f84e2dc946e730463e}{listar\+Animais} ()
+\item 
+void \hyperlink{classPetshop_a745038ad9cb1b173bfadef5043bfc655}{remover\+Animal} ()
+\item 
+void \hyperlink{classPetshop_aeb3366966b03bbe1ed6fd5065147b4fa}{editar\+Animal} ()
+\item 
+void \hyperlink{classPetshop_af6e4fc598318c6ef7d9789a9328e312a}{consultar\+Animal} ()
+\item 
+void \hyperlink{classPetshop_a14c1c5c2ce819a4e90ed562fc9384f03}{cadastrar\+Funcionario} ()
+\item 
+void \hyperlink{classPetshop_a92af46eb9dea6df3b89ce06f0e27e599}{listar\+Funcionarios} ()
+\item 
+void \hyperlink{classPetshop_af427ab474b72f1c1537d4c7fa055290d}{remover\+Funcionario} ()
+\item 
+void \hyperlink{classPetshop_afffa95f1248cdf9999c40b16d469af2a}{editar\+Funcionario} ()
+\item 
+void \hyperlink{classPetshop_ab4324d868f6aceeaa9ee34a9ae3b8349}{consultar\+Funcionario} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPetshop_ae96ecbb58123958ab00d4b3610bc8ae7}\label{classPetshop_ae96ecbb58123958ab00d4b3610bc8ae7}} 
+std\+::string {\bfseries m\+\_\+nome}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe \hyperlink{classPetshop}{Petshop}. Para controle do Pet\+Fera 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classPetshop_a6ea911ff6ce0a63275d33db172086f69}\label{classPetshop_a6ea911ff6ce0a63275d33db172086f69}} 
+\index{Petshop@{Petshop}!Petshop@{Petshop}}
+\index{Petshop@{Petshop}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{Petshop()}{Petshop()}}
+{\footnotesize\ttfamily Petshop\+::\+Petshop (\begin{DoxyParamCaption}\item[{std\+::string}]{nome }\end{DoxyParamCaption})}
+
+Construtor. Construtor da classe controladora que recebe uma string que será seu nome. \mbox{\Hypertarget{classPetshop_a3ec4d2ba5d85e86d63121b4efd199de2}\label{classPetshop_a3ec4d2ba5d85e86d63121b4efd199de2}} 
+\index{Petshop@{Petshop}!````~Petshop@{$\sim$\+Petshop}}
+\index{````~Petshop@{$\sim$\+Petshop}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{$\sim$\+Petshop()}{~Petshop()}}
+{\footnotesize\ttfamily Petshop\+::$\sim$\+Petshop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classPetshop_a3e0c8fc8c46784fcd0bc7d650ba7dcec}\label{classPetshop_a3e0c8fc8c46784fcd0bc7d650ba7dcec}} 
+\index{Petshop@{Petshop}!abrir\+Arquivo@{abrir\+Arquivo}}
+\index{abrir\+Arquivo@{abrir\+Arquivo}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{abrir\+Arquivo()}{abrirArquivo()}}
+{\footnotesize\ttfamily std\+::fstream Petshop\+::abrir\+Arquivo (\begin{DoxyParamCaption}\item[{std\+::string}]{tipo\+\_\+map }\end{DoxyParamCaption})}
+
+Função para abertura de arquivo. Recebe uma string com o nome do arquivo para abertura e retorna um objeto fstream. \mbox{\Hypertarget{classPetshop_a24cfb15a9aed53e6aea5f5faf6e202b2}\label{classPetshop_a24cfb15a9aed53e6aea5f5faf6e202b2}} 
+\index{Petshop@{Petshop}!atualiza\+Arquivo\+Animal@{atualiza\+Arquivo\+Animal}}
+\index{atualiza\+Arquivo\+Animal@{atualiza\+Arquivo\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{atualiza\+Arquivo\+Animal()}{atualizaArquivoAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::atualiza\+Arquivo\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para atualizar o arquivo de controle de animais. Escreve no arquivo os atributos dos animais presentes no map\+\_\+animais da classe. \mbox{\Hypertarget{classPetshop_ae36b7c1babae414e65a2d22593005494}\label{classPetshop_ae36b7c1babae414e65a2d22593005494}} 
+\index{Petshop@{Petshop}!buscar\+Por\+Id@{buscar\+Por\+Id}}
+\index{buscar\+Por\+Id@{buscar\+Por\+Id}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{buscar\+Por\+Id()}{buscarPorId()}}
+{\footnotesize\ttfamily int Petshop\+::buscar\+Por\+Id (\begin{DoxyParamCaption}\item[{std\+::string}]{tipo\+\_\+map }\end{DoxyParamCaption})}
+
+Função para busca por id. Recebe uma string para identificar em qual map fazer busca e em caso de encontrar, esse id é retornado. \mbox{\Hypertarget{classPetshop_abe75c19422842cbb74163813bc99743b}\label{classPetshop_abe75c19422842cbb74163813bc99743b}} 
+\index{Petshop@{Petshop}!cadastrar\+Anfibio@{cadastrar\+Anfibio}}
+\index{cadastrar\+Anfibio@{cadastrar\+Anfibio}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Anfibio()}{cadastrarAnfibio()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Anfibio (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo }\end{DoxyParamCaption})}
+
+Função para cadastrar animal da classe anfíbio. Recebe parâmetros da função de cadastro de animal e coleta os atributos específicos da classe anfíbio para criar objeto. \mbox{\Hypertarget{classPetshop_ac06e79f236e5305d10553566095001da}\label{classPetshop_ac06e79f236e5305d10553566095001da}} 
+\index{Petshop@{Petshop}!cadastrar\+Animal@{cadastrar\+Animal}}
+\index{cadastrar\+Animal@{cadastrar\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Animal()}{cadastrarAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para cadastrar animal. Coleta os atributos da classe animal e envia para o cadastro da classe específica do animal. \mbox{\Hypertarget{classPetshop_aab4d8b4855b0757cb8a76b7ffab4d6d1}\label{classPetshop_aab4d8b4855b0757cb8a76b7ffab4d6d1}} 
+\index{Petshop@{Petshop}!cadastrar\+Ave@{cadastrar\+Ave}}
+\index{cadastrar\+Ave@{cadastrar\+Ave}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Ave()}{cadastrarAve()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Ave (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo }\end{DoxyParamCaption})}
+
+Função para cadastrar animal da classe ave. Recebe parâmetros da função de cadastro de animal e coleta os atributos específicos da classe anfíbio para criar objeto. \mbox{\Hypertarget{classPetshop_a14c1c5c2ce819a4e90ed562fc9384f03}\label{classPetshop_a14c1c5c2ce819a4e90ed562fc9384f03}} 
+\index{Petshop@{Petshop}!cadastrar\+Funcionario@{cadastrar\+Funcionario}}
+\index{cadastrar\+Funcionario@{cadastrar\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Funcionario()}{cadastrarFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para cadastrar funcionários. Coleta os atributos da classe funcionário e envia para o cadastro da classe específica do funcionário. \mbox{\Hypertarget{classPetshop_a28183f85c0d6a0073da2fbb7082a6abe}\label{classPetshop_a28183f85c0d6a0073da2fbb7082a6abe}} 
+\index{Petshop@{Petshop}!cadastrar\+Mamifero@{cadastrar\+Mamifero}}
+\index{cadastrar\+Mamifero@{cadastrar\+Mamifero}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Mamifero()}{cadastrarMamifero()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Mamifero (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo }\end{DoxyParamCaption})}
+
+Função para cadastrar animal da classe mamífero. Recebe parâmetros da função de cadastro de animal e coleta os atributos específicos da classe anfíbio para criar objeto. \mbox{\Hypertarget{classPetshop_a7758d5a4e1893c72afd5ff7b3793d726}\label{classPetshop_a7758d5a4e1893c72afd5ff7b3793d726}} 
+\index{Petshop@{Petshop}!cadastrar\+Reptil@{cadastrar\+Reptil}}
+\index{cadastrar\+Reptil@{cadastrar\+Reptil}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{cadastrar\+Reptil()}{cadastrarReptil()}}
+{\footnotesize\ttfamily void Petshop\+::cadastrar\+Reptil (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo }\end{DoxyParamCaption})}
+
+Função para cadastrar animal da classe réptil. Recebe parâmetros da função de cadastro de animal e coleta os atributos específicos da classe anfíbio para criar objeto. \mbox{\Hypertarget{classPetshop_af6e4fc598318c6ef7d9789a9328e312a}\label{classPetshop_af6e4fc598318c6ef7d9789a9328e312a}} 
+\index{Petshop@{Petshop}!consultar\+Animal@{consultar\+Animal}}
+\index{consultar\+Animal@{consultar\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{consultar\+Animal()}{consultarAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::consultar\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para consultar animal. Pesquisa por id do animal, classe do animal, por veterinário responsável e tratador. \mbox{\Hypertarget{classPetshop_ab4324d868f6aceeaa9ee34a9ae3b8349}\label{classPetshop_ab4324d868f6aceeaa9ee34a9ae3b8349}} 
+\index{Petshop@{Petshop}!consultar\+Funcionario@{consultar\+Funcionario}}
+\index{consultar\+Funcionario@{consultar\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{consultar\+Funcionario()}{consultarFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::consultar\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para consultar funcionários. Pesquisa por id do funcionários, lista todos veterinários e lista todos tratadores cadastrados. \mbox{\Hypertarget{classPetshop_af6269c2a28c849dc2ebf21e7438fec53}\label{classPetshop_af6269c2a28c849dc2ebf21e7438fec53}} 
+\index{Petshop@{Petshop}!desalocar\+Objetos@{desalocar\+Objetos}}
+\index{desalocar\+Objetos@{desalocar\+Objetos}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{desalocar\+Objetos()}{desalocarObjetos()}}
+{\footnotesize\ttfamily void Petshop\+::desalocar\+Objetos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para desalocar memória. Limpa a memória que foi alocada para objetos anteriormente com o destrutor. \mbox{\Hypertarget{classPetshop_aeb3366966b03bbe1ed6fd5065147b4fa}\label{classPetshop_aeb3366966b03bbe1ed6fd5065147b4fa}} 
+\index{Petshop@{Petshop}!editar\+Animal@{editar\+Animal}}
+\index{editar\+Animal@{editar\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{editar\+Animal()}{editarAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::editar\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para editar animais cadastrados. Com um iterador do map, percorre até encontrar animal a ser editado e coleta os novos dados. \mbox{\Hypertarget{classPetshop_afffa95f1248cdf9999c40b16d469af2a}\label{classPetshop_afffa95f1248cdf9999c40b16d469af2a}} 
+\index{Petshop@{Petshop}!editar\+Funcionario@{editar\+Funcionario}}
+\index{editar\+Funcionario@{editar\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{editar\+Funcionario()}{editarFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::editar\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para editar funcionários cadastrados. Com um iterador do map, percorre até encontrar funcionários a ser editado e coleta os novos dados. \mbox{\Hypertarget{classPetshop_aead26f84cad6db0a70e75112ba3fe58d}\label{classPetshop_aead26f84cad6db0a70e75112ba3fe58d}} 
+\index{Petshop@{Petshop}!gravar\+Arquivo\+Funcionario@{gravar\+Arquivo\+Funcionario}}
+\index{gravar\+Arquivo\+Funcionario@{gravar\+Arquivo\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{gravar\+Arquivo\+Funcionario()}{gravarArquivoFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::gravar\+Arquivo\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para atualizar o arquivo de controle de funcionários. Escreve no arquivo os atributos dos funcionários presentes no map\+\_\+funcionario da classe. \mbox{\Hypertarget{classPetshop_a5b18b5e2667f00547486ec1f01a4f639}\label{classPetshop_a5b18b5e2667f00547486ec1f01a4f639}} 
+\index{Petshop@{Petshop}!imprime\+Animal\+Especifico@{imprime\+Animal\+Especifico}}
+\index{imprime\+Animal\+Especifico@{imprime\+Animal\+Especifico}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{imprime\+Animal\+Especifico()}{imprimeAnimalEspecifico()}}
+{\footnotesize\ttfamily void Petshop\+::imprime\+Animal\+Especifico (\begin{DoxyParamCaption}\item[{\hyperlink{classAnimal}{Animal} $\ast$}]{animal }\end{DoxyParamCaption})}
+
+Função para imprimir animal. Recebe um objeto de animal e imprime seus atributos no prompt de comando. \mbox{\Hypertarget{classPetshop_a89862e7eff30a1241775ee836bc7a450}\label{classPetshop_a89862e7eff30a1241775ee836bc7a450}} 
+\index{Petshop@{Petshop}!ler\+Arquivo\+Animal@{ler\+Arquivo\+Animal}}
+\index{ler\+Arquivo\+Animal@{ler\+Arquivo\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{ler\+Arquivo\+Animal()}{lerArquivoAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::ler\+Arquivo\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para leitura do arquivo de controle de animais. Percorre o csv controle\+\_\+animais e faz leitura para o map\+\_\+animais da classe. \mbox{\Hypertarget{classPetshop_a1c810571e6044321fa00c7b2ccac37d5}\label{classPetshop_a1c810571e6044321fa00c7b2ccac37d5}} 
+\index{Petshop@{Petshop}!ler\+Arquivo\+Funcionario@{ler\+Arquivo\+Funcionario}}
+\index{ler\+Arquivo\+Funcionario@{ler\+Arquivo\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{ler\+Arquivo\+Funcionario()}{lerArquivoFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::ler\+Arquivo\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para leitura do arquivo de controle de funcionários. Percorre o csv controle\+\_\+funcionários e faz leitura para o map\+\_\+funcionarios da classe. \mbox{\Hypertarget{classPetshop_a29770b7025d7b1f84e2dc946e730463e}\label{classPetshop_a29770b7025d7b1f84e2dc946e730463e}} 
+\index{Petshop@{Petshop}!listar\+Animais@{listar\+Animais}}
+\index{listar\+Animais@{listar\+Animais}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{listar\+Animais()}{listarAnimais()}}
+{\footnotesize\ttfamily void Petshop\+::listar\+Animais (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para listar animais. Imprime na tela o catálogo de animais cadastrados no \hyperlink{classPetshop}{Petshop} Petfera. \mbox{\Hypertarget{classPetshop_a92af46eb9dea6df3b89ce06f0e27e599}\label{classPetshop_a92af46eb9dea6df3b89ce06f0e27e599}} 
+\index{Petshop@{Petshop}!listar\+Funcionarios@{listar\+Funcionarios}}
+\index{listar\+Funcionarios@{listar\+Funcionarios}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{listar\+Funcionarios()}{listarFuncionarios()}}
+{\footnotesize\ttfamily void Petshop\+::listar\+Funcionarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para listar funcionários. Lista os veterinários e tratadores cadastrados no map de controle de funcionários. \mbox{\Hypertarget{classPetshop_a745038ad9cb1b173bfadef5043bfc655}\label{classPetshop_a745038ad9cb1b173bfadef5043bfc655}} 
+\index{Petshop@{Petshop}!remover\+Animal@{remover\+Animal}}
+\index{remover\+Animal@{remover\+Animal}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{remover\+Animal()}{removerAnimal()}}
+{\footnotesize\ttfamily void Petshop\+::remover\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para remover animal. Procura pelo id no map de controle de animais e o remove ao encontrá-\/lo. \mbox{\Hypertarget{classPetshop_af427ab474b72f1c1537d4c7fa055290d}\label{classPetshop_af427ab474b72f1c1537d4c7fa055290d}} 
+\index{Petshop@{Petshop}!remover\+Funcionario@{remover\+Funcionario}}
+\index{remover\+Funcionario@{remover\+Funcionario}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{remover\+Funcionario()}{removerFuncionario()}}
+{\footnotesize\ttfamily void Petshop\+::remover\+Funcionario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função para remover funcionário. Procura pelo id no map de controle de funcionário e o remove ao encontrá-\/lo. \mbox{\Hypertarget{classPetshop_a84b268022826f11ab6ce36579d243d1b}\label{classPetshop_a84b268022826f11ab6ce36579d243d1b}} 
+\index{Petshop@{Petshop}!verifica\+Id@{verifica\+Id}}
+\index{verifica\+Id@{verifica\+Id}!Petshop@{Petshop}}
+\subsubsection{\texorpdfstring{verifica\+Id()}{verificaId()}}
+{\footnotesize\ttfamily int Petshop\+::verifica\+Id (\begin{DoxyParamCaption}\item[{std\+::string}]{tipo\+\_\+map }\end{DoxyParamCaption})}
+
+Função para verificar id. Recebe uma string para identificar em qual map fazer verificação, retornando o id apenas se não houver sido cadastrado anteriormente. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{petshop_8h}{petshop.\+h}\end{DoxyCompactItemize}

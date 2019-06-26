@@ -1,0 +1,44 @@
+digraph "Gráfico de Hierarquia de Classes"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node16 [label="Animal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnimal.html"];
+  Node16 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Anfibio",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnfibio.html"];
+  Node17 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="AnfibioExotico",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnfibioExotico.html"];
+  Node17 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="AnfibioNativo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnfibioNativo.html"];
+  Node16 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="Ave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAve.html"];
+  Node18 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="AveExotica",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAveExotica.html"];
+  Node18 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="AveNativa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAveNativa.html"];
+  Node16 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="Mamifero",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMamifero.html"];
+  Node19 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MamiferoExotico",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMamiferoExotico.html"];
+  Node19 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="MamiferoNativo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMamiferoNativo.html"];
+  Node16 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="Reptil",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classReptil.html"];
+  Node20 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ReptilExotico",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classReptilExotico.html"];
+  Node20 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="ReptilNativo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classReptilNativo.html"];
+  Node0 [label="AnimalSilvestre",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnimalSilvestre.html"];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="AnimalExotico",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnimalExotico.html"];
+  Node1 -> Node2 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="AnimalNativo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAnimalNativo.html"];
+  Node6 -> Node7 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node8 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node9 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node10 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+}

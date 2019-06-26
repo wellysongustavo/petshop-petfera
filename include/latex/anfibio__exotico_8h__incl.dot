@@ -1,0 +1,40 @@
+digraph "anfibio_exotico.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="anfibio_exotico.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node0 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="anfibio.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$anfibio_8h.html",tooltip="Estrutura de dados da classe de Anfíbio. "];
+  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="animal.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$animal_8h.html",tooltip="Estrutura de dados da classe de Animal. "];
+  Node4 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="funcionario.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$funcionario_8h.html",tooltip="Estrutura de dados da classe de Funcionário. "];
+  Node5 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="veterinario.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$veterinario_8h.html",tooltip="Estrutura de dados da classe de Veterinário. "];
+  Node6 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="tratador.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tratador_8h.html",tooltip="Estrutura de dados da classe de Tratador. "];
+  Node7 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="date.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$date_8h.html",tooltip="Estrutura de dados da classe de date. "];
+  Node8 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node0 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="animal_exotico.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$animal__exotico_8h.html",tooltip="Estrutura de dados da classe de Animal Exótico. "];
+  Node9 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="animal_silvestre.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$animal__silvestre_8h.html",tooltip="Estrutura de dados da classe de Animal Silvestre. "];
+  Node10 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+}

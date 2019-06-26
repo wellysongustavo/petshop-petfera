@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de veterinario.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">veterinario.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="veterinario_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _VETERINARIO_H_</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define _VETERINARIO_H_</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="funcionario_8h.html">funcionario.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classVeterinario.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVeterinario.html">Veterinario</a> : <span class="keyword">public</span> <a class="code" href="classFuncionario.html">Funcionario</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::string m_crmv;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classVeterinario.html#a1b71c4d5905ec467930ef2b996d8d7ab">Veterinario</a>(std::string classe, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string nome, std::string cpf,</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">int</span> idade, std::string tipo_sanguineo, <span class="keywordtype">char</span> fator_rh, std::string especialidade,</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string crmv);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classVeterinario.html#a0de805e30bc7006d2035458f80c18671">~Veterinario</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classVeterinario.html#a1a5663f1ff2c9717df7634e0f0d1eb8d">dummy</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classVeterinario.html#ab2c6b24dd13132a0467983a0d17284fd">setCrmv</a>(std::string crmv);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::string <a class="code" href="classVeterinario.html#ae2d7672c6d5d336a3fea497845da92c1">getCrmv</a>();</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classVeterinario.html#a48166216ec28200840169f222a7b8913">operator &lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classVeterinario.html">Veterinario</a>&amp; v);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="classVeterinario.html#a9de821f84b25bfc5debf622b3613302e">operator == </a>(<span class="keyword">const</span> <a class="code" href="classVeterinario.html">Veterinario</a>&amp; v1, <span class="keyword">const</span> <a class="code" href="classVeterinario.html">Veterinario</a>&amp; v2);</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classVeterinario_html_a0de805e30bc7006d2035458f80c18671"><div class="ttname"><a href="classVeterinario.html#a0de805e30bc7006d2035458f80c18671">Veterinario::~Veterinario</a></div><div class="ttdeci">~Veterinario()</div></div>
+<div class="ttc" id="classVeterinario_html_a1b71c4d5905ec467930ef2b996d8d7ab"><div class="ttname"><a href="classVeterinario.html#a1b71c4d5905ec467930ef2b996d8d7ab">Veterinario::Veterinario</a></div><div class="ttdeci">Veterinario(std::string classe, int id, std::string nome, std::string cpf, int idade, std::string tipo_sanguineo, char fator_rh, std::string especialidade, std::string crmv)</div></div>
+<div class="ttc" id="classVeterinario_html_a9de821f84b25bfc5debf622b3613302e"><div class="ttname"><a href="classVeterinario.html#a9de821f84b25bfc5debf622b3613302e">Veterinario::operator==</a></div><div class="ttdeci">friend bool operator==(const Veterinario &amp;v1, const Veterinario &amp;v2)</div></div>
+<div class="ttc" id="classVeterinario_html_a1a5663f1ff2c9717df7634e0f0d1eb8d"><div class="ttname"><a href="classVeterinario.html#a1a5663f1ff2c9717df7634e0f0d1eb8d">Veterinario::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classVeterinario_html_ae2d7672c6d5d336a3fea497845da92c1"><div class="ttname"><a href="classVeterinario.html#ae2d7672c6d5d336a3fea497845da92c1">Veterinario::getCrmv</a></div><div class="ttdeci">std::string getCrmv()</div></div>
+<div class="ttc" id="funcionario_8h_html"><div class="ttname"><a href="funcionario_8h.html">funcionario.h</a></div><div class="ttdoc">Estrutura de dados da classe de Funcionário. </div></div>
+<div class="ttc" id="classVeterinario_html"><div class="ttname"><a href="classVeterinario.html">Veterinario</a></div><div class="ttdef"><b>Definition:</b> veterinario.h:23</div></div>
+<div class="ttc" id="classVeterinario_html_ab2c6b24dd13132a0467983a0d17284fd"><div class="ttname"><a href="classVeterinario.html#ab2c6b24dd13132a0467983a0d17284fd">Veterinario::setCrmv</a></div><div class="ttdeci">void setCrmv(std::string crmv)</div></div>
+<div class="ttc" id="classFuncionario_html"><div class="ttname"><a href="classFuncionario.html">Funcionario</a></div><div class="ttdef"><b>Definition:</b> funcionario.h:23</div></div>
+<div class="ttc" id="classVeterinario_html_a48166216ec28200840169f222a7b8913"><div class="ttname"><a href="classVeterinario.html#a48166216ec28200840169f222a7b8913">Veterinario::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Veterinario &amp;v)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

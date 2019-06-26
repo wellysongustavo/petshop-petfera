@@ -1,0 +1,14 @@
+digraph "anfibio.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node8 [label="anfibio.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="anfibio_exotico.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$anfibio__exotico_8h.html",tooltip="Estrutura de dados da classe de Anfíbio Exótico. "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="petshop.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$petshop_8h.html",tooltip="Estrutura de dados e assinaturas da classe controladora Petshop. "];
+  Node8 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="anfibio_nativo.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$anfibio__nativo_8h.html",tooltip="Estrutura de dados da classe de Anfíbio Nativo. "];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}
