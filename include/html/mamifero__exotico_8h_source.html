@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de mamifero_exotico.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">mamifero_exotico.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mamifero__exotico_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mamifero_8h.html">mamifero.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal__exotico_8h.html">animal_exotico.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef MAMIFERO_EXOTICO_H</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define MAMIFERO_EXOTICO_H</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classMamiferoExotico.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMamiferoExotico.html">MamiferoExotico</a>: <span class="keyword">public</span> <a class="code" href="classMamifero.html">Mamifero</a>, <a class="code" href="classAnimalExotico.html">AnimalExotico</a>{</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classMamiferoExotico.html#a8ab63742e80684479f0b573a012f6d27">MamiferoExotico</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, std::string cor_pelo, </div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::string autorizacao, std::string pais_origem);  </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classMamiferoExotico.html#a2ab6c04adde874cc40aa55b5f586c15a">~MamiferoExotico</a>();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMamiferoExotico.html#a0198a13cb62c2400c3a1e9e8a3ddc792">dummy</a>();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string <a class="code" href="classMamiferoExotico.html#adfb4f012bfe20e861c86d18305ff79e4">getAutorizacao</a>();</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string getPaisOrigem();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMamiferoExotico.html#a8d6e213728fc09f524885350212dffa8">setAutorizacao</a>(std::string autorizacao);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> setPaisOrigem(std::string pais_origem);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classMamiferoExotico.html#a231b2c30dd191f7b75c98f75e40f1ddb">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classMamiferoExotico.html">MamiferoExotico</a>&amp; m);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classMamiferoExotico_html"><div class="ttname"><a href="classMamiferoExotico.html">MamiferoExotico</a></div><div class="ttdef"><b>Definition:</b> mamifero_exotico.h:23</div></div>
+<div class="ttc" id="classMamifero_html"><div class="ttname"><a href="classMamifero.html">Mamifero</a></div><div class="ttdef"><b>Definition:</b> mamifero.h:25</div></div>
+<div class="ttc" id="classAnimalExotico_html"><div class="ttname"><a href="classAnimalExotico.html">AnimalExotico</a></div><div class="ttdef"><b>Definition:</b> animal_exotico.h:23</div></div>
+<div class="ttc" id="mamifero_8h_html"><div class="ttname"><a href="mamifero_8h.html">mamifero.h</a></div><div class="ttdoc">Estrutura de dados da classe de Mamífero. </div></div>
+<div class="ttc" id="classMamiferoExotico_html_a0198a13cb62c2400c3a1e9e8a3ddc792"><div class="ttname"><a href="classMamiferoExotico.html#a0198a13cb62c2400c3a1e9e8a3ddc792">MamiferoExotico::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classMamiferoExotico_html_a8ab63742e80684479f0b573a012f6d27"><div class="ttname"><a href="classMamiferoExotico.html#a8ab63742e80684479f0b573a012f6d27">MamiferoExotico::MamiferoExotico</a></div><div class="ttdeci">MamiferoExotico(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, std::string cor_pelo, std::string autorizacao, std::string pais_origem)</div></div>
+<div class="ttc" id="classMamiferoExotico_html_a8d6e213728fc09f524885350212dffa8"><div class="ttname"><a href="classMamiferoExotico.html#a8d6e213728fc09f524885350212dffa8">MamiferoExotico::setAutorizacao</a></div><div class="ttdeci">void setAutorizacao(std::string autorizacao)</div></div>
+<div class="ttc" id="classMamiferoExotico_html_a231b2c30dd191f7b75c98f75e40f1ddb"><div class="ttname"><a href="classMamiferoExotico.html#a231b2c30dd191f7b75c98f75e40f1ddb">MamiferoExotico::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, MamiferoExotico &amp;m)</div></div>
+<div class="ttc" id="animal__exotico_8h_html"><div class="ttname"><a href="animal__exotico_8h.html">animal_exotico.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal Exótico. </div></div>
+<div class="ttc" id="classMamiferoExotico_html_a2ab6c04adde874cc40aa55b5f586c15a"><div class="ttname"><a href="classMamiferoExotico.html#a2ab6c04adde874cc40aa55b5f586c15a">MamiferoExotico::~MamiferoExotico</a></div><div class="ttdeci">~MamiferoExotico()</div></div>
+<div class="ttc" id="classMamiferoExotico_html_adfb4f012bfe20e861c86d18305ff79e4"><div class="ttname"><a href="classMamiferoExotico.html#adfb4f012bfe20e861c86d18305ff79e4">MamiferoExotico::getAutorizacao</a></div><div class="ttdeci">std::string getAutorizacao()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

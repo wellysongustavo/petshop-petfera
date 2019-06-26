@@ -1,0 +1,121 @@
+\hypertarget{classAve}{}\section{Referência da Classe Ave}
+\label{classAve}\index{Ave@{Ave}}
+
+
+{\ttfamily \#include $<$ave.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Ave\+:
+% FIG 0
+
+
+Diagrama de colaboração para Ave\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAve_a7a85f41ae3a0a5722c66b4213c38fd86}{Ave} (int id, std\+::string classe, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo, double tamanho\+\_\+do\+\_\+bico\+\_\+cm, double envergadura\+\_\+das\+\_\+asas)
+\item 
+\hyperlink{classAve_ad290be8d6fb95f1cfd24b5f55def7741}{$\sim$\+Ave} ()
+\item 
+void \hyperlink{classAve_a9cf98dd6d66c29bc4d8e4f23992ead9c}{dummy} ()
+\item 
+void \hyperlink{classAve_a902617014d3400ee315b16599ee0f8ee}{set\+Tamanho\+Bico} (double tamanho\+\_\+do\+\_\+bico\+\_\+cm)
+\item 
+\mbox{\Hypertarget{classAve_a22a10ae91ac813655aa663dd11b61d27}\label{classAve_a22a10ae91ac813655aa663dd11b61d27}} 
+void {\bfseries set\+Envergadura\+Asas} (double envergadura\+\_\+das\+\_\+asas)
+\item 
+double \hyperlink{classAve_a2ff747110c5118515b842351e708a0d0}{get\+Tamanho\+Bico} ()
+\item 
+\mbox{\Hypertarget{classAve_a2c4997b9909169eea956b4e879578412}\label{classAve_a2c4997b9909169eea956b4e879578412}} 
+double {\bfseries get\+Envergadura\+Asas} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classAve_a6b226ae4077430877b040141105a9890}{m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm}
+\item 
+double \hyperlink{classAve_a6261373aae903e524e220e53ded18693}{m\+\_\+envergadura\+\_\+das\+\_\+asas}
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classAve_a47c80b591740b49f5f18073dbe9f1fe4}{operator$<$$<$} (std\+::ostream \&os, \hyperlink{classAve}{Ave} \&a)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe \hyperlink{classAve}{Ave}. Herda atributos e membros da classe \hyperlink{classAnimal}{Animal}. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classAve_a7a85f41ae3a0a5722c66b4213c38fd86}\label{classAve_a7a85f41ae3a0a5722c66b4213c38fd86}} 
+\index{Ave@{Ave}!Ave@{Ave}}
+\index{Ave@{Ave}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{Ave()}{Ave()}}
+{\footnotesize\ttfamily Ave\+::\+Ave (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{classe,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo,  }\item[{double}]{tamanho\+\_\+do\+\_\+bico\+\_\+cm,  }\item[{double}]{envergadura\+\_\+das\+\_\+asas }\end{DoxyParamCaption})}
+
+Construtor de \hyperlink{classAve}{Ave}. Sobrecarregado com lista de inicialização dos atributos herdados classe \hyperlink{classAnimal}{Animal} e atributos protegidos de sua classe. \mbox{\Hypertarget{classAve_ad290be8d6fb95f1cfd24b5f55def7741}\label{classAve_ad290be8d6fb95f1cfd24b5f55def7741}} 
+\index{Ave@{Ave}!````~Ave@{$\sim$\+Ave}}
+\index{````~Ave@{$\sim$\+Ave}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{$\sim$\+Ave()}{~Ave()}}
+{\footnotesize\ttfamily Ave\+::$\sim$\+Ave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de \hyperlink{classAve}{Ave}. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classAve_a9cf98dd6d66c29bc4d8e4f23992ead9c}\label{classAve_a9cf98dd6d66c29bc4d8e4f23992ead9c}} 
+\index{Ave@{Ave}!dummy@{dummy}}
+\index{dummy@{dummy}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily void Ave\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Função Dummy. Implementação da função para método virtual da superclasse \hyperlink{classAnimal}{Animal}. 
+
+Implementa \hyperlink{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}{Animal}.
+
+
+
+Reimplementado por \hyperlink{classAveNativa_ad4af9772d84390bc0646dcfc9cd931ee}{Ave\+Nativa} e \hyperlink{classAveExotica_add68b24041e28ade517eb42783da81a8}{Ave\+Exotica}.
+
+\mbox{\Hypertarget{classAve_a2ff747110c5118515b842351e708a0d0}\label{classAve_a2ff747110c5118515b842351e708a0d0}} 
+\index{Ave@{Ave}!get\+Tamanho\+Bico@{get\+Tamanho\+Bico}}
+\index{get\+Tamanho\+Bico@{get\+Tamanho\+Bico}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{get\+Tamanho\+Bico()}{getTamanhoBico()}}
+{\footnotesize\ttfamily double Ave\+::get\+Tamanho\+Bico (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classAve_a902617014d3400ee315b16599ee0f8ee}\label{classAve_a902617014d3400ee315b16599ee0f8ee}} 
+\index{Ave@{Ave}!set\+Tamanho\+Bico@{set\+Tamanho\+Bico}}
+\index{set\+Tamanho\+Bico@{set\+Tamanho\+Bico}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{set\+Tamanho\+Bico()}{setTamanhoBico()}}
+{\footnotesize\ttfamily void Ave\+::set\+Tamanho\+Bico (\begin{DoxyParamCaption}\item[{double}]{tamanho\+\_\+do\+\_\+bico\+\_\+cm }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{classAve_a47c80b591740b49f5f18073dbe9f1fe4}\label{classAve_a47c80b591740b49f5f18073dbe9f1fe4}} 
+\index{Ave@{Ave}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\hyperlink{classAve}{Ave} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção. Sobrecarrega operador $<$$<$ para imprimir todos dados de uma referência de Anfíbio. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{classAve_a6261373aae903e524e220e53ded18693}\label{classAve_a6261373aae903e524e220e53ded18693}} 
+\index{Ave@{Ave}!m\+\_\+envergadura\+\_\+das\+\_\+asas@{m\+\_\+envergadura\+\_\+das\+\_\+asas}}
+\index{m\+\_\+envergadura\+\_\+das\+\_\+asas@{m\+\_\+envergadura\+\_\+das\+\_\+asas}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{m\+\_\+envergadura\+\_\+das\+\_\+asas}{m\_envergadura\_das\_asas}}
+{\footnotesize\ttfamily double Ave\+::m\+\_\+envergadura\+\_\+das\+\_\+asas\hspace{0.3cm}{\ttfamily [protected]}}
+
+Envergadura das asas. Atributo double protegido do tamanho da envergadura das asas da \hyperlink{classAve}{Ave}. \mbox{\Hypertarget{classAve_a6b226ae4077430877b040141105a9890}\label{classAve_a6b226ae4077430877b040141105a9890}} 
+\index{Ave@{Ave}!m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm@{m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm}}
+\index{m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm@{m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm}!Ave@{Ave}}
+\subsubsection{\texorpdfstring{m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm}{m\_tamanho\_do\_bico\_cm}}
+{\footnotesize\ttfamily double Ave\+::m\+\_\+tamanho\+\_\+do\+\_\+bico\+\_\+cm\hspace{0.3cm}{\ttfamily [protected]}}
+
+Tamanho do bico. Atributo double protegido do tamanho do bico da \hyperlink{classAve}{Ave}. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ave_8h}{ave.\+h}\end{DoxyCompactItemize}

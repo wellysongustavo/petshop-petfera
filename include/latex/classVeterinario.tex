@@ -1,0 +1,98 @@
+\hypertarget{classVeterinario}{}\section{Referência da Classe Veterinario}
+\label{classVeterinario}\index{Veterinario@{Veterinario}}
+
+
+{\ttfamily \#include $<$veterinario.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Veterinario\+:
+% FIG 0
+
+
+Diagrama de colaboração para Veterinario\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVeterinario_a1b71c4d5905ec467930ef2b996d8d7ab}{Veterinario} (std\+::string classe, int id, std\+::string nome, std\+::string cpf, int idade, std\+::string tipo\+\_\+sanguineo, char fator\+\_\+rh, std\+::string especialidade, std\+::string crmv)
+\item 
+\hyperlink{classVeterinario_a0de805e30bc7006d2035458f80c18671}{$\sim$\+Veterinario} ()
+\item 
+void \hyperlink{classVeterinario_a1a5663f1ff2c9717df7634e0f0d1eb8d}{dummy} ()
+\item 
+void \hyperlink{classVeterinario_ab2c6b24dd13132a0467983a0d17284fd}{set\+Crmv} (std\+::string crmv)
+\item 
+std\+::string \hyperlink{classVeterinario_ae2d7672c6d5d336a3fea497845da92c1}{get\+Crmv} ()
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classVeterinario_a48166216ec28200840169f222a7b8913}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classVeterinario}{Veterinario} \&v)
+\item 
+bool \hyperlink{classVeterinario_a9de821f84b25bfc5debf622b3613302e}{operator==} (const \hyperlink{classVeterinario}{Veterinario} \&v1, const \hyperlink{classVeterinario}{Veterinario} \&v2)
+\end{DoxyCompactItemize}
+\subsection*{Outros membros herdados}
+
+
+\subsection{Descrição Detalhada}
+Classe Veterinário. Herda atributos e membros da classe \hyperlink{classFuncionario}{Funcionario}. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classVeterinario_a1b71c4d5905ec467930ef2b996d8d7ab}\label{classVeterinario_a1b71c4d5905ec467930ef2b996d8d7ab}} 
+\index{Veterinario@{Veterinario}!Veterinario@{Veterinario}}
+\index{Veterinario@{Veterinario}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{Veterinario()}{Veterinario()}}
+{\footnotesize\ttfamily Veterinario\+::\+Veterinario (\begin{DoxyParamCaption}\item[{std\+::string}]{classe,  }\item[{int}]{id,  }\item[{std\+::string}]{nome,  }\item[{std\+::string}]{cpf,  }\item[{int}]{idade,  }\item[{std\+::string}]{tipo\+\_\+sanguineo,  }\item[{char}]{fator\+\_\+rh,  }\item[{std\+::string}]{especialidade,  }\item[{std\+::string}]{crmv }\end{DoxyParamCaption})}
+
+Construtor de Veterinário. Sobrecarregado com lista de inicialização dos atributos herdados classe \hyperlink{classFuncionario}{Funcionario} e atributos protegidos de sua classe. \mbox{\Hypertarget{classVeterinario_a0de805e30bc7006d2035458f80c18671}\label{classVeterinario_a0de805e30bc7006d2035458f80c18671}} 
+\index{Veterinario@{Veterinario}!````~Veterinario@{$\sim$\+Veterinario}}
+\index{````~Veterinario@{$\sim$\+Veterinario}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{$\sim$\+Veterinario()}{~Veterinario()}}
+{\footnotesize\ttfamily Veterinario\+::$\sim$\+Veterinario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de Veterinário. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classVeterinario_a1a5663f1ff2c9717df7634e0f0d1eb8d}\label{classVeterinario_a1a5663f1ff2c9717df7634e0f0d1eb8d}} 
+\index{Veterinario@{Veterinario}!dummy@{dummy}}
+\index{dummy@{dummy}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily void Veterinario\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Função Dummy. Implementação da função para método virtual da superclasse Funcionário. 
+
+Implementa \hyperlink{classFuncionario_a56aa6d780ba9ac728fad0cde3a71e9d8}{Funcionario}.
+
+\mbox{\Hypertarget{classVeterinario_ae2d7672c6d5d336a3fea497845da92c1}\label{classVeterinario_ae2d7672c6d5d336a3fea497845da92c1}} 
+\index{Veterinario@{Veterinario}!get\+Crmv@{get\+Crmv}}
+\index{get\+Crmv@{get\+Crmv}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{get\+Crmv()}{getCrmv()}}
+{\footnotesize\ttfamily std\+::string Veterinario\+::get\+Crmv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classVeterinario_ab2c6b24dd13132a0467983a0d17284fd}\label{classVeterinario_ab2c6b24dd13132a0467983a0d17284fd}} 
+\index{Veterinario@{Veterinario}!set\+Crmv@{set\+Crmv}}
+\index{set\+Crmv@{set\+Crmv}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{set\+Crmv()}{setCrmv()}}
+{\footnotesize\ttfamily void Veterinario\+::set\+Crmv (\begin{DoxyParamCaption}\item[{std\+::string}]{crmv }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{classVeterinario_a48166216ec28200840169f222a7b8913}\label{classVeterinario_a48166216ec28200840169f222a7b8913}} 
+\index{Veterinario@{Veterinario}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classVeterinario}{Veterinario} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção. Sobrecarrega operador $<$$<$ para imprimir todos dados de uma referência de Veterinário. \mbox{\Hypertarget{classVeterinario_a9de821f84b25bfc5debf622b3613302e}\label{classVeterinario_a9de821f84b25bfc5debf622b3613302e}} 
+\index{Veterinario@{Veterinario}!operator==@{operator==}}
+\index{operator==@{operator==}!Veterinario@{Veterinario}}
+\subsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classVeterinario}{Veterinario} \&}]{v1,  }\item[{const \hyperlink{classVeterinario}{Veterinario} \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de igualdade. Sobrecarrega operador == para verificar se os veterinários passados por referência são iguais, retornando verdadeiro ou falso. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{veterinario_8h}{veterinario.\+h}\end{DoxyCompactItemize}

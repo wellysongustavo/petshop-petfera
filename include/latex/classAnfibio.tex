@@ -1,0 +1,121 @@
+\hypertarget{classAnfibio}{}\section{Referência da Classe Anfibio}
+\label{classAnfibio}\index{Anfibio@{Anfibio}}
+
+
+{\ttfamily \#include $<$anfibio.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Anfibio\+:
+% FIG 0
+
+
+Diagrama de colaboração para Anfibio\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAnfibio_abe236bbadbcf7d23944f1586aa9ad315}{Anfibio} (int id, std\+::string classe, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo, int total\+\_\+de\+\_\+mudas, \hyperlink{classdate}{date} ultima\+\_\+muda)
+\item 
+\hyperlink{classAnfibio_a53bb71a1ed0e79c5fc41a62a0af9060c}{$\sim$\+Anfibio} ()
+\item 
+void \hyperlink{classAnfibio_a5f92eac4e6add9b2798119cc38dda093}{dummy} ()
+\item 
+void \hyperlink{classAnfibio_a61a9e310e2447380940413bc3ff53c19}{set\+Total\+Mudas} (int total\+\_\+de\+\_\+mudas)
+\item 
+\mbox{\Hypertarget{classAnfibio_a7293bd62eeb5b8f9fd32fe4b2f9146ef}\label{classAnfibio_a7293bd62eeb5b8f9fd32fe4b2f9146ef}} 
+void {\bfseries set\+Ultima\+Muda} (\hyperlink{classdate}{date} ultima\+\_\+muda)
+\item 
+\hyperlink{classdate}{date} \hyperlink{classAnfibio_a762169971fc7ad9065d944266c2507b3}{get\+Ultima\+Muda} ()
+\item 
+\mbox{\Hypertarget{classAnfibio_a09eb168ca6f0d3ccc6ee261267546aed}\label{classAnfibio_a09eb168ca6f0d3ccc6ee261267546aed}} 
+int {\bfseries get\+Total\+Mudas} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classAnfibio_a994200134b0d314e3db0ac5c781bb7e7}{m\+\_\+total\+\_\+de\+\_\+mudas}
+\item 
+\hyperlink{classdate}{date} \hyperlink{classAnfibio_a0cbc6ed64dc2cf979407b45053c838e9}{m\+\_\+ultima\+\_\+muda}
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classAnfibio_a0c4cab2951e6110fd77ba060a8defb7c}{operator$<$$<$} (std\+::ostream \&os, \hyperlink{classAnfibio}{Anfibio} \&a)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe Anfíbio. Herda atributos e membros da classe \hyperlink{classAnimal}{Animal}. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classAnfibio_abe236bbadbcf7d23944f1586aa9ad315}\label{classAnfibio_abe236bbadbcf7d23944f1586aa9ad315}} 
+\index{Anfibio@{Anfibio}!Anfibio@{Anfibio}}
+\index{Anfibio@{Anfibio}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{Anfibio()}{Anfibio()}}
+{\footnotesize\ttfamily Anfibio\+::\+Anfibio (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{classe,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo,  }\item[{int}]{total\+\_\+de\+\_\+mudas,  }\item[{\hyperlink{classdate}{date}}]{ultima\+\_\+muda }\end{DoxyParamCaption})}
+
+Construtor de Anfíbio. Sobrecarregado com lista de inicialização dos atributos herdados classe \hyperlink{classAnimal}{Animal} e atributos protegidos de sua classe. \mbox{\Hypertarget{classAnfibio_a53bb71a1ed0e79c5fc41a62a0af9060c}\label{classAnfibio_a53bb71a1ed0e79c5fc41a62a0af9060c}} 
+\index{Anfibio@{Anfibio}!````~Anfibio@{$\sim$\+Anfibio}}
+\index{````~Anfibio@{$\sim$\+Anfibio}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{$\sim$\+Anfibio()}{~Anfibio()}}
+{\footnotesize\ttfamily Anfibio\+::$\sim$\+Anfibio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de Anfíbio. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classAnfibio_a5f92eac4e6add9b2798119cc38dda093}\label{classAnfibio_a5f92eac4e6add9b2798119cc38dda093}} 
+\index{Anfibio@{Anfibio}!dummy@{dummy}}
+\index{dummy@{dummy}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily void Anfibio\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Função Dummy. Implementação da função para método virtual da superclasse \hyperlink{classAnimal}{Animal}. 
+
+Implementa \hyperlink{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}{Animal}.
+
+
+
+Reimplementado por \hyperlink{classAnfibioExotico_a192645b6588bc584145f70be14862d77}{Anfibio\+Exotico} e \hyperlink{classAnfibioNativo_ace45796a9ce43d12b992182643aeb94e}{Anfibio\+Nativo}.
+
+\mbox{\Hypertarget{classAnfibio_a762169971fc7ad9065d944266c2507b3}\label{classAnfibio_a762169971fc7ad9065d944266c2507b3}} 
+\index{Anfibio@{Anfibio}!get\+Ultima\+Muda@{get\+Ultima\+Muda}}
+\index{get\+Ultima\+Muda@{get\+Ultima\+Muda}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{get\+Ultima\+Muda()}{getUltimaMuda()}}
+{\footnotesize\ttfamily \hyperlink{classdate}{date} Anfibio\+::get\+Ultima\+Muda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores \mbox{\Hypertarget{classAnfibio_a61a9e310e2447380940413bc3ff53c19}\label{classAnfibio_a61a9e310e2447380940413bc3ff53c19}} 
+\index{Anfibio@{Anfibio}!set\+Total\+Mudas@{set\+Total\+Mudas}}
+\index{set\+Total\+Mudas@{set\+Total\+Mudas}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{set\+Total\+Mudas()}{setTotalMudas()}}
+{\footnotesize\ttfamily void Anfibio\+::set\+Total\+Mudas (\begin{DoxyParamCaption}\item[{int}]{total\+\_\+de\+\_\+mudas }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{classAnfibio_a0c4cab2951e6110fd77ba060a8defb7c}\label{classAnfibio_a0c4cab2951e6110fd77ba060a8defb7c}} 
+\index{Anfibio@{Anfibio}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\hyperlink{classAnfibio}{Anfibio} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção. Sobrecarrega operador $<$$<$ para imprimir todos dados de uma referência de Anfíbio. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{classAnfibio_a994200134b0d314e3db0ac5c781bb7e7}\label{classAnfibio_a994200134b0d314e3db0ac5c781bb7e7}} 
+\index{Anfibio@{Anfibio}!m\+\_\+total\+\_\+de\+\_\+mudas@{m\+\_\+total\+\_\+de\+\_\+mudas}}
+\index{m\+\_\+total\+\_\+de\+\_\+mudas@{m\+\_\+total\+\_\+de\+\_\+mudas}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{m\+\_\+total\+\_\+de\+\_\+mudas}{m\_total\_de\_mudas}}
+{\footnotesize\ttfamily int Anfibio\+::m\+\_\+total\+\_\+de\+\_\+mudas\hspace{0.3cm}{\ttfamily [protected]}}
+
+Total de mudas. Um atributo inteiro protegido com a quantidade de mudas do Anfíbio. \mbox{\Hypertarget{classAnfibio_a0cbc6ed64dc2cf979407b45053c838e9}\label{classAnfibio_a0cbc6ed64dc2cf979407b45053c838e9}} 
+\index{Anfibio@{Anfibio}!m\+\_\+ultima\+\_\+muda@{m\+\_\+ultima\+\_\+muda}}
+\index{m\+\_\+ultima\+\_\+muda@{m\+\_\+ultima\+\_\+muda}!Anfibio@{Anfibio}}
+\subsubsection{\texorpdfstring{m\+\_\+ultima\+\_\+muda}{m\_ultima\_muda}}
+{\footnotesize\ttfamily \hyperlink{classdate}{date} Anfibio\+::m\+\_\+ultima\+\_\+muda\hspace{0.3cm}{\ttfamily [protected]}}
+
+Última Muda. Atributo date protegido com a data da última múda do Anfíbio. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{anfibio_8h}{anfibio.\+h}\end{DoxyCompactItemize}

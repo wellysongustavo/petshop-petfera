@@ -1,0 +1,35 @@
+\hypertarget{anfibio_8h}{}\section{Referência do Arquivo anfibio.\+h}
+\label{anfibio_8h}\index{anfibio.\+h@{anfibio.\+h}}
+
+
+Estrutura de dados da classe de Anfíbio.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}animal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}veterinario.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tratador.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}date.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para anfibio.\+h\+:
+% FIG 0
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo\+:
+% FIG 1
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classAnfibio}{Anfibio}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Estrutura de dados da classe de Anfíbio. 
+
+\begin{DoxyAuthor}{Autores}
+Fernanda Laís Pereira de Souza Pedro Hugo da Silva Freire Wellyson Gustavo Silva Oliveira 
+\end{DoxyAuthor}
+\begin{DoxySince}{Desde}
+03/05/2019 
+\end{DoxySince}
+\begin{DoxyDate}{Data}
+26/06/2019 
+\end{DoxyDate}

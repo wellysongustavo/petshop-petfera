@@ -1,0 +1,96 @@
+\hypertarget{classAnfibioNativo}{}\section{Referência da Classe Anfibio\+Nativo}
+\label{classAnfibioNativo}\index{Anfibio\+Nativo@{Anfibio\+Nativo}}
+
+
+{\ttfamily \#include $<$anfibio\+\_\+nativo.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Anfibio\+Nativo\+:
+% FIG 0
+
+
+Diagrama de colaboração para Anfibio\+Nativo\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAnfibioNativo_a91cf2d5da4dc6fb39d63098a82ccc94a}{Anfibio\+Nativo} (int id, std\+::string classe, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo, int total\+\_\+de\+\_\+mudas, \hyperlink{classdate}{date} ultima\+\_\+muda, std\+::string autorizacao, std\+::string uf\+\_\+origem)
+\item 
+\hyperlink{classAnfibioNativo_a10ecde482410d669995fd852ba150d75}{$\sim$\+Anfibio\+Nativo} ()
+\item 
+void \hyperlink{classAnfibioNativo_ace45796a9ce43d12b992182643aeb94e}{dummy} ()
+\item 
+void \hyperlink{classAnfibioNativo_abe331a3871d097e8f272da09d81ca629}{set\+Uf\+Origem} (std\+::string uf\+\_\+origem)
+\item 
+\mbox{\Hypertarget{classAnfibioNativo_a69550548cd8d5aad1547668121f9c3a1}\label{classAnfibioNativo_a69550548cd8d5aad1547668121f9c3a1}} 
+void {\bfseries set\+Autorizacao} (std\+::string autorizacao)
+\item 
+std\+::string \hyperlink{classAnfibioNativo_ac49d89e944f29ee3584741382b6378d8}{get\+Autorizacao} ()
+\item 
+\mbox{\Hypertarget{classAnfibioNativo_a0e3fe901d3b17349beaf77d37d0681ad}\label{classAnfibioNativo_a0e3fe901d3b17349beaf77d37d0681ad}} 
+std\+::string {\bfseries get\+Uf\+Origem} ()
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classAnfibioNativo_aa32bce187158a3ef855d1cb0229268a7}{operator$<$$<$} (std\+::ostream \&os, \hyperlink{classAnfibioNativo}{Anfibio\+Nativo} \&a)
+\end{DoxyCompactItemize}
+\subsection*{Outros membros herdados}
+
+
+\subsection{Descrição Detalhada}
+Classe de Anfíbio Nativo. Herda atributos e membros da classe \hyperlink{classAnfibio}{Anfibio} e \hyperlink{classAnimalNativo}{Animal\+Nativo}. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classAnfibioNativo_a91cf2d5da4dc6fb39d63098a82ccc94a}\label{classAnfibioNativo_a91cf2d5da4dc6fb39d63098a82ccc94a}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{Anfibio\+Nativo()}{AnfibioNativo()}}
+{\footnotesize\ttfamily Anfibio\+Nativo\+::\+Anfibio\+Nativo (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{classe,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo,  }\item[{int}]{total\+\_\+de\+\_\+mudas,  }\item[{\hyperlink{classdate}{date}}]{ultima\+\_\+muda,  }\item[{std\+::string}]{autorizacao,  }\item[{std\+::string}]{uf\+\_\+origem }\end{DoxyParamCaption})}
+
+Construtor de Anfíbio Nativo. Sobrecarregado com lista de inicialização dos atributos herdados das classes \hyperlink{classAnfibio}{Anfibio} e \hyperlink{classAnimalNativo}{Animal\+Nativo}. \mbox{\Hypertarget{classAnfibioNativo_a10ecde482410d669995fd852ba150d75}\label{classAnfibioNativo_a10ecde482410d669995fd852ba150d75}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!````~Anfibio\+Nativo@{$\sim$\+Anfibio\+Nativo}}
+\index{````~Anfibio\+Nativo@{$\sim$\+Anfibio\+Nativo}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{$\sim$\+Anfibio\+Nativo()}{~AnfibioNativo()}}
+{\footnotesize\ttfamily Anfibio\+Nativo\+::$\sim$\+Anfibio\+Nativo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de Anfíbio Nativo. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classAnfibioNativo_ace45796a9ce43d12b992182643aeb94e}\label{classAnfibioNativo_ace45796a9ce43d12b992182643aeb94e}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!dummy@{dummy}}
+\index{dummy@{dummy}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily void Anfibio\+Nativo\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Função Dummy. Implementação da função para método virtual da superclasse \hyperlink{classAnimal}{Animal}. 
+
+Reimplementação de \hyperlink{classAnfibio_a5f92eac4e6add9b2798119cc38dda093}{Anfibio}.
+
+\mbox{\Hypertarget{classAnfibioNativo_ac49d89e944f29ee3584741382b6378d8}\label{classAnfibioNativo_ac49d89e944f29ee3584741382b6378d8}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!get\+Autorizacao@{get\+Autorizacao}}
+\index{get\+Autorizacao@{get\+Autorizacao}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{get\+Autorizacao()}{getAutorizacao()}}
+{\footnotesize\ttfamily std\+::string Anfibio\+Nativo\+::get\+Autorizacao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classAnfibioNativo_abe331a3871d097e8f272da09d81ca629}\label{classAnfibioNativo_abe331a3871d097e8f272da09d81ca629}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!set\+Uf\+Origem@{set\+Uf\+Origem}}
+\index{set\+Uf\+Origem@{set\+Uf\+Origem}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{set\+Uf\+Origem()}{setUfOrigem()}}
+{\footnotesize\ttfamily void Anfibio\+Nativo\+::set\+Uf\+Origem (\begin{DoxyParamCaption}\item[{std\+::string}]{uf\+\_\+origem }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{classAnfibioNativo_aa32bce187158a3ef855d1cb0229268a7}\label{classAnfibioNativo_aa32bce187158a3ef855d1cb0229268a7}} 
+\index{Anfibio\+Nativo@{Anfibio\+Nativo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Anfibio\+Nativo@{Anfibio\+Nativo}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\hyperlink{classAnfibioNativo}{Anfibio\+Nativo} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção. Sobrecarrega operador $<$$<$ para imprimir todos dados de uma referência de Anfíbio Nativo. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{anfibio__nativo_8h}{anfibio\+\_\+nativo.\+h}\end{DoxyCompactItemize}

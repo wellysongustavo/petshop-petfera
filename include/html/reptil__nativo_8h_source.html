@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de reptil_nativo.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">reptil_nativo.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="reptil__nativo_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reptil_8h.html">reptil.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal__nativo_8h.html">animal_nativo.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef _REPTIL_NATIVO_H_</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define _REPTIL_NATIVO_H_</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classReptilNativo.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReptilNativo.html">ReptilNativo</a> : <span class="keyword">public</span> <a class="code" href="classReptil.html">Reptil</a>, <a class="code" href="classAnimalNativo.html">AnimalNativo</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classReptilNativo.html#ab23dadfa1a143b980b0b0a8d16ff0d05">ReptilNativo</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, <span class="keywordtype">bool</span> venenoso, </div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::string tipo_venenoso, std::string autorizacao, std::string uf_origem);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classReptilNativo.html#a6de5838fd62a1c61175e690110cd7dc0">~ReptilNativo</a>();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classReptilNativo.html#a72582fd1adb5d8d562354ab35e574b3b">dummy</a>();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string <a class="code" href="classReptilNativo.html#af3526f4d89e275985983ac6a76e02fc4">getAutorizacao</a>();</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string getUfOrigem();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classReptilNativo.html#a18648a093476229d68a57d45d749d69c">setAutorizacao</a>(std::string autorizacao);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> setUfOrigem(std::string uf_origem);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classReptilNativo.html#ae9107a41e5f55eee6b5a8acd1c135618">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classReptilNativo.html">ReptilNativo</a>&amp; r);   </div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classReptilNativo_html_a18648a093476229d68a57d45d749d69c"><div class="ttname"><a href="classReptilNativo.html#a18648a093476229d68a57d45d749d69c">ReptilNativo::setAutorizacao</a></div><div class="ttdeci">void setAutorizacao(std::string autorizacao)</div></div>
+<div class="ttc" id="classReptilNativo_html_ab23dadfa1a143b980b0b0a8d16ff0d05"><div class="ttname"><a href="classReptilNativo.html#ab23dadfa1a143b980b0b0a8d16ff0d05">ReptilNativo::ReptilNativo</a></div><div class="ttdeci">ReptilNativo(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, bool venenoso, std::string tipo_venenoso, std::string autorizacao, std::string uf_origem)</div></div>
+<div class="ttc" id="classReptil_html"><div class="ttname"><a href="classReptil.html">Reptil</a></div><div class="ttdef"><b>Definition:</b> reptil.h:25</div></div>
+<div class="ttc" id="animal__nativo_8h_html"><div class="ttname"><a href="animal__nativo_8h.html">animal_nativo.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal Nativo. </div></div>
+<div class="ttc" id="classReptilNativo_html_ae9107a41e5f55eee6b5a8acd1c135618"><div class="ttname"><a href="classReptilNativo.html#ae9107a41e5f55eee6b5a8acd1c135618">ReptilNativo::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, ReptilNativo &amp;r)</div></div>
+<div class="ttc" id="classReptilNativo_html"><div class="ttname"><a href="classReptilNativo.html">ReptilNativo</a></div><div class="ttdef"><b>Definition:</b> reptil_nativo.h:23</div></div>
+<div class="ttc" id="classAnimalNativo_html"><div class="ttname"><a href="classAnimalNativo.html">AnimalNativo</a></div><div class="ttdef"><b>Definition:</b> animal_nativo.h:23</div></div>
+<div class="ttc" id="classReptilNativo_html_a72582fd1adb5d8d562354ab35e574b3b"><div class="ttname"><a href="classReptilNativo.html#a72582fd1adb5d8d562354ab35e574b3b">ReptilNativo::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classReptilNativo_html_a6de5838fd62a1c61175e690110cd7dc0"><div class="ttname"><a href="classReptilNativo.html#a6de5838fd62a1c61175e690110cd7dc0">ReptilNativo::~ReptilNativo</a></div><div class="ttdeci">~ReptilNativo()</div></div>
+<div class="ttc" id="classReptilNativo_html_af3526f4d89e275985983ac6a76e02fc4"><div class="ttname"><a href="classReptilNativo.html#af3526f4d89e275985983ac6a76e02fc4">ReptilNativo::getAutorizacao</a></div><div class="ttdeci">std::string getAutorizacao()</div></div>
+<div class="ttc" id="reptil_8h_html"><div class="ttname"><a href="reptil_8h.html">reptil.h</a></div><div class="ttdoc">Estrutura de dados da classe de Réptil. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

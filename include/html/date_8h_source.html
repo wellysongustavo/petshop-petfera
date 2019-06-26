@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de date.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">date.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="date_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef _DATE_H_</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define _DATE_H_</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classdate.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdate.html">date</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classdate.html#a8b6a07e98bfbaae3970841ec1d1854b8">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdate.html#a8b6a07e98bfbaae3970841ec1d1854b8">day_</a>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classdate.html#a71822c3ffdc179d9592449ddcc25af90">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdate.html#a71822c3ffdc179d9592449ddcc25af90">month_</a>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classdate.html#ae61f71866a55ae344f9dcde1bd25b214">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classdate.html#ae61f71866a55ae344f9dcde1bd25b214">year_</a>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classdate.html">date</a>();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classdate.html">date</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; d, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; m, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; y);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> valid(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> day() <span class="keyword">const</span>;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> month() <span class="keyword">const</span>;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">int</span> year() <span class="keyword">const</span>;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> set_day(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; day);</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> set_month(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; month);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> set_year(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; year);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classdate.html">date</a> converte_string(std::string string_data);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;ostream&amp; <a class="code" href="date_8h.html#ad71a4195a8d00bb6dc2e2bdefd07f597">operator &lt;&lt; </a>( ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classdate.html">date</a>&amp; d); <span class="comment">//output operator</span></div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classdate_html_a71822c3ffdc179d9592449ddcc25af90"><div class="ttname"><a href="classdate.html#a71822c3ffdc179d9592449ddcc25af90">date::month_</a></div><div class="ttdeci">int month_</div><div class="ttdef"><b>Definition:</b> date.h:33</div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classdate_html_ae61f71866a55ae344f9dcde1bd25b214"><div class="ttname"><a href="classdate.html#ae61f71866a55ae344f9dcde1bd25b214">date::year_</a></div><div class="ttdeci">int year_</div><div class="ttdef"><b>Definition:</b> date.h:39</div></div>
+<div class="ttc" id="classdate_html"><div class="ttname"><a href="classdate.html">date</a></div><div class="ttdef"><b>Definition:</b> date.h:20</div></div>
+<div class="ttc" id="classdate_html_a8b6a07e98bfbaae3970841ec1d1854b8"><div class="ttname"><a href="classdate.html#a8b6a07e98bfbaae3970841ec1d1854b8">date::day_</a></div><div class="ttdeci">int day_</div><div class="ttdef"><b>Definition:</b> date.h:27</div></div>
+<div class="ttc" id="date_8h_html_ad71a4195a8d00bb6dc2e2bdefd07f597"><div class="ttname"><a href="date_8h.html#ad71a4195a8d00bb6dc2e2bdefd07f597">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const date &amp;d)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

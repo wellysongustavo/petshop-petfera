@@ -1,0 +1,121 @@
+\hypertarget{classReptil}{}\section{Referência da Classe Reptil}
+\label{classReptil}\index{Reptil@{Reptil}}
+
+
+{\ttfamily \#include $<$reptil.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Reptil\+:
+% FIG 0
+
+
+Diagrama de colaboração para Reptil\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classReptil_a7fcd4e6da06fcb4087101d0dc2d151d9}{Reptil} (int id, std\+::string classe, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo, bool venenoso, std\+::string tipo\+\_\+venenoso=\char`\"{}Não venenoso\char`\"{})
+\item 
+\hyperlink{classReptil_a826ed679cc45f74fefecef7d4d40b409}{$\sim$\+Reptil} ()
+\item 
+void \hyperlink{classReptil_acfbb0461fc05ec7b08332dd4cee122c6}{dummy} ()
+\item 
+void \hyperlink{classReptil_a9f7ab2a0e2b30040c7c9df48039a266a}{set\+Venenoso} (bool venenoso)
+\item 
+\mbox{\Hypertarget{classReptil_a9324c68abc26ab008f00fd173605fd76}\label{classReptil_a9324c68abc26ab008f00fd173605fd76}} 
+void {\bfseries set\+Tipo\+Venenoso} (std\+::string tipo\+\_\+venenoso)
+\item 
+bool \hyperlink{classReptil_a75138aaa91420a9f82ddd39c19ea8b78}{get\+Venenoso} ()
+\item 
+\mbox{\Hypertarget{classReptil_a2d1ee6cdb451af697e0dc795c24d9ce7}\label{classReptil_a2d1ee6cdb451af697e0dc795c24d9ce7}} 
+std\+::string {\bfseries get\+Tipo\+Venenoso} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classReptil_ac195c1dc9a0fa38bc0551034c609c434}{m\+\_\+venenoso}
+\item 
+std\+::string \hyperlink{classReptil_a0c68bf074b4645f98436016d9ceb358a}{m\+\_\+tipo\+\_\+venenoso}
+\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classReptil_a9634321aa61220b56b433a92fd851bad}{operator$<$$<$} (std\+::ostream \&os, \hyperlink{classReptil}{Reptil} \&r)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe Réptil. Herda atributos e membros da classe \hyperlink{classAnimal}{Animal}. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classReptil_a7fcd4e6da06fcb4087101d0dc2d151d9}\label{classReptil_a7fcd4e6da06fcb4087101d0dc2d151d9}} 
+\index{Reptil@{Reptil}!Reptil@{Reptil}}
+\index{Reptil@{Reptil}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{Reptil()}{Reptil()}}
+{\footnotesize\ttfamily Reptil\+::\+Reptil (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{classe,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo,  }\item[{bool}]{venenoso,  }\item[{std\+::string}]{tipo\+\_\+venenoso = {\ttfamily \char`\"{}Não~venenoso\char`\"{}} }\end{DoxyParamCaption})}
+
+Construtor de Réptil. Sobrecarregado com lista de inicialização dos atributos herdados classe \hyperlink{classAnimal}{Animal} e atributos protegidos de sua classe. \mbox{\Hypertarget{classReptil_a826ed679cc45f74fefecef7d4d40b409}\label{classReptil_a826ed679cc45f74fefecef7d4d40b409}} 
+\index{Reptil@{Reptil}!````~Reptil@{$\sim$\+Reptil}}
+\index{````~Reptil@{$\sim$\+Reptil}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{$\sim$\+Reptil()}{~Reptil()}}
+{\footnotesize\ttfamily Reptil\+::$\sim$\+Reptil (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de Réptil. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classReptil_acfbb0461fc05ec7b08332dd4cee122c6}\label{classReptil_acfbb0461fc05ec7b08332dd4cee122c6}} 
+\index{Reptil@{Reptil}!dummy@{dummy}}
+\index{dummy@{dummy}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily void Reptil\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Função Dummy. Implementação da função para método virtual da superclasse \hyperlink{classAnimal}{Animal}. 
+
+Implementa \hyperlink{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}{Animal}.
+
+
+
+Reimplementado por \hyperlink{classReptilExotico_aa59602e743a05deba4f1ff2fa453607a}{Reptil\+Exotico} e \hyperlink{classReptilNativo_a72582fd1adb5d8d562354ab35e574b3b}{Reptil\+Nativo}.
+
+\mbox{\Hypertarget{classReptil_a75138aaa91420a9f82ddd39c19ea8b78}\label{classReptil_a75138aaa91420a9f82ddd39c19ea8b78}} 
+\index{Reptil@{Reptil}!get\+Venenoso@{get\+Venenoso}}
+\index{get\+Venenoso@{get\+Venenoso}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{get\+Venenoso()}{getVenenoso()}}
+{\footnotesize\ttfamily bool Reptil\+::get\+Venenoso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classReptil_a9f7ab2a0e2b30040c7c9df48039a266a}\label{classReptil_a9f7ab2a0e2b30040c7c9df48039a266a}} 
+\index{Reptil@{Reptil}!set\+Venenoso@{set\+Venenoso}}
+\index{set\+Venenoso@{set\+Venenoso}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{set\+Venenoso()}{setVenenoso()}}
+{\footnotesize\ttfamily void Reptil\+::set\+Venenoso (\begin{DoxyParamCaption}\item[{bool}]{venenoso }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{classReptil_a9634321aa61220b56b433a92fd851bad}\label{classReptil_a9634321aa61220b56b433a92fd851bad}} 
+\index{Reptil@{Reptil}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\hyperlink{classReptil}{Reptil} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção. Sobrecarrega operador $<$$<$ para imprimir todos dados de uma referência de Réptil. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{classReptil_a0c68bf074b4645f98436016d9ceb358a}\label{classReptil_a0c68bf074b4645f98436016d9ceb358a}} 
+\index{Reptil@{Reptil}!m\+\_\+tipo\+\_\+venenoso@{m\+\_\+tipo\+\_\+venenoso}}
+\index{m\+\_\+tipo\+\_\+venenoso@{m\+\_\+tipo\+\_\+venenoso}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{m\+\_\+tipo\+\_\+venenoso}{m\_tipo\_venenoso}}
+{\footnotesize\ttfamily std\+::string Reptil\+::m\+\_\+tipo\+\_\+venenoso\hspace{0.3cm}{\ttfamily [protected]}}
+
+Tipo Venenoso. String para o tipo do veneno do réptil venososo. \mbox{\Hypertarget{classReptil_ac195c1dc9a0fa38bc0551034c609c434}\label{classReptil_ac195c1dc9a0fa38bc0551034c609c434}} 
+\index{Reptil@{Reptil}!m\+\_\+venenoso@{m\+\_\+venenoso}}
+\index{m\+\_\+venenoso@{m\+\_\+venenoso}!Reptil@{Reptil}}
+\subsubsection{\texorpdfstring{m\+\_\+venenoso}{m\_venenoso}}
+{\footnotesize\ttfamily bool Reptil\+::m\+\_\+venenoso\hspace{0.3cm}{\ttfamily [protected]}}
+
+Bool Venenoso. Verifica se réptil é venenoso e retorna verdadeiro ou falso. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{reptil_8h}{reptil.\+h}\end{DoxyCompactItemize}

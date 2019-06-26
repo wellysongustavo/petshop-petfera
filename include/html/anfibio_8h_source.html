@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de anfibio.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">anfibio.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="anfibio_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _ANFIBIO_H_</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define _ANFIBIO_H_</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal_8h.html">animal.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="veterinario_8h.html">veterinario.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tratador_8h.html">tratador.h</a>&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="date_8h.html">date.h</a>&quot;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classAnfibio.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAnfibio.html">Anfibio</a> : <span class="keyword">public</span> <a class="code" href="classAnimal.html">Animal</a> {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classAnfibio.html#a994200134b0d314e3db0ac5c781bb7e7">   34</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classAnfibio.html#a994200134b0d314e3db0ac5c781bb7e7">m_total_de_mudas</a>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classAnfibio.html#a0cbc6ed64dc2cf979407b45053c838e9">   41</a></span>&#160;        <a class="code" href="classdate.html">date</a> <a class="code" href="classAnfibio.html#a0cbc6ed64dc2cf979407b45053c838e9">m_ultima_muda</a>;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classAnfibio.html#abe236bbadbcf7d23944f1586aa9ad315">Anfibio</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, <span class="keywordtype">int</span> total_de_mudas, <a class="code" href="classdate.html">date</a> ultima_muda); </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classAnfibio.html#a53bb71a1ed0e79c5fc41a62a0af9060c">~Anfibio</a>();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAnfibio.html#a5f92eac4e6add9b2798119cc38dda093">dummy</a>();</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAnfibio.html#a61a9e310e2447380940413bc3ff53c19">setTotalMudas</a>(<span class="keywordtype">int</span> total_de_mudas);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> setUltimaMuda(<a class="code" href="classdate.html">date</a> ultima_muda);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classdate.html">date</a> <a class="code" href="classAnfibio.html#a762169971fc7ad9065d944266c2507b3">getUltimaMuda</a>();</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> getTotalMudas();</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classAnfibio.html#a0c4cab2951e6110fd77ba060a8defb7c">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classAnfibio.html">Anfibio</a>&amp; a);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classAnfibio_html_a61a9e310e2447380940413bc3ff53c19"><div class="ttname"><a href="classAnfibio.html#a61a9e310e2447380940413bc3ff53c19">Anfibio::setTotalMudas</a></div><div class="ttdeci">void setTotalMudas(int total_de_mudas)</div></div>
+<div class="ttc" id="classAnfibio_html"><div class="ttname"><a href="classAnfibio.html">Anfibio</a></div><div class="ttdef"><b>Definition:</b> anfibio.h:26</div></div>
+<div class="ttc" id="animal_8h_html"><div class="ttname"><a href="animal_8h.html">animal.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal. </div></div>
+<div class="ttc" id="classAnfibio_html_a0cbc6ed64dc2cf979407b45053c838e9"><div class="ttname"><a href="classAnfibio.html#a0cbc6ed64dc2cf979407b45053c838e9">Anfibio::m_ultima_muda</a></div><div class="ttdeci">date m_ultima_muda</div><div class="ttdef"><b>Definition:</b> anfibio.h:41</div></div>
+<div class="ttc" id="classAnfibio_html_a994200134b0d314e3db0ac5c781bb7e7"><div class="ttname"><a href="classAnfibio.html#a994200134b0d314e3db0ac5c781bb7e7">Anfibio::m_total_de_mudas</a></div><div class="ttdeci">int m_total_de_mudas</div><div class="ttdef"><b>Definition:</b> anfibio.h:34</div></div>
+<div class="ttc" id="classAnimal_html"><div class="ttname"><a href="classAnimal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> animal.h:25</div></div>
+<div class="ttc" id="tratador_8h_html"><div class="ttname"><a href="tratador_8h.html">tratador.h</a></div><div class="ttdoc">Estrutura de dados da classe de Tratador. </div></div>
+<div class="ttc" id="classAnfibio_html_a0c4cab2951e6110fd77ba060a8defb7c"><div class="ttname"><a href="classAnfibio.html#a0c4cab2951e6110fd77ba060a8defb7c">Anfibio::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, Anfibio &amp;a)</div></div>
+<div class="ttc" id="classdate_html"><div class="ttname"><a href="classdate.html">date</a></div><div class="ttdef"><b>Definition:</b> date.h:20</div></div>
+<div class="ttc" id="veterinario_8h_html"><div class="ttname"><a href="veterinario_8h.html">veterinario.h</a></div><div class="ttdoc">Estrutura de dados da classe de Veterinário. </div></div>
+<div class="ttc" id="classAnfibio_html_a5f92eac4e6add9b2798119cc38dda093"><div class="ttname"><a href="classAnfibio.html#a5f92eac4e6add9b2798119cc38dda093">Anfibio::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classAnfibio_html_a53bb71a1ed0e79c5fc41a62a0af9060c"><div class="ttname"><a href="classAnfibio.html#a53bb71a1ed0e79c5fc41a62a0af9060c">Anfibio::~Anfibio</a></div><div class="ttdeci">~Anfibio()</div></div>
+<div class="ttc" id="date_8h_html"><div class="ttname"><a href="date_8h.html">date.h</a></div><div class="ttdoc">Estrutura de dados da classe de date. </div></div>
+<div class="ttc" id="classAnfibio_html_abe236bbadbcf7d23944f1586aa9ad315"><div class="ttname"><a href="classAnfibio.html#abe236bbadbcf7d23944f1586aa9ad315">Anfibio::Anfibio</a></div><div class="ttdeci">Anfibio(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, int total_de_mudas, date ultima_muda)</div></div>
+<div class="ttc" id="classAnfibio_html_a762169971fc7ad9065d944266c2507b3"><div class="ttname"><a href="classAnfibio.html#a762169971fc7ad9065d944266c2507b3">Anfibio::getUltimaMuda</a></div><div class="ttdeci">date getUltimaMuda()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

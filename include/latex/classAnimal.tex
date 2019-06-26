@@ -1,0 +1,205 @@
+\hypertarget{classAnimal}{}\section{Referência da Classe Animal}
+\label{classAnimal}\index{Animal@{Animal}}
+
+
+{\ttfamily \#include $<$animal.\+h$>$}
+
+
+
+Diagrama de Hierarquia para Animal\+:
+% FIG 0
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAnimal_a4ce85e4ceabe2a6342a3dcbbd18f5bc1}{Animal} (int id, std\+::string classe, std\+::string nome\+\_\+cientifico, char sexo, double tamanho, std\+::string dieta, int id\+\_\+veterinario, int id\+\_\+tratador, std\+::string nome\+\_\+batismo)
+\item 
+\hyperlink{classAnimal_a1e726a49ec952443190ac62dad22353c}{Animal} ()
+\item 
+\hyperlink{classAnimal_a476af25adde5f0dfa688129c8f86fa5c}{$\sim$\+Animal} ()
+\item 
+virtual void \hyperlink{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}{dummy} ()=0
+\item 
+void \hyperlink{classAnimal_af5a262e8a6e04632a48307101494925c}{set\+Id} (int id)
+\item 
+\mbox{\Hypertarget{classAnimal_ae1956de8a017d0b1cd506935cd1a57e0}\label{classAnimal_ae1956de8a017d0b1cd506935cd1a57e0}} 
+void {\bfseries set\+Classe} (std\+::string classe)
+\item 
+\mbox{\Hypertarget{classAnimal_ad2e0ffb0dcb6b58467010d9f11488899}\label{classAnimal_ad2e0ffb0dcb6b58467010d9f11488899}} 
+void {\bfseries set\+Nome\+Cientifico} (std\+::string nome\+\_\+cientifico)
+\item 
+\mbox{\Hypertarget{classAnimal_aab32d5ad6689a4e19cfd43a303c939af}\label{classAnimal_aab32d5ad6689a4e19cfd43a303c939af}} 
+void {\bfseries set\+Sexo} (char sexo)
+\item 
+\mbox{\Hypertarget{classAnimal_a53daf7711c6b6430c723647b2cec7c36}\label{classAnimal_a53daf7711c6b6430c723647b2cec7c36}} 
+void {\bfseries set\+Tamanho} (double tamanho)
+\item 
+\mbox{\Hypertarget{classAnimal_a1b6ae4e4360c2a3b15c1759a654ef84b}\label{classAnimal_a1b6ae4e4360c2a3b15c1759a654ef84b}} 
+void {\bfseries set\+Dieta} (std\+::string dieta)
+\item 
+\mbox{\Hypertarget{classAnimal_abbd8ca73c60dbaa6677ea94d7c0db175}\label{classAnimal_abbd8ca73c60dbaa6677ea94d7c0db175}} 
+void {\bfseries set\+Id\+Veterinario} (int id\+\_\+veterinario)
+\item 
+\mbox{\Hypertarget{classAnimal_a795fd39a3a7a96423fa46bb7b4cdef4f}\label{classAnimal_a795fd39a3a7a96423fa46bb7b4cdef4f}} 
+void {\bfseries set\+Id\+Tratador} (int id\+\_\+tratador)
+\item 
+\mbox{\Hypertarget{classAnimal_a6f77d89ef0c02d85dfe1dd7508122ce3}\label{classAnimal_a6f77d89ef0c02d85dfe1dd7508122ce3}} 
+void {\bfseries set\+Nome\+Batismo} (std\+::string nome\+\_\+batismo)
+\item 
+int \hyperlink{classAnimal_a2c27e56355bc2b40d65250da2bb8a102}{get\+Id} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a22e54ff48117237f9a201f5eca0eea81}\label{classAnimal_a22e54ff48117237f9a201f5eca0eea81}} 
+std\+::string {\bfseries get\+Classe} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a9b316bf80a121cd5dc077158055c162f}\label{classAnimal_a9b316bf80a121cd5dc077158055c162f}} 
+std\+::string {\bfseries get\+Nome\+Cientifico} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a7349027418d900a9cd7cfc32001b6f7d}\label{classAnimal_a7349027418d900a9cd7cfc32001b6f7d}} 
+char {\bfseries get\+Sexo} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a3936ff4ad07fee3173db2a9dff52c706}\label{classAnimal_a3936ff4ad07fee3173db2a9dff52c706}} 
+double {\bfseries get\+Tamanho} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a6fcb9a0b8debecb58ca20dbf88bce329}\label{classAnimal_a6fcb9a0b8debecb58ca20dbf88bce329}} 
+std\+::string {\bfseries get\+Dieta} ()
+\item 
+\mbox{\Hypertarget{classAnimal_a4658caf142f17472741034ef901f33af}\label{classAnimal_a4658caf142f17472741034ef901f33af}} 
+int {\bfseries get\+Id\+Veterinario} ()
+\item 
+\mbox{\Hypertarget{classAnimal_af58206a25d1c63316a967632061a99f5}\label{classAnimal_af58206a25d1c63316a967632061a99f5}} 
+int {\bfseries get\+Id\+Tratador} ()
+\item 
+\mbox{\Hypertarget{classAnimal_aee0219bd596f0af49fa51fcdad29a1a7}\label{classAnimal_aee0219bd596f0af49fa51fcdad29a1a7}} 
+std\+::string {\bfseries get\+Nome\+Batismo} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classAnimal_a1a39448480e098fc74b5b67c4921a5ec}{m\+\_\+id}
+\item 
+std\+::string \hyperlink{classAnimal_a8a4d049b481ab0fe88015cde7557d281}{m\+\_\+classe}
+\item 
+std\+::string \hyperlink{classAnimal_af90a04b32166b6815617cfd4033da1e4}{m\+\_\+nome\+\_\+cientifico}
+\item 
+char \hyperlink{classAnimal_aaa6d77e661ed0fa9a33500588c8acfef}{m\+\_\+sexo}
+\item 
+double \hyperlink{classAnimal_afe83ba40e79b42d06b0c95f61aaa0218}{m\+\_\+tamanho}
+\item 
+std\+::string \hyperlink{classAnimal_af7ea074464d9a468f7412a2165afd553}{m\+\_\+dieta}
+\item 
+int \hyperlink{classAnimal_aede0aba11b84579298edaa39d3cf0825}{m\+\_\+id\+\_\+veterinario}
+\item 
+int \hyperlink{classAnimal_a9a02c10e96d8139fefb4c6c21a30f658}{m\+\_\+id\+\_\+tratador}
+\item 
+std\+::string \hyperlink{classAnimal_aa9717b7e2de07af7118050ca1c10d0b5}{m\+\_\+nome\+\_\+batismo}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe \hyperlink{classAnimal}{Animal}. Superclasse que herdará atributos e membros comuns a todos animais. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classAnimal_a4ce85e4ceabe2a6342a3dcbbd18f5bc1}\label{classAnimal_a4ce85e4ceabe2a6342a3dcbbd18f5bc1}} 
+\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{Animal()}{Animal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Animal\+::\+Animal (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::string}]{classe,  }\item[{std\+::string}]{nome\+\_\+cientifico,  }\item[{char}]{sexo,  }\item[{double}]{tamanho,  }\item[{std\+::string}]{dieta,  }\item[{int}]{id\+\_\+veterinario,  }\item[{int}]{id\+\_\+tratador,  }\item[{std\+::string}]{nome\+\_\+batismo }\end{DoxyParamCaption})}
+
+Construtor de \hyperlink{classAnimal}{Animal}. Sobrecarregado com lista de inicialização dos atributos protegidos. \mbox{\Hypertarget{classAnimal_a1e726a49ec952443190ac62dad22353c}\label{classAnimal_a1e726a49ec952443190ac62dad22353c}} 
+\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{Animal()}{Animal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Animal\+::\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor Padrão de \hyperlink{classAnimal}{Animal}. \mbox{\Hypertarget{classAnimal_a476af25adde5f0dfa688129c8f86fa5c}\label{classAnimal_a476af25adde5f0dfa688129c8f86fa5c}} 
+\index{Animal@{Animal}!````~Animal@{$\sim$\+Animal}}
+\index{````~Animal@{$\sim$\+Animal}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{$\sim$\+Animal()}{~Animal()}}
+{\footnotesize\ttfamily Animal\+::$\sim$\+Animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor de \hyperlink{classAnimal}{Animal}. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}\label{classAnimal_a88fa81bb01530eaa71656b678bf05b5b}} 
+\index{Animal@{Animal}!dummy@{dummy}}
+\index{dummy@{dummy}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily virtual void Animal\+::dummy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Método virtual Dummy. Assinatura da função para ser redefinida nas classes filhas. 
+
+Implementado por \hyperlink{classAnfibio_a5f92eac4e6add9b2798119cc38dda093}{Anfibio}, \hyperlink{classAve_a9cf98dd6d66c29bc4d8e4f23992ead9c}{Ave}, \hyperlink{classReptil_acfbb0461fc05ec7b08332dd4cee122c6}{Reptil}, \hyperlink{classMamifero_a8f2a488b1796d3ccf0ff9e1c5a82af05}{Mamifero}, \hyperlink{classAnfibioExotico_a192645b6588bc584145f70be14862d77}{Anfibio\+Exotico}, \hyperlink{classAnfibioNativo_ace45796a9ce43d12b992182643aeb94e}{Anfibio\+Nativo}, \hyperlink{classAveNativa_ad4af9772d84390bc0646dcfc9cd931ee}{Ave\+Nativa}, \hyperlink{classMamiferoExotico_a0198a13cb62c2400c3a1e9e8a3ddc792}{Mamifero\+Exotico}, \hyperlink{classMamiferoNativo_a79092135d515ffb00c24dcc8bc073acc}{Mamifero\+Nativo}, \hyperlink{classReptilExotico_aa59602e743a05deba4f1ff2fa453607a}{Reptil\+Exotico}, \hyperlink{classReptilNativo_a72582fd1adb5d8d562354ab35e574b3b}{Reptil\+Nativo} e \hyperlink{classAveExotica_add68b24041e28ade517eb42783da81a8}{Ave\+Exotica}.
+
+\mbox{\Hypertarget{classAnimal_a2c27e56355bc2b40d65250da2bb8a102}\label{classAnimal_a2c27e56355bc2b40d65250da2bb8a102}} 
+\index{Animal@{Animal}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily int Animal\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classAnimal_af5a262e8a6e04632a48307101494925c}\label{classAnimal_af5a262e8a6e04632a48307101494925c}} 
+\index{Animal@{Animal}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{set\+Id()}{setId()}}
+{\footnotesize\ttfamily void Animal\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{classAnimal_a8a4d049b481ab0fe88015cde7557d281}\label{classAnimal_a8a4d049b481ab0fe88015cde7557d281}} 
+\index{Animal@{Animal}!m\+\_\+classe@{m\+\_\+classe}}
+\index{m\+\_\+classe@{m\+\_\+classe}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+classe}{m\_classe}}
+{\footnotesize\ttfamily std\+::string Animal\+::m\+\_\+classe\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo string com Classe do animal. \mbox{\Hypertarget{classAnimal_af7ea074464d9a468f7412a2165afd553}\label{classAnimal_af7ea074464d9a468f7412a2165afd553}} 
+\index{Animal@{Animal}!m\+\_\+dieta@{m\+\_\+dieta}}
+\index{m\+\_\+dieta@{m\+\_\+dieta}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+dieta}{m\_dieta}}
+{\footnotesize\ttfamily std\+::string Animal\+::m\+\_\+dieta\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo string com a Dieta do animal. \mbox{\Hypertarget{classAnimal_a1a39448480e098fc74b5b67c4921a5ec}\label{classAnimal_a1a39448480e098fc74b5b67c4921a5ec}} 
+\index{Animal@{Animal}!m\+\_\+id@{m\+\_\+id}}
+\index{m\+\_\+id@{m\+\_\+id}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+id}{m\_id}}
+{\footnotesize\ttfamily int Animal\+::m\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro com ID do animal. \mbox{\Hypertarget{classAnimal_a9a02c10e96d8139fefb4c6c21a30f658}\label{classAnimal_a9a02c10e96d8139fefb4c6c21a30f658}} 
+\index{Animal@{Animal}!m\+\_\+id\+\_\+tratador@{m\+\_\+id\+\_\+tratador}}
+\index{m\+\_\+id\+\_\+tratador@{m\+\_\+id\+\_\+tratador}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+id\+\_\+tratador}{m\_id\_tratador}}
+{\footnotesize\ttfamily int Animal\+::m\+\_\+id\+\_\+tratador\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro do ID do tratador responsável. \mbox{\Hypertarget{classAnimal_aede0aba11b84579298edaa39d3cf0825}\label{classAnimal_aede0aba11b84579298edaa39d3cf0825}} 
+\index{Animal@{Animal}!m\+\_\+id\+\_\+veterinario@{m\+\_\+id\+\_\+veterinario}}
+\index{m\+\_\+id\+\_\+veterinario@{m\+\_\+id\+\_\+veterinario}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+id\+\_\+veterinario}{m\_id\_veterinario}}
+{\footnotesize\ttfamily int Animal\+::m\+\_\+id\+\_\+veterinario\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro do ID do veterinário responsável. \mbox{\Hypertarget{classAnimal_aa9717b7e2de07af7118050ca1c10d0b5}\label{classAnimal_aa9717b7e2de07af7118050ca1c10d0b5}} 
+\index{Animal@{Animal}!m\+\_\+nome\+\_\+batismo@{m\+\_\+nome\+\_\+batismo}}
+\index{m\+\_\+nome\+\_\+batismo@{m\+\_\+nome\+\_\+batismo}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+nome\+\_\+batismo}{m\_nome\_batismo}}
+{\footnotesize\ttfamily std\+::string Animal\+::m\+\_\+nome\+\_\+batismo\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo string com o Nome de Batismo do animal. \mbox{\Hypertarget{classAnimal_af90a04b32166b6815617cfd4033da1e4}\label{classAnimal_af90a04b32166b6815617cfd4033da1e4}} 
+\index{Animal@{Animal}!m\+\_\+nome\+\_\+cientifico@{m\+\_\+nome\+\_\+cientifico}}
+\index{m\+\_\+nome\+\_\+cientifico@{m\+\_\+nome\+\_\+cientifico}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+nome\+\_\+cientifico}{m\_nome\_cientifico}}
+{\footnotesize\ttfamily std\+::string Animal\+::m\+\_\+nome\+\_\+cientifico\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo string com Nome Científico do animal. \mbox{\Hypertarget{classAnimal_aaa6d77e661ed0fa9a33500588c8acfef}\label{classAnimal_aaa6d77e661ed0fa9a33500588c8acfef}} 
+\index{Animal@{Animal}!m\+\_\+sexo@{m\+\_\+sexo}}
+\index{m\+\_\+sexo@{m\+\_\+sexo}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+sexo}{m\_sexo}}
+{\footnotesize\ttfamily char Animal\+::m\+\_\+sexo\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo char com o Sexo do animal. \mbox{\Hypertarget{classAnimal_afe83ba40e79b42d06b0c95f61aaa0218}\label{classAnimal_afe83ba40e79b42d06b0c95f61aaa0218}} 
+\index{Animal@{Animal}!m\+\_\+tamanho@{m\+\_\+tamanho}}
+\index{m\+\_\+tamanho@{m\+\_\+tamanho}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{m\+\_\+tamanho}{m\_tamanho}}
+{\footnotesize\ttfamily double Animal\+::m\+\_\+tamanho\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo double com o Tamanho do animal. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{animal_8h}{animal.\+h}\end{DoxyCompactItemize}

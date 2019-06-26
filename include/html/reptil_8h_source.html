@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de reptil.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">reptil.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="reptil_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _REPTIL_H_</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define _REPTIL_H_</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal_8h.html">animal.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="veterinario_8h.html">veterinario.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tratador_8h.html">tratador.h</a>&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classReptil.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classReptil.html">Reptil</a> : <span class="keyword">public</span> <a class="code" href="classAnimal.html">Animal</a> {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classReptil.html#ac195c1dc9a0fa38bc0551034c609c434">   32</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classReptil.html#ac195c1dc9a0fa38bc0551034c609c434">m_venenoso</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div><div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classReptil.html#a0c68bf074b4645f98436016d9ceb358a">   39</a></span>&#160;        std::string <a class="code" href="classReptil.html#a0c68bf074b4645f98436016d9ceb358a">m_tipo_venenoso</a>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classReptil.html#a7fcd4e6da06fcb4087101d0dc2d151d9">Reptil</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, <span class="keywordtype">bool</span> venenoso, </div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            std::string tipo_venenoso = <span class="stringliteral">&quot;Não venenoso&quot;</span>);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classReptil.html#a826ed679cc45f74fefecef7d4d40b409">~Reptil</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classReptil.html#acfbb0461fc05ec7b08332dd4cee122c6">dummy</a>();</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classReptil.html#a9f7ab2a0e2b30040c7c9df48039a266a">setVenenoso</a>(<span class="keywordtype">bool</span> venenoso);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> setTipoVenenoso(std::string tipo_venenoso);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classReptil.html#a75138aaa91420a9f82ddd39c19ea8b78">getVenenoso</a>();</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::string getTipoVenenoso();</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classReptil.html#a9634321aa61220b56b433a92fd851bad">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classReptil.html">Reptil</a>&amp; r); </div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classReptil_html_a9f7ab2a0e2b30040c7c9df48039a266a"><div class="ttname"><a href="classReptil.html#a9f7ab2a0e2b30040c7c9df48039a266a">Reptil::setVenenoso</a></div><div class="ttdeci">void setVenenoso(bool venenoso)</div></div>
+<div class="ttc" id="classReptil_html_a0c68bf074b4645f98436016d9ceb358a"><div class="ttname"><a href="classReptil.html#a0c68bf074b4645f98436016d9ceb358a">Reptil::m_tipo_venenoso</a></div><div class="ttdeci">std::string m_tipo_venenoso</div><div class="ttdef"><b>Definition:</b> reptil.h:39</div></div>
+<div class="ttc" id="animal_8h_html"><div class="ttname"><a href="animal_8h.html">animal.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal. </div></div>
+<div class="ttc" id="classReptil_html"><div class="ttname"><a href="classReptil.html">Reptil</a></div><div class="ttdef"><b>Definition:</b> reptil.h:25</div></div>
+<div class="ttc" id="classReptil_html_a7fcd4e6da06fcb4087101d0dc2d151d9"><div class="ttname"><a href="classReptil.html#a7fcd4e6da06fcb4087101d0dc2d151d9">Reptil::Reptil</a></div><div class="ttdeci">Reptil(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, bool venenoso, std::string tipo_venenoso=&quot;Não venenoso&quot;)</div></div>
+<div class="ttc" id="classAnimal_html"><div class="ttname"><a href="classAnimal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> animal.h:25</div></div>
+<div class="ttc" id="tratador_8h_html"><div class="ttname"><a href="tratador_8h.html">tratador.h</a></div><div class="ttdoc">Estrutura de dados da classe de Tratador. </div></div>
+<div class="ttc" id="classReptil_html_ac195c1dc9a0fa38bc0551034c609c434"><div class="ttname"><a href="classReptil.html#ac195c1dc9a0fa38bc0551034c609c434">Reptil::m_venenoso</a></div><div class="ttdeci">bool m_venenoso</div><div class="ttdef"><b>Definition:</b> reptil.h:32</div></div>
+<div class="ttc" id="classReptil_html_acfbb0461fc05ec7b08332dd4cee122c6"><div class="ttname"><a href="classReptil.html#acfbb0461fc05ec7b08332dd4cee122c6">Reptil::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classReptil_html_a826ed679cc45f74fefecef7d4d40b409"><div class="ttname"><a href="classReptil.html#a826ed679cc45f74fefecef7d4d40b409">Reptil::~Reptil</a></div><div class="ttdeci">~Reptil()</div></div>
+<div class="ttc" id="veterinario_8h_html"><div class="ttname"><a href="veterinario_8h.html">veterinario.h</a></div><div class="ttdoc">Estrutura de dados da classe de Veterinário. </div></div>
+<div class="ttc" id="classReptil_html_a75138aaa91420a9f82ddd39c19ea8b78"><div class="ttname"><a href="classReptil.html#a75138aaa91420a9f82ddd39c19ea8b78">Reptil::getVenenoso</a></div><div class="ttdeci">bool getVenenoso()</div></div>
+<div class="ttc" id="classReptil_html_a9634321aa61220b56b433a92fd851bad"><div class="ttname"><a href="classReptil.html#a9634321aa61220b56b433a92fd851bad">Reptil::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, Reptil &amp;r)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

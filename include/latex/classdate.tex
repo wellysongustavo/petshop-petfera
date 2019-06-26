@@ -1,0 +1,113 @@
+\hypertarget{classdate}{}\section{Referência da Classe date}
+\label{classdate}\index{date@{date}}
+
+
+{\ttfamily \#include $<$date.\+h$>$}
+
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdate_ace1e9bd1562330f4d03a385ee0cc2eba}{date} ()
+\item 
+\hyperlink{classdate_a9954370dd412bd9b521697d1ff18dd92}{date} (const int \&d, const int \&m, const int \&y)
+\item 
+bool \hyperlink{classdate_a95b10c2203568baea43f9847ca354113}{valid} (void) const
+\item 
+int \hyperlink{classdate_a9c9bfe2a9f48360110b43b493695e42d}{day} () const
+\item 
+\mbox{\Hypertarget{classdate_af42f12f10f40ffa46ce6a3e530d32fa7}\label{classdate_af42f12f10f40ffa46ce6a3e530d32fa7}} 
+int {\bfseries month} () const
+\item 
+\mbox{\Hypertarget{classdate_abd7356a9b60a255e5e991db910e14e91}\label{classdate_abd7356a9b60a255e5e991db910e14e91}} 
+int {\bfseries year} () const
+\item 
+void \hyperlink{classdate_ac0a3fdbc68f887db60856aff3527ef43}{set\+\_\+day} (const int \&\hyperlink{classdate_a9c9bfe2a9f48360110b43b493695e42d}{day})
+\item 
+\mbox{\Hypertarget{classdate_a982e937d320c3f63b82eaaa4868a01c0}\label{classdate_a982e937d320c3f63b82eaaa4868a01c0}} 
+void {\bfseries set\+\_\+month} (const int \&month)
+\item 
+\mbox{\Hypertarget{classdate_afd5251dbf79a032fda4c7fe69bfd1cf5}\label{classdate_afd5251dbf79a032fda4c7fe69bfd1cf5}} 
+void {\bfseries set\+\_\+year} (const int \&year)
+\item 
+\hyperlink{classdate}{date} \hyperlink{classdate_aba8e450097ac4393f0a2c4987891309a}{converte\+\_\+string} (std\+::string string\+\_\+data)
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classdate_a8b6a07e98bfbaae3970841ec1d1854b8}{day\+\_\+}
+\item 
+int \hyperlink{classdate_a71822c3ffdc179d9592449ddcc25af90}{month\+\_\+}
+\item 
+int \hyperlink{classdate_ae61f71866a55ae344f9dcde1bd25b214}{year\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Classe date. Classe para manipulação de datas. 
+
+\subsection{Construtores \& Destrutores}
+\mbox{\Hypertarget{classdate_ace1e9bd1562330f4d03a385ee0cc2eba}\label{classdate_ace1e9bd1562330f4d03a385ee0cc2eba}} 
+\index{date@{date}!date@{date}}
+\index{date@{date}!date@{date}}
+\subsubsection{\texorpdfstring{date()}{date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily date\+::date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor Padrão da Classe date. \mbox{\Hypertarget{classdate_a9954370dd412bd9b521697d1ff18dd92}\label{classdate_a9954370dd412bd9b521697d1ff18dd92}} 
+\index{date@{date}!date@{date}}
+\index{date@{date}!date@{date}}
+\subsubsection{\texorpdfstring{date()}{date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily date\+::date (\begin{DoxyParamCaption}\item[{const int \&}]{d,  }\item[{const int \&}]{m,  }\item[{const int \&}]{y }\end{DoxyParamCaption})}
+
+Construtor de date. Sobrecarregado com lista de inicialização dos atributos protegidos. 
+
+\subsection{Métodos}
+\mbox{\Hypertarget{classdate_aba8e450097ac4393f0a2c4987891309a}\label{classdate_aba8e450097ac4393f0a2c4987891309a}} 
+\index{date@{date}!converte\+\_\+string@{converte\+\_\+string}}
+\index{converte\+\_\+string@{converte\+\_\+string}!date@{date}}
+\subsubsection{\texorpdfstring{converte\+\_\+string()}{converte\_string()}}
+{\footnotesize\ttfamily \hyperlink{classdate}{date} date\+::converte\+\_\+string (\begin{DoxyParamCaption}\item[{std\+::string}]{string\+\_\+data }\end{DoxyParamCaption})}
+
+Função Converte String. Recebe uma data do tipo string e faz conversão para o tipo date. \mbox{\Hypertarget{classdate_a9c9bfe2a9f48360110b43b493695e42d}\label{classdate_a9c9bfe2a9f48360110b43b493695e42d}} 
+\index{date@{date}!day@{day}}
+\index{day@{day}!date@{date}}
+\subsubsection{\texorpdfstring{day()}{day()}}
+{\footnotesize\ttfamily int date\+::day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Métodos getters. Acessores. \mbox{\Hypertarget{classdate_ac0a3fdbc68f887db60856aff3527ef43}\label{classdate_ac0a3fdbc68f887db60856aff3527ef43}} 
+\index{date@{date}!set\+\_\+day@{set\+\_\+day}}
+\index{set\+\_\+day@{set\+\_\+day}!date@{date}}
+\subsubsection{\texorpdfstring{set\+\_\+day()}{set\_day()}}
+{\footnotesize\ttfamily void date\+::set\+\_\+day (\begin{DoxyParamCaption}\item[{const int \&}]{day }\end{DoxyParamCaption})}
+
+Métodos setters. Modificadores. \mbox{\Hypertarget{classdate_a95b10c2203568baea43f9847ca354113}\label{classdate_a95b10c2203568baea43f9847ca354113}} 
+\index{date@{date}!valid@{valid}}
+\index{valid@{valid}!date@{date}}
+\subsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily bool date\+::valid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Função valid. Verifica se os valores de dia, mês e ano são validos retornando verdadeiro ou falso. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{classdate_a8b6a07e98bfbaae3970841ec1d1854b8}\label{classdate_a8b6a07e98bfbaae3970841ec1d1854b8}} 
+\index{date@{date}!day\+\_\+@{day\+\_\+}}
+\index{day\+\_\+@{day\+\_\+}!date@{date}}
+\subsubsection{\texorpdfstring{day\+\_\+}{day\_}}
+{\footnotesize\ttfamily int date\+::day\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro que guarda o valor do dia. \mbox{\Hypertarget{classdate_a71822c3ffdc179d9592449ddcc25af90}\label{classdate_a71822c3ffdc179d9592449ddcc25af90}} 
+\index{date@{date}!month\+\_\+@{month\+\_\+}}
+\index{month\+\_\+@{month\+\_\+}!date@{date}}
+\subsubsection{\texorpdfstring{month\+\_\+}{month\_}}
+{\footnotesize\ttfamily int date\+::month\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro que guarda o valor do mês. \mbox{\Hypertarget{classdate_ae61f71866a55ae344f9dcde1bd25b214}\label{classdate_ae61f71866a55ae344f9dcde1bd25b214}} 
+\index{date@{date}!year\+\_\+@{year\+\_\+}}
+\index{year\+\_\+@{year\+\_\+}!date@{date}}
+\subsubsection{\texorpdfstring{year\+\_\+}{year\_}}
+{\footnotesize\ttfamily int date\+::year\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Atributo inteiro que guarda o valor do ano. 
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{date_8h}{date.\+h}\end{DoxyCompactItemize}

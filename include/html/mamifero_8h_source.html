@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de mamifero.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">mamifero.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mamifero_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef _MAMIFERO_H_</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define _MAMIFERO_H_</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal_8h.html">animal.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="veterinario_8h.html">veterinario.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tratador_8h.html">tratador.h</a>&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classMamifero.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMamifero.html">Mamifero</a> : <span class="keyword">public</span> <a class="code" href="classAnimal.html">Animal</a> {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classMamifero.html#a5a7737addd9b2a5736c2fe8edaba1220">   33</a></span>&#160;        std::string <a class="code" href="classMamifero.html#a5a7737addd9b2a5736c2fe8edaba1220">m_cor_pelo</a>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classMamifero.html#aa27e289fb8db4ba86fa4a5e03a0c7601">Mamifero</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, std::string cor_pelo);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classMamifero.html#a56eb196d45222e754eb6f19000667d5d">~Mamifero</a>();</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMamifero.html#a8f2a488b1796d3ccf0ff9e1c5a82af05">dummy</a>();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classMamifero.html#aae48d8a2c42c954cabebaeeb47a65b77">setCorPelo</a>(std::string cor_pelo);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::string <a class="code" href="classMamifero.html#ab164b4053fcb1912af011c1204b19fc1">getCorPelo</a>();</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classMamifero.html#a0640dfc54a3f3ac27ceacc52a23739e3">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classMamifero.html">Mamifero</a>&amp; m);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classMamifero_html_aa27e289fb8db4ba86fa4a5e03a0c7601"><div class="ttname"><a href="classMamifero.html#aa27e289fb8db4ba86fa4a5e03a0c7601">Mamifero::Mamifero</a></div><div class="ttdeci">Mamifero(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, std::string cor_pelo)</div></div>
+<div class="ttc" id="classMamifero_html_a5a7737addd9b2a5736c2fe8edaba1220"><div class="ttname"><a href="classMamifero.html#a5a7737addd9b2a5736c2fe8edaba1220">Mamifero::m_cor_pelo</a></div><div class="ttdeci">std::string m_cor_pelo</div><div class="ttdef"><b>Definition:</b> mamifero.h:33</div></div>
+<div class="ttc" id="classMamifero_html"><div class="ttname"><a href="classMamifero.html">Mamifero</a></div><div class="ttdef"><b>Definition:</b> mamifero.h:25</div></div>
+<div class="ttc" id="classMamifero_html_a8f2a488b1796d3ccf0ff9e1c5a82af05"><div class="ttname"><a href="classMamifero.html#a8f2a488b1796d3ccf0ff9e1c5a82af05">Mamifero::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="classMamifero_html_a0640dfc54a3f3ac27ceacc52a23739e3"><div class="ttname"><a href="classMamifero.html#a0640dfc54a3f3ac27ceacc52a23739e3">Mamifero::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, Mamifero &amp;m)</div></div>
+<div class="ttc" id="animal_8h_html"><div class="ttname"><a href="animal_8h.html">animal.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal. </div></div>
+<div class="ttc" id="classMamifero_html_aae48d8a2c42c954cabebaeeb47a65b77"><div class="ttname"><a href="classMamifero.html#aae48d8a2c42c954cabebaeeb47a65b77">Mamifero::setCorPelo</a></div><div class="ttdeci">void setCorPelo(std::string cor_pelo)</div></div>
+<div class="ttc" id="classMamifero_html_a56eb196d45222e754eb6f19000667d5d"><div class="ttname"><a href="classMamifero.html#a56eb196d45222e754eb6f19000667d5d">Mamifero::~Mamifero</a></div><div class="ttdeci">~Mamifero()</div></div>
+<div class="ttc" id="classAnimal_html"><div class="ttname"><a href="classAnimal.html">Animal</a></div><div class="ttdef"><b>Definition:</b> animal.h:25</div></div>
+<div class="ttc" id="tratador_8h_html"><div class="ttname"><a href="tratador_8h.html">tratador.h</a></div><div class="ttdoc">Estrutura de dados da classe de Tratador. </div></div>
+<div class="ttc" id="veterinario_8h_html"><div class="ttname"><a href="veterinario_8h.html">veterinario.h</a></div><div class="ttdoc">Estrutura de dados da classe de Veterinário. </div></div>
+<div class="ttc" id="classMamifero_html_ab164b4053fcb1912af011c1204b19fc1"><div class="ttname"><a href="classMamifero.html#ab164b4053fcb1912af011c1204b19fc1">Mamifero::getCorPelo</a></div><div class="ttdeci">std::string getCorPelo()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

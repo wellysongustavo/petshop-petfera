@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de anfibio_exotico.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">anfibio_exotico.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="anfibio__exotico_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="anfibio_8h.html">anfibio.h</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal__exotico_8h.html">animal_exotico.h</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef _ANFIBIO_EXOTICO_H_</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define _ANFIBIO_EXOTICO_H_</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classAnfibioExotico.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAnfibioExotico.html">AnfibioExotico</a>: <span class="keyword">public</span> <a class="code" href="classAnfibio.html">Anfibio</a>, <a class="code" href="classAnimalExotico.html">AnimalExotico</a>{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classAnfibioExotico.html#a7267ae2ab0422f796970751b7fa180e0">AnfibioExotico</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                       <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                       <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, <span class="keywordtype">int</span> total_de_mudas, </div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                       <a class="code" href="classdate.html">date</a> ultima_muda, std::string autorizacao, std::string pais_origem);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classAnfibioExotico.html#a2615151a98a1713a0d8c65d97bccd813">~AnfibioExotico</a>();</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAnfibioExotico.html#a192645b6588bc584145f70be14862d77">dummy</a>();</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAnfibioExotico.html#a239fa1e80542aa344cf7c59b6d339f09">setPaisOrigem</a>(std::string pais_origem);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> setAutorizacao(std::string autorizacao);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::string <a class="code" href="classAnfibioExotico.html#a864e2e4005b93d7a74bb28596538d847">getPaisOrigem</a>();</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        std::string getAutorizacao();</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classAnfibioExotico.html#a507427d0ea4ae82dfbf7aefba2d1502c">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classAnfibioExotico.html">AnfibioExotico</a>&amp; a);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classAnimalExotico_html"><div class="ttname"><a href="classAnimalExotico.html">AnimalExotico</a></div><div class="ttdef"><b>Definition:</b> animal_exotico.h:23</div></div>
+<div class="ttc" id="classAnfibio_html"><div class="ttname"><a href="classAnfibio.html">Anfibio</a></div><div class="ttdef"><b>Definition:</b> anfibio.h:26</div></div>
+<div class="ttc" id="classAnfibioExotico_html_a239fa1e80542aa344cf7c59b6d339f09"><div class="ttname"><a href="classAnfibioExotico.html#a239fa1e80542aa344cf7c59b6d339f09">AnfibioExotico::setPaisOrigem</a></div><div class="ttdeci">void setPaisOrigem(std::string pais_origem)</div></div>
+<div class="ttc" id="classAnfibioExotico_html"><div class="ttname"><a href="classAnfibioExotico.html">AnfibioExotico</a></div><div class="ttdef"><b>Definition:</b> anfibio_exotico.h:25</div></div>
+<div class="ttc" id="animal__exotico_8h_html"><div class="ttname"><a href="animal__exotico_8h.html">animal_exotico.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal Exótico. </div></div>
+<div class="ttc" id="classAnfibioExotico_html_a2615151a98a1713a0d8c65d97bccd813"><div class="ttname"><a href="classAnfibioExotico.html#a2615151a98a1713a0d8c65d97bccd813">AnfibioExotico::~AnfibioExotico</a></div><div class="ttdeci">~AnfibioExotico()</div></div>
+<div class="ttc" id="classAnfibioExotico_html_a7267ae2ab0422f796970751b7fa180e0"><div class="ttname"><a href="classAnfibioExotico.html#a7267ae2ab0422f796970751b7fa180e0">AnfibioExotico::AnfibioExotico</a></div><div class="ttdeci">AnfibioExotico(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, int total_de_mudas, date ultima_muda, std::string autorizacao, std::string pais_origem)</div></div>
+<div class="ttc" id="classdate_html"><div class="ttname"><a href="classdate.html">date</a></div><div class="ttdef"><b>Definition:</b> date.h:20</div></div>
+<div class="ttc" id="classAnfibioExotico_html_a507427d0ea4ae82dfbf7aefba2d1502c"><div class="ttname"><a href="classAnfibioExotico.html#a507427d0ea4ae82dfbf7aefba2d1502c">AnfibioExotico::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, AnfibioExotico &amp;a)</div></div>
+<div class="ttc" id="classAnfibioExotico_html_a864e2e4005b93d7a74bb28596538d847"><div class="ttname"><a href="classAnfibioExotico.html#a864e2e4005b93d7a74bb28596538d847">AnfibioExotico::getPaisOrigem</a></div><div class="ttdeci">std::string getPaisOrigem()</div></div>
+<div class="ttc" id="anfibio_8h_html"><div class="ttname"><a href="anfibio_8h.html">anfibio.h</a></div><div class="ttdoc">Estrutura de dados da classe de Anfíbio. </div></div>
+<div class="ttc" id="classAnfibioExotico_html_a192645b6588bc584145f70be14862d77"><div class="ttname"><a href="classAnfibioExotico.html#a192645b6588bc584145f70be14862d77">AnfibioExotico::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

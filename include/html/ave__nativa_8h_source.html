@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Petshop PetFera: Código-Fonte de ave_nativa.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Petshop PetFera
+   </div>
+   <div id="projectbrief">Sistema de Banco de Dados de um Petshop</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ave_nativa.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ave__nativa_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ave_8h.html">ave.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="animal__nativo_8h.html">animal_nativo.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef AVE_NATIVA_H</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define AVE_NATIVA_H</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classAveNativa.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAveNativa.html">AveNativa</a>: <span class="keyword">public</span> <a class="code" href="classAve.html">Ave</a>, <a class="code" href="classAnimalNativo.html">AnimalNativo</a>{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classAveNativa.html#a39eb462984ca5ec684f2f10c814061d7">AveNativa</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, std::string classe, std::string nome_cientifico, </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">char</span> sexo, <span class="keywordtype">double</span> tamanho, std::string dieta, <span class="keywordtype">int</span> id_veterinario, </div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordtype">int</span> id_tratador, std::string nome_batismo, <span class="keywordtype">double</span> tamanho_do_bico_cm,</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordtype">double</span> envergadura_das_asas, std::string autorizacao, std::string uf_origem);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classAveNativa.html#a99f26c9e02d0714a29f595bd8ecfaf5b">~AveNativa</a>();</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAveNativa.html#ad4af9772d84390bc0646dcfc9cd931ee">dummy</a>();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classAveNativa.html#a32b27a5520b20c3420696b51d3850f25">setUfOrigem</a>(std::string uf_origem);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> setAutorizacao(std::string autorizacao);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::string <a class="code" href="classAveNativa.html#ad6a42e383e34113af96e5d6ac1304b10">getAutorizacao</a>();</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::string getUfOrigem();</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classAveNativa.html#ac527e4db529c8efbbd1ba28bc72eede7">operator &lt;&lt; </a>(std::ostream&amp; os, <a class="code" href="classAveNativa.html">AveNativa</a>&amp; a);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classAveNativa_html_ad4af9772d84390bc0646dcfc9cd931ee"><div class="ttname"><a href="classAveNativa.html#ad4af9772d84390bc0646dcfc9cd931ee">AveNativa::dummy</a></div><div class="ttdeci">void dummy()</div></div>
+<div class="ttc" id="animal__nativo_8h_html"><div class="ttname"><a href="animal__nativo_8h.html">animal_nativo.h</a></div><div class="ttdoc">Estrutura de dados da classe de Animal Nativo. </div></div>
+<div class="ttc" id="classAveNativa_html_a39eb462984ca5ec684f2f10c814061d7"><div class="ttname"><a href="classAveNativa.html#a39eb462984ca5ec684f2f10c814061d7">AveNativa::AveNativa</a></div><div class="ttdeci">AveNativa(int id, std::string classe, std::string nome_cientifico, char sexo, double tamanho, std::string dieta, int id_veterinario, int id_tratador, std::string nome_batismo, double tamanho_do_bico_cm, double envergadura_das_asas, std::string autorizacao, std::string uf_origem)</div></div>
+<div class="ttc" id="ave_8h_html"><div class="ttname"><a href="ave_8h.html">ave.h</a></div><div class="ttdoc">Estrutura de dados da classe de Ave. </div></div>
+<div class="ttc" id="classAveNativa_html_ad6a42e383e34113af96e5d6ac1304b10"><div class="ttname"><a href="classAveNativa.html#ad6a42e383e34113af96e5d6ac1304b10">AveNativa::getAutorizacao</a></div><div class="ttdeci">std::string getAutorizacao()</div></div>
+<div class="ttc" id="classAveNativa_html"><div class="ttname"><a href="classAveNativa.html">AveNativa</a></div><div class="ttdef"><b>Definition:</b> ave_nativa.h:24</div></div>
+<div class="ttc" id="classAnimalNativo_html"><div class="ttname"><a href="classAnimalNativo.html">AnimalNativo</a></div><div class="ttdef"><b>Definition:</b> animal_nativo.h:23</div></div>
+<div class="ttc" id="classAveNativa_html_a32b27a5520b20c3420696b51d3850f25"><div class="ttname"><a href="classAveNativa.html#a32b27a5520b20c3420696b51d3850f25">AveNativa::setUfOrigem</a></div><div class="ttdeci">void setUfOrigem(std::string uf_origem)</div></div>
+<div class="ttc" id="classAveNativa_html_ac527e4db529c8efbbd1ba28bc72eede7"><div class="ttname"><a href="classAveNativa.html#ac527e4db529c8efbbd1ba28bc72eede7">AveNativa::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, AveNativa &amp;a)</div></div>
+<div class="ttc" id="classAveNativa_html_a99f26c9e02d0714a29f595bd8ecfaf5b"><div class="ttname"><a href="classAveNativa.html#a99f26c9e02d0714a29f595bd8ecfaf5b">AveNativa::~AveNativa</a></div><div class="ttdeci">~AveNativa()</div></div>
+<div class="ttc" id="classAve_html"><div class="ttname"><a href="classAve.html">Ave</a></div><div class="ttdef"><b>Definition:</b> ave.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
