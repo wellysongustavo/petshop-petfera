@@ -1,5 +1,5 @@
 # Note:
-# Copied from: https://gist.github.com/maurizzzio/de8908f67923091982c8c8136a063ea6
+# Adpted from: https://gist.github.com/maurizzzio/de8908f67923091982c8c8136a063ea6
 # Generic Makefile example for a C++ project
 #
 
@@ -30,12 +30,13 @@ DEPS = $(OBJECTS:.o=.d)
 OPTIMIZE = -O03
 DEBUG = -g
 COMPILE_FLAGS = -fPIC -std=c++11 -Wall -g
+LDFLAGS = -shared
 INCLUDES = -I include
-#INCLUDES = -I include/ -I /usr/local/include
-# Space-separated pkg-config libraries used by this project
-LIBS =
 
-TARGET_COMP = sudo mv petfera.so /usr/lib/
+# Space-separated pkg-config libraries used by this project
+TARGET_LIB = petfera.so
+LOCAL_LIB = /usr/lib/
+TARGET_MV = sudo mv $(TARGET_LIB) $(LOCAL_LIB)
 
 .PHONY: default_target
 default_target: release
@@ -71,6 +72,8 @@ all: $(BIN_PATH)/$(BIN_NAME)
 	@echo "Making symlink: $(BIN_NAME) -> $<"
 	@$(RM) $(BIN_NAME)
 	@ln -s $(BIN_PATH)/$(BIN_NAME) $(BIN_NAME)
+	$(CXX) $(BUILD_PATH)/petshop.o $(LOCAL_LIB)/$(TARGET_LIB) -o $(BIN_NAME)
+	./$(BIN_NAME)
 
 # Creation of the executable
 $(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
@@ -86,9 +89,5 @@ $(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
-	$(CXX) -shared -o petfera.so build/*.o
-	$(TARGET_COMP)
-
-all:
-	$(CXX) $(BUILD_PATH)/petshop.o /usr/lib/petfera.so -o $(BIN_NAME)
-	./$(BIN_NAME)
+	$(CXX) $(LDFLAGS) -o $(TARGET_LIB) $(BUILD_PATH)/*.o
+	$(TARGET_MV)
