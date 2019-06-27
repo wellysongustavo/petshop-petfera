@@ -1,6 +1,5 @@
 #include "petshop.h"
 
-
 Petshop::Petshop(std::string nome) : m_nome(nome) { /* void */ }
 
 Petshop::~Petshop() { /* void */ }
@@ -954,7 +953,7 @@ void Petshop::consultarAnimal(){
 					} else if (nativo_ou_exotico == 2) {
 						nativo_ou_exotico_ = "Exotico";
 					} else {
-						nativo_ou_exotico_ = "";
+						nativo_ou_exotico_ = "Exotica";
 					}
 				} while (nativo_ou_exotico < 1 || nativo_ou_exotico > 3);
 

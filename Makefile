@@ -1,94 +1,46 @@
-# Note:
-# Copied from: https://gist.github.com/maurizzzio/de8908f67923091982c8c8136a063ea6
-# Generic Makefile example for a C++ project
-#
+CC =g++
 
-CXX ?= g++
+LIB = ./lib
+INCLUDE = ./include
+SRC = ./src
+BUILD = ./build
+BIN = ./bin
 
-# path #
-SRC_PATH = src
-BUILD_PATH = build
-BIN_PATH = bin
+BIN_NAME = projetopetshop.exe
 
-# executable #
-BIN_NAME = projetopetgarrafa.out
+LIBFLAGS = -l Petfera
+FLAGS = -Wall -pedantic -std=c++11
 
-# extensions #
-SRC_EXT = cpp
+ARCHIVE = ar
 
-# code lists #
-# Find all source files in the source directory, sorted by
-# most recently modified
-SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
-# Set the object file names, with the source directory stripped
-# from the path, and the build path prepended in its place
-OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
-# Set the dependency files that will be used to add header dependencies
-DEPS = $(OBJECTS:.o=.d)
+Petfera.a:
+	$(CC) -fPIC -c $(SRC)/animal.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal.o
+	$(CC) -fPIC -c $(SRC)/animal_silvestre.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal_silvestre.o
+	$(CC) -fPIC -c $(SRC)/animal_nativo.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal_nativo.o
+	$(CC) -fPIC -c $(SRC)/animal_exotico.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal_exotico.o
+	$(CC) -fPIC -c $(SRC)/anfibio.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/anfibio.o
+	$(CC) -fPIC -c $(SRC)/anfibio_exotico.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/anfibio_exotico.o
+	$(CC) -fPIC -c $(SRC)/anfibio_nativo.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/anfibio_nativo.o
+	$(CC) -fPIC -c $(SRC)/ave.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/ave.o
+	$(CC) -fPIC -c $(SRC)/ave_exotica.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/ave_exotica.o
+	$(CC) -fPIC -c $(SRC)/ave_nativa.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/ave_nativa.o
+	$(CC) -fPIC -c $(SRC)/date.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/date.o
+	$(CC) -fPIC -c $(SRC)/funcionario.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/funcionario.o
+	$(CC) -fPIC -c $(SRC)/mamifero.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/mamifero.o
+	$(CC) -fPIC -c $(SRC)/mamifero_nativo.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/mamifero_nativo.o
+	$(CC) -fPIC -c $(SRC)/mamifero_exotico.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/mamifero_exotico.o
+	$(CC) -fPIC -c $(SRC)/petshop.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/petshop.o
+	$(CC) -fPIC -c $(SRC)/reptil.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/reptil.o
+	$(CC) -fPIC -c $(SRC)/reptil_nativo.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/reptil_nativo.o
+	$(CC) -fPIC -c $(SRC)/reptil_exotico.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/reptil_exotico.o
+	$(CC) -fPIC -c $(SRC)/tratador.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/tratador.o
+	$(CC) -fPIC -c $(SRC)/veterinario.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/veterinario.o
 
-# flags #
-OPTIMIZE = -O03
-DEBUG = -g
-COMPILE_FLAGS = -fPIC -std=c++11 -Wall -g
-INCLUDES = -I include
-#INCLUDES = -I include/ -I /usr/local/include
-# Space-separated pkg-config libraries used by this project
-LIBS =
+	@$(ARCHIVE) rcs $(LIB)/$@ $(BUILD)/*.o	
 
-TARGET_COMP = sudo mv petfera.so /usr/lib/
+$(BIN_NAME): 
+	$(CC) $(SRC)/main.cpp $(FLAGS) -I$(INCLUDE) $(LIB)/Petfera.a -o $(BIN)/$@
+	./$(BIN)/$@
 
-.PHONY: default_target
-default_target: release
-
-.PHONY: debug
-debug: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS) $(DEBUG)
-debug: dirs
-	@$(MAKE) all
-
-
-.PHONY: release
-release: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS) $(OPTIMIZE)
-release: dirs
-	@$(MAKE) all
-
-.PHONY: dirs
-dirs:
-	@echo "Creating directories"
-	@mkdir -p $(dir $(OBJECTS))
-	@mkdir -p $(BIN_PATH)
-
-.PHONY: clean
 clean:
-	@echo "Deleting $(BIN_NAME) symlink"
-	@$(RM) $(BIN_NAME)
-	@echo "Deleting directories"
-	@$(RM) -r $(BUILD_PATH)
-	@$(RM) -r $(BIN_PATH)
-
-# checks the executable and symlinks to the output
-.PHONY: all
-all: $(BIN_PATH)/$(BIN_NAME)
-	@echo "Making symlink: $(BIN_NAME) -> $<"
-	@$(RM) $(BIN_NAME)
-	@ln -s $(BIN_PATH)/$(BIN_NAME) $(BIN_NAME)
-
-# Creation of the executable
-$(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
-	@echo "Linking: $@"
-	$(CXX) $(OBJECTS) -o $@
-
-# Add dependency files, if they exist
--include $(DEPS)
-
-# Source file rules
-# After the first compilation they will be joined with the rules from the
-# dependency files to provide header dependencies
-$(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
-	@echo "Compiling: $< -> $@"
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
-	$(CXX) -shared -o petfera.so build/*.o
-	$(TARGET_COMP)
-
-all:
-	$(CXX) $(BUILD_PATH)/petshop.o /usr/lib/petfera.so -o $(BIN_NAME)
-	./$(BIN_NAME)
+	rm $(BIN)/* $(BUILD)/*.o $(LIB)/*.a
