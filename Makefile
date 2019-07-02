@@ -1,19 +1,19 @@
 CC =g++
 
-LIB = ./lib
-INCLUDE = ./include
-SRC = ./src
-BUILD = ./build
-BIN = ./bin
+LIB = lib
+INCLUDE = include
+SRC = src
+BUILD = build
+BIN = bin
 
-BIN_NAME = projetopetshop.exe
+BIN_NAME = executavel
 
-LIBFLAGS = -l Petfera
-FLAGS = -Wall -pedantic -std=c++11
+TARGET_LIB = petfera.so
+FLAGS = -Wall -pedantic -std=c++11 -g -O0
 
-ARCHIVE = ar
+all: $(TARGET_LIB) $(BIN_NAME)
 
-Petfera.a:
+$(TARGET_LIB): $(INCLUDE)/petfera.h
 	$(CC) -fPIC -c $(SRC)/animal.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal.o
 	$(CC) -fPIC -c $(SRC)/animal_silvestre.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal_silvestre.o
 	$(CC) -fPIC -c $(SRC)/animal_nativo.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/animal_nativo.o
@@ -35,12 +35,13 @@ Petfera.a:
 	$(CC) -fPIC -c $(SRC)/reptil_exotico.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/reptil_exotico.o
 	$(CC) -fPIC -c $(SRC)/tratador.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/tratador.o
 	$(CC) -fPIC -c $(SRC)/veterinario.cpp $(FLAGS) -I$(INCLUDE) -o $(BUILD)/veterinario.o
-
-	@$(ARCHIVE) rcs $(LIB)/$@ $(BUILD)/*.o	
+	$(CC) -shared -fPIC -o $(LIB)/$@ $(BUILD)/*.o
+	@echo "+++ [Biblioteca dinâmica criada em $(LIB)/$@] +++" 	
 
 $(BIN_NAME): 
-	$(CC) $(SRC)/main.cpp $(FLAGS) -I$(INCLUDE) $(LIB)/Petfera.a -o $(BIN)/$@
+	$(CC) $(SRC)/main.cpp $(FLAGS) -I$(INCLUDE) $(LIB)/$(TARGET_LIB) -o $(BIN)/$@
 	./$(BIN)/$@
 
 clean:
-	rm $(BIN)/* $(BUILD)/*.o $(LIB)/*.a
+	rm $(BIN)/* $(BUILD)/* $(LIB)/*
+	@echo "+++[Remoção de binários, objetos e bibliotecas] +++" 	

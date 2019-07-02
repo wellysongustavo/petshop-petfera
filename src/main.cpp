@@ -1,4 +1,4 @@
-#include "petshop.h"
+#include "petfera.h"
 
 bool menu(Petshop* pet){
 	std::cout << "\n************************************** MENU ************************************" << std::endl;
